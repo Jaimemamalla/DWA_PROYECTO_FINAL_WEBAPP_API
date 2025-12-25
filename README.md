@@ -42,6 +42,18 @@ El sistema realiza múltiples interacciones con la API, incluyendo:
 
 - https://www.clubrunning.es/api/
 - https://docs.gitlab.com/api/runners/
+- **Música:**
+  - Web: https://developers.deezer.com/api
+  - API: https://api.deezer.com/version/service/id/method/?parameters
+- **Usuarios:**
+  - Web: https://randomuser.me/
+  - API: https://randomuser.me/api/
+- **Tiempo:**
+  - Web: https://open-meteo.com/
+  - API: https://api.open-meteo.com/v1/forecast
+- **Rutas:**
+  - Web: https://openrouteservice.org/dev/#/api-docs
+  - API: https://api.openrouteservice.org/v2/directions/driving-car?api_key=eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjNjYWFkZWQ5NDczODRmYjJiZDMwNTIxYmM3M2YzNDY3IiwiaCI6Im11cm11cjY0In0=
 
 ## Autores
 
