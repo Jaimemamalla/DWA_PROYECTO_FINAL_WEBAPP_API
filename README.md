@@ -60,7 +60,7 @@ El sistema realiza múltiples interacciones con la API, incluyendo:
 - Jaime Amaya Sánchez
 - José María Cancho Jiménez
 - Alejandro Hernández Domínguez
-- Micaela Justine Noriega Meriño
+- Micaela Noriega Meriño
 - Aitor Ochoa Arrastio
 
 ## Instalación y uso
