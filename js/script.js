@@ -1,39 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
     if (document.getElementById('user-name')) {
-        cargarUsuarioPrincipal();
-        cargarAmigos();
+        gestionarUsuarios();
         cargarGrafica();
     }
 });
 
-// 1. LLAMADA API: Usuario principal
+// LLAMADA API: Usuario principal
 // Documentación: https://randomuser.me/documentation
-async function cargarUsuarioPrincipal() {
+async function gestionarUsuarios() {
     try {
-        const response = await fetch('https://randomuser.me/api/');
+        const response = await fetch('https://randomuser.me/api/?results=20&nat=es,fr,de,gb,it,nl,ie,ch,no,fi,dk');
         const data = await response.json();
-        const user = data.results[0];
 
         //DATOS
+        const usuariosValidos = data.results.filter(user => user.dob.age >= 18 && user.dob.age <= 60);
+
+        if (usuariosValidos.length < 6) return;
+
+        const user = usuariosValidos[0];
         document.getElementById('user-name').textContent = `${user.name.first} ${user.name.last}`;
         document.getElementById('user-handle').textContent = `@${user.login.username}`;
         document.getElementById('user-avatar').src = user.picture.large;
 
-    } catch (error) {
-        console.error("Error cargando usuario:", error);
-    }
-}
-
-// 2. LLAMADA API: Lista de "Otros usuarios" 
-async function cargarAmigos() {
-    try {
-        //5 USUARIOS
-        const response = await fetch('https://randomuser.me/api/?results=5');
-        const data = await response.json();
         const container = document.getElementById('friends-list');
+        const amigos = usuariosValidos.slice(1, 6);
 
-        data.results.forEach(friend => {
+        amigos.forEach(friend => {
             const img = document.createElement('img');
             img.src = friend.picture.medium;
             img.classList.add('friend-avatar');
@@ -42,11 +34,11 @@ async function cargarAmigos() {
         });
 
     } catch (error) {
-        console.error("Error cargando amigos:", error);
+        console.error(error);
     }
 }
 
-// 3. LIBRERÍA: Chart.js 
+// LIBRERÍA: Chart.js
 function cargarGrafica() {
     const ctx = document.getElementById('activityChart');
     if (ctx) {

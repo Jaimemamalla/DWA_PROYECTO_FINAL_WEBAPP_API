@@ -59,7 +59,7 @@ body {
 
 /*  Tipo y btns  */
 h1, h2, h3 {
-  color: var(--color-secondary);
+  color: black;
   margin-bottom: 10px;
 }
 
@@ -88,7 +88,7 @@ h1, h2, h3 {
 
 /*  Componentes: cards  */
 .card {
-  background-color: var(--color-neutral-medium);
+  background-color: var(--color-secondary);
   color: var(--text-on-grey);
   border-radius: 15px;
   padding: 15px;
@@ -181,14 +181,20 @@ h1, h2, h3 {
   gap: 15px;
   overflow-x: auto;
   padding-bottom: 10px;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.avatars-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .friend-avatar {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: var(--color-neutral-medium);
-  flex-shrink: 0;
+  background-color: var(--color-grey);
+  flex-shrink: 0; 
   object-fit: cover;
 }
 
@@ -234,10 +240,12 @@ h1, h2, h3 {
 }
 
 .bottom-nav a {
-  color: var(--color-secondary);
+  color: var(--color-dark);
   font-size: 1.5rem;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
+
 .bottom-nav a.active {
-  color: black; 
+  color: var(--color-secondary); 
 }
