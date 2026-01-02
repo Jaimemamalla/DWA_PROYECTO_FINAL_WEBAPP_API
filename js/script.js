@@ -55,7 +55,7 @@ function cargarGrafica() {
         labels: ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"],
         datasets: [
           {
-            label: "Km Corridos",
+            label: "Kilómetros recorridos",
             data: [5, 8, 3, 12, 6, 15, 10],
             borderColor: "#e6ff2b",
             backgroundColor: "rgba(214, 242, 0, 0.2)",
