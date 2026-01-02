@@ -40,8 +40,6 @@ El sistema realiza múltiples interacciones con la API, incluyendo:
 
 ## APIs escogidas
 
-- https://www.clubrunning.es/api/
-- https://docs.gitlab.com/api/runners/
 - **Música:**
   - Web: https://developers.deezer.com/api
   - API: https://api.deezer.com/version/service/id/method/?parameters
