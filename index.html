@@ -71,6 +71,42 @@
         </button>
       </nav>
     </header>
+
+    <main>
+      <section class="hero" aria-label="Hero con vídeo">
+        <video
+          class="hero__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <source
+            src="https://ik.imagekit.io/aitoroa/WEBAPP/Running%20Motivation_The%20Return%20of%20Marathon%20Season"
+            type="video/mp4"
+          />
+          <p class="video-fallback">
+            Tu navegador no es compatible con vídeo HTML5.
+            <a href="https://ik.imagekit.io/TU_ID/ruta/hero.mp4" download
+              >Descargar vídeo</a
+            >
+          </p>
+        </video>
+        <div class="video-fallback-overlay" id="videoFallback" hidden>
+          <p>
+            No se ha podido cargar el vídeo en este dispositivo.
+            <a
+              href="https://ik.imagekit.io/TU_ID/ruta/hero.mp4"
+              target="_blank"
+              rel="noopener"
+              >Abrir vídeo</a
+            >
+          </p>
+        </div>
+      </section>
+    </main>
+
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
