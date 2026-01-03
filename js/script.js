@@ -82,3 +82,22 @@ function cargarGrafica() {
     });
   }
 }
+
+
+/* METIDO POR ALE */
+$(document).ready(function() {
+    // Al hacer clic en un elemento del menú
+    $('.nav-item').on('click', function() {
+        // 1. Eliminar la clase 'active' de todos los elementos
+        $('.nav-item').removeClass('active');
+        
+        // 2. Añadir la clase 'active' al elemento clicado
+        $(this).addClass('active');
+        
+        // 3. Obtener la sección para cargar contenido dinámico (opcional)
+        const section = $(this).data('section');
+        console.log("Cargando sección: " + section);
+        
+        // Aquí podrías añadir la lógica para mostrar/ocultar tus contenedores de la API
+    });
+});
