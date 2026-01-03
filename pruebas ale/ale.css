@@ -36,3 +36,52 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+/* METIDO POR ALE */
+/* Contenedor principal del menú */
+.bottom-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0b3d41; /* Color azul oscuro de tu imagen */
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Lista de navegación */
+.nav-list {
+  display: flex;
+  width: 100%;
+  max-width: 500px; /* Limita el ancho en pantallas más grandes para cumplir el RWD */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: space-around;
+}
+
+/* Ítems individuales */
+.nav-item {
+  color: #ffffff; /* Color blanco por defecto */
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 10px;
+}
+
+/* Estado activo (Cambio de color) */
+.nav-item.active {
+  color: #00d1b2; /* Color turquesa/verde para resaltar el apartado actual */
+}
+
+/* Adaptación para pantallas más grandes (Desktop) */
+@media (min-width: 768px) {
+  .bottom-navbar {
+    /* En escritorio, podrías centrarlo o dejarlo como una barra estrecha */
+    border-radius: 15px 15px 0 0;
+  }
+}
