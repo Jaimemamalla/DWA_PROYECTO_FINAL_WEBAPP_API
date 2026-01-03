@@ -37,6 +37,40 @@
     />
   </head>
   <body>
+    <header class="site-header" id="top">
+      <a href="index.html" class="brand" aria-label="Ir a inicio">
+        <img
+          src="media/img/NextRun_logo.webp"
+          alt="NextRun"
+          class="brand__logo"
+        />
+      </a>
+
+      <nav class="nav" id="main-nav" aria-label="Navegación principal">
+        <ul class="menu" id="main-menu">
+          <li class="menulink"><a href="eventos.html">Eventos</a></li>
+          <li class="menulink"><a href="corredores.html">Corredores</a></li>
+          <li class="menulink"><a href="marcas.html">Mis marcas</a></li>
+          <li class="menulink menulink--profile-mobile">
+            <a href="perfil.html">Perfil</a>
+          </li>
+        </ul>
+
+        <a class="profile-icon" href="perfil.html" aria-label="Perfil">
+          <i class="fa-solid fa-user" aria-hidden="true"></i>
+        </a>
+
+        <button
+          class="burger"
+          type="button"
+          aria-controls="main-menu"
+          aria-expanded="false"
+          aria-label="Abrir menú"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </nav>
+    </header>
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="

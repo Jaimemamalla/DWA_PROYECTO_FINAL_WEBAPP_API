@@ -1,103 +1,46 @@
-document.addEventListener("DOMContentLoaded", () => {
-  if (document.getElementById("user-name")) {
-    gestionarUsuarios();
-    cargarGrafica();
-  }
-});
+// MENÚ HAMBURGUESA
 
-// LLAMADA API: Usuario principal
-// Documentación: https://randomuser.me/documentation
-async function gestionarUsuarios() {
-  try {
-    const response = await fetch(
-      "https://randomuser.me/api/?results=20&nat=es,fr,de,gb,it,nl,ie,ch,no,fi,dk"
-    );
-    const data = await response.json();
+const burgerBtn = document.querySelector(".burger");
+const burgerIcon = document.querySelector(".burger > i");
+const menu = document.querySelector("#main-menu");
 
-    //DATOS
-    const usuariosValidos = data.results.filter(
-      (user) => user.dob.age >= 18 && user.dob.age <= 60
-    );
+if (burgerBtn && burgerIcon && menu) {
+  burgerBtn.addEventListener("click", () => {
+    const isOpen = menu.classList.toggle("menu-show");
 
-    if (usuariosValidos.length < 6) return;
+    burgerBtn.setAttribute("aria-expanded", String(isOpen));
+    document.body.classList.toggle("no-scroll", isOpen);
 
-    const user = usuariosValidos[0];
-    document.getElementById(
-      "user-name"
-    ).textContent = `${user.name.first} ${user.name.last}`;
-    document.getElementById(
-      "user-handle"
-    ).textContent = `@${user.login.username}`;
-    document.getElementById("user-avatar").src = user.picture.large;
+    if (isOpen) {
+      burgerIcon.classList.remove("fa-bars");
+      burgerIcon.classList.add("fa-xmark");
+    } else {
+      burgerIcon.classList.add("fa-bars");
+      burgerIcon.classList.remove("fa-xmark");
+    }
+  });
 
-    const container = document.getElementById("friends-list");
-    const amigos = usuariosValidos.slice(1, 6);
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (!menu.classList.contains("menu-show")) return;
 
-    amigos.forEach((friend) => {
-      const img = document.createElement("img");
-      img.src = friend.picture.medium;
-      img.classList.add("friend-avatar");
-      img.alt = friend.name.first;
-      container.appendChild(img);
+      menu.classList.remove("menu-show");
+      burgerBtn.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("no-scroll");
+
+      burgerIcon.classList.add("fa-bars");
+      burgerIcon.classList.remove("fa-xmark");
     });
-  } catch (error) {
-    console.error(error);
-  }
+  });
 }
 
-// LIBRERÍA: Chart.js
-function cargarGrafica() {
-  const ctx = document.getElementById("activityChart");
-  if (ctx) {
-    new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"],
-        datasets: [
-          {
-            label: "Kilómetros recorridos",
-            data: [5, 8, 3, 12, 6, 15, 10],
-            borderColor: "#e6ff2b",
-            backgroundColor: "rgba(214, 242, 0, 0.2)",
-            borderWidth: 2,
-            tension: 0.4,
-            pointBackgroundColor: "#FFFFFF",
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-        },
-        scales: {
-          x: { ticks: { color: "white" }, grid: { display: false } },
-          y: {
-            ticks: { color: "white" },
-            grid: { color: "rgba(255,255,255,0.1)" },
-          },
-        },
-      },
-    });
-  }
+const header = document.querySelector(".site-header");
+
+function syncHeaderHeight() {
+  if (!header) return;
+  const h = Math.round(header.getBoundingClientRect().height);
+  document.documentElement.style.setProperty("--header-h", `${h}px`);
 }
 
-
-/* METIDO POR ALE */
-$(document).ready(function() {
-    // Al hacer clic en un elemento del menú
-    $('.nav-item').on('click', function() {
-        // 1. Eliminar la clase 'active' de todos los elementos
-        $('.nav-item').removeClass('active');
-        
-        // 2. Añadir la clase 'active' al elemento clicado
-        $(this).addClass('active');
-        
-        // 3. Obtener la sección para cargar contenido dinámico (opcional)
-        const section = $(this).data('section');
-        console.log("Cargando sección: " + section);
-        
-        // Aquí podrías añadir la lógica para mostrar/ocultar tus contenedores de la API
-    });
-});
+window.addEventListener("load", syncHeaderHeight);
+window.addEventListener("resize", syncHeaderHeight);

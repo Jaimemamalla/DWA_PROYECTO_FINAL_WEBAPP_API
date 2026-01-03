@@ -16,23 +16,202 @@
   --color-secondary: #0b4650;
   --color-neutral-light: #f9f7f2;
   --color-neutral-medium: #898a8d;
-  --text-on-grey: #f9f7f2; /* Texto dentro de las cards */
-  --bg-body: #222; /* Fondo fuera de la app */
-  /* --background-color-primary: #f9f7f2;
-  --background-color-secondary: #0b4650;
-  --text-color-primary: #0b4650;
-  --text-color-secondary: #898a8d;
-  --effect-color: #e6ff2b; */
+  /* Header móviles */
+  --header-h: 76px;
 }
 
 /* ESTILOS GLOBALES */
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=BBH+Bartle:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 body {
   font-family: var(--font-primary);
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+/* HEADER */
+
+.site-header {
+  box-sizing: border-box;
+  width: min(1500px, calc(100% - 2rem));
+  margin: 1rem auto;
+  padding: 0.85rem 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  position: sticky;
+  top: 0.75rem;
+  z-index: 1000;
+  background: rgba(11, 70, 80, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 247, 242, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand__logo {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.menu {
+  justify-self: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--color-neutral-light);
+  font-family: var(--font-secondary);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.menu a:hover {
+  color: var(--color-primary);
+}
+
+.profile-icon {
+  margin-left: auto;
+  color: var(--color-neutral-light);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.profile-icon:hover {
+  color: var(--color-primary);
+}
+
+.menulink--profile-mobile {
+  display: none;
+}
+
+.burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(249, 247, 242, 0.18);
+  background: rgba(11, 70, 80, 0.22);
+  color: var(--color-neutral-light);
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.burger:hover {
+  border-color: rgba(230, 255, 43, 0.55);
+}
+
+.burger:active {
+  transform: scale(0.98);
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    z-index: 1100;
+  }
+
+  body {
+    padding-top: var(--header-h);
+    overflow-x: hidden;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  .burger {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .profile-icon {
+    display: none;
+  }
+
+  .menu {
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    height: calc(100dvh - var(--header-h));
+    margin: 0;
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 2rem;
+    background: rgba(11, 70, 80, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: translateX(100vw);
+    transition: transform 0.28s ease;
+    z-index: 1050;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .menu.menu-show {
+    transform: translateX(0);
+  }
+
+  .menulink--profile-mobile {
+    display: list-item;
+  }
+
+  .menu .menulink {
+    width: 100%;
+  }
+
+  .menu .menulink a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.6rem;
+    padding: 0.8rem 0;
+  }
 }
