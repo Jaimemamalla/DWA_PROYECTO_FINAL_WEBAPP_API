@@ -901,7 +901,11 @@ body.no-scroll {
   }
 
   .sponsor-item img {
-    height: 40px;
+    height: 32px;
+  }
+
+  .sponsor-grid .sponsor-item:first-child img {
+    height: 26px;
   }
 
   .footer__logo {
