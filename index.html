@@ -37,6 +37,7 @@
     />
   </head>
   <body>
+    <!-- ANCLA Y HEADER -->
     <header class="site-header" id="top">
       <a href="index.html" class="brand" aria-label="Ir a inicio">
         <img
@@ -72,7 +73,11 @@
       </nav>
     </header>
 
+    <!-- MAIN CONTENT -->
+
     <main>
+      <!-- HERO VÍDEO -->
+
       <section class="hero" aria-label="Hero con vídeo">
         <video
           class="hero__video"
@@ -105,6 +110,8 @@
           </p>
         </div>
       </section>
+
+      <!-- SECCIÓN WELCOME -->
 
       <section class="welcome" aria-label="Bienvenida">
         <div class="welcome__wrap">
@@ -151,8 +158,201 @@
           </figure>
         </div>
       </section>
+
+      <!-- SECCIÓN PRÓXIMOS EVENTOS -->
+
+      <section
+        class="section-cards"
+        aria-label="Tarjetas desplegables de eventos"
+      >
+        <h2 id="cardsTitle" class="welcome__title">Proximos eventos</h2>
+
+        <div class="cards-grid attraction-grid">
+          <article class="attraction-card">
+            <button
+              class="attraction-toggle"
+              aria-expanded="false"
+              aria-controls="panel-card-1"
+            >
+              <img
+                class="attraction-image"
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_1.png"
+                alt="Maratón Ciudad 42K"
+                loading="lazy"
+              />
+              <h3 class="attraction-title">Maraton Ciudad · 42K</h3>
+              <i
+                class="fa-solid fa-plus attraction-icon"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              id="panel-card-1"
+              class="attraction-panel"
+              role="region"
+              aria-label="Detalles Maratón Ciudad"
+            >
+              <p>
+                Velocidad pura por todo el centro urbano. Series clasificatorias
+                y final intensa con atletas profesionales. ¿Te atreves a probar
+                tus límites en 42K metros?
+              </p>
+              <br />
+              <p class="event-meta">
+                <strong>Fecha:</strong> 12/01/2026 |
+                <strong>Distancia:</strong> 42K | <strong>Salida:</strong> 8:30
+                | <strong>Desnivel:</strong> +350m |
+                <strong>Inscripción:</strong> Abierta
+              </p>
+              <br />
+              <p>
+                Recorrido urbano con avituallamientos cada 5K. Pacers: 3h / 3h30
+                / 4h.
+              </p>
+            </div>
+          </article>
+
+          <article class="attraction-card">
+            <button
+              class="attraction-toggle"
+              aria-expanded="false"
+              aria-controls="panel-card-2"
+            >
+              <img
+                class="attraction-image"
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_1.png"
+                alt="Media Maratón Costa 21K"
+                loading="lazy"
+              />
+              <h3 class="attraction-title">Media Maraton Costa · 21K</h3>
+              <i
+                class="fa-solid fa-plus attraction-icon"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              id="panel-card-2"
+              class="attraction-panel"
+              role="region"
+              aria-label="Detalles Media Maratón Costa"
+            >
+              <p>
+                La prueba reina de la arena regresa este enero. Recorrido
+                homologado, rápido y perfecto para marca personal. Incluye
+                avituallamientos premium y medalla finisher.
+              </p>
+              <br />
+              <p class="event-meta">
+                <strong>Fecha:</strong> 20/01/2026 |
+                <strong>Distancia:</strong> 21K | <strong>Salida:</strong> 9:00
+                | <strong>Perfil llano</strong> |
+                <strong>Ideal para MMP</strong>
+              </p>
+              <br />
+              <p>
+                Servicios: guardarropa, pacers 1:30 / 1:45 / 2:00, animación en
+                el paseo.
+              </p>
+            </div>
+          </article>
+
+          <article class="attraction-card">
+            <button
+              class="attraction-toggle"
+              aria-expanded="false"
+              aria-controls="panel-card-3"
+            >
+              <img
+                class="attraction-image"
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_1.png"
+                alt="Popular 10K Centro"
+                loading="lazy"
+              />
+              <h3 class="attraction-title">Popular 10K · Centro</h3>
+              <i
+                class="fa-solid fa-plus attraction-icon"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              id="panel-card-3"
+              class="attraction-panel"
+              role="region"
+              aria-label="Detalles Popular 10K"
+            >
+              <p>
+                Ideal para disfrutar con tu grupo de entrenamiento. Corre bajo
+                el amanecer de la ciudad en una experiencia única. Se incluye
+                música en directo cada kilómetro, además de una comida y fiesta
+                post-carrera.
+              </p>
+              <br />
+              <p class="event-meta">
+                <strong>Fecha:</strong> 03/02/2026 |
+                <strong>Distancia:</strong> 10K | <strong>Salida:</strong> 6:30
+                | <strong>Circuito homologado</strong>
+              </p>
+              <br />
+              <p>
+                Camiseta técnica incluida. Tramos rápidos y buena animación.
+                Avituallamiento en el km 5.
+              </p>
+            </div>
+          </article>
+
+          <article class="attraction-card">
+            <button
+              class="attraction-toggle"
+              aria-expanded="false"
+              aria-controls="panel-card-4"
+            >
+              <img
+                class="attraction-image"
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_1.png"
+                alt="Trail Montaña 15K"
+                loading="lazy"
+              />
+              <h3 class="attraction-title">Trail Cumbre · 25K</h3>
+              <i
+                class="fa-solid fa-plus attraction-icon"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              id="panel-card-4"
+              class="attraction-panel"
+              role="region"
+              aria-label="Detalles Trail Montaña"
+            >
+              <p>
+                Abandona el asfalto y conecta con la naturaleza. Un trail
+                técnico con 1200m de desnivel positivo que pondrá a prueba tu
+                resistencia y técnica en bajada. Paisajes espectaculares
+                garantizados.
+              </p>
+              <br />
+              <p class="event-meta">
+                <strong>Fecha:</strong> 15/02/2026 |
+                <strong>Distancia:</strong> 25K | <strong>Salida:</strong> 9:30
+                | <strong>Terreno mixto:</strong> +1200m
+              </p>
+              <br />
+              <p>
+                Recomendado calzado trail y frontal si hay niebla.
+                Avituallamiento en km 7 y meta.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
     </main>
 
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="

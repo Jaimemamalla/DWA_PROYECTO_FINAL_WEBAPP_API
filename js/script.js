@@ -44,3 +44,31 @@ function syncHeaderHeight() {
 
 window.addEventListener("load", syncHeaderHeight);
 window.addEventListener("resize", syncHeaderHeight);
+
+// ACCORDION TARJETAS DE EVENTOS
+
+$(document).ready(function () {
+  const $toggles = $(".attraction-toggle");
+  const $panels = $(".attraction-panel");
+
+  $panels.each(function () {
+    $(this).hide();
+  });
+
+  $toggles.on("click", function () {
+    const $btn = $(this);
+    const $card = $btn.closest(".attraction-card");
+    const $panel = $btn.next(".attraction-panel");
+    const isOpen = $card.hasClass("is-open");
+
+    $(".attraction-card").removeClass("is-open");
+    $(".attraction-toggle").attr("aria-expanded", "false");
+    $(".attraction-panel").stop(true, true).slideUp(200);
+
+    if (!isOpen) {
+      $card.addClass("is-open");
+      $btn.attr("aria-expanded", "true");
+      $panel.stop(true, true).slideDown(220);
+    }
+  });
+});
