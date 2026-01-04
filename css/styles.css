@@ -687,6 +687,10 @@ body.no-scroll {
   place-items: center;
 }
 
+.sponsor-grid .sponsor-item:first-child img {
+  height: 36px;
+}
+
 .footer__logo {
   width: min(360px, 48vw);
   height: auto;
