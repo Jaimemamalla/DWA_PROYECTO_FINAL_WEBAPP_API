@@ -45,7 +45,7 @@ function syncHeaderHeight() {
 window.addEventListener("load", syncHeaderHeight);
 window.addEventListener("resize", syncHeaderHeight);
 
-// ACCORDION TARJETAS DE EVENTOS
+// JQUERY ACCORDION
 
 $(document).ready(function () {
   const $toggles = $(".attraction-toggle");
@@ -104,7 +104,7 @@ $(document).ready(function () {
 
   function startAutoSlide() {
     stopAutoSlide();
-    autoSlideId = setInterval(() => nextPrevSlide(1), 1800);
+    autoSlideId = setInterval(() => nextPrevSlide(1), 1650);
   }
 
   function showSlide(n) {
@@ -157,4 +157,122 @@ $(document).ready(function () {
 
   container.addEventListener("mouseenter", stopAutoSlide);
   container.addEventListener("mouseleave", startAutoSlide);
+})();
+
+// FORMULARIO
+
+(function () {
+  const form = document.getElementById("signupForm");
+  if (!form) return;
+
+  const email = document.getElementById("email");
+  const password = document.getElementById("password");
+  const fullname = document.getElementById("fullname");
+  const btnSubmit = document.getElementById("signupSubmit");
+  const btnGoogle = document.getElementById("signupGoogle");
+
+  const emailErr = document.getElementById("emailErr");
+  const passwordErr = document.getElementById("passwordErr");
+  const fullnameErr = document.getElementById("fullnameErr");
+
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  const pwdRe = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+  function setError(el, errEl, msg) {
+    errEl.textContent = msg || "";
+    el.setAttribute("aria-invalid", msg ? "true" : "false");
+  }
+
+  function validate() {
+    let valid = true;
+
+    if (!email.value.trim()) {
+      setError(email, emailErr, "El email es obligatorio.");
+      valid = false;
+    } else if (!emailRe.test(email.value.trim())) {
+      setError(email, emailErr, "Introduce un email válido.");
+      valid = false;
+    } else {
+      setError(email, emailErr, "");
+    }
+
+    if (!password.value) {
+      setError(password, passwordErr, "La contraseña es obligatoria.");
+      valid = false;
+    } else if (!pwdRe.test(password.value)) {
+      setError(password, passwordErr, "Mín. 8 car., 1 mayúscula y 1 número.");
+      valid = false;
+    } else {
+      setError(password, passwordErr, "");
+    }
+
+    if (!fullname.value.trim()) {
+      setError(fullname, fullnameErr, "El nombre es obligatorio.");
+      valid = false;
+    } else if (fullname.value.trim().length < 2) {
+      setError(fullname, fullnameErr, "Introduce tu nombre completo.");
+      valid = false;
+    } else {
+      setError(fullname, fullnameErr, "");
+    }
+
+    btnSubmit.disabled = !valid;
+    return valid;
+  }
+
+  ["input", "blur"].forEach((evt) => {
+    email.addEventListener(evt, validate);
+    password.addEventListener(evt, validate);
+    fullname.addEventListener(evt, validate);
+  });
+
+  const toggle = document.querySelector(".password__toggle");
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const isPwd = password.getAttribute("type") === "password";
+      password.setAttribute("type", isPwd ? "text" : "password");
+      toggle.firstElementChild?.classList.toggle("fa-eye");
+      toggle.firstElementChild?.classList.toggle("fa-eye-slash");
+      toggle.setAttribute(
+        "aria-label",
+        isPwd ? "Ocultar contraseña" : "Mostrar contraseña"
+      );
+      password.focus();
+    });
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    const user = {
+      email: email.value.trim(),
+      fullname: fullname.value.trim(),
+      createdAt: new Date().toISOString(),
+    };
+
+    try {
+      localStorage.setItem("nextrun_user", JSON.stringify(user));
+      btnSubmit.textContent = "Creando cuenta…";
+      btnSubmit.disabled = true;
+
+      setTimeout(() => {
+        window.location.href = "perfil.html";
+      }, 800);
+    } catch (err) {
+      alert(
+        "No se pudo crear la cuenta en este dispositivo. Inténtalo de nuevo."
+      );
+      btnSubmit.textContent = "Continuar";
+      validate();
+    }
+  });
+
+  if (btnGoogle) {
+    btnGoogle.addEventListener("click", () => {
+      alert("Google Sign-In aún no está conectado.");
+    });
+  }
+
+  validate();
 })();

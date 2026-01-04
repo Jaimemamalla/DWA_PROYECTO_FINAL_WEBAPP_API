@@ -427,6 +427,97 @@
           </div>
         </div>
       </section>
+
+      <!-- FORMULARIO -->
+
+      <section id="signup" class="signup" aria-labelledby="signupTitle">
+        <div class="signup__card">
+          <h2 id="signupTitle" class="welcome__title">
+            Crea tu <strong>cuenta</strong>
+          </h2>
+
+          <button class="btn btn-google" type="button" id="signupGoogle">
+            <i class="fa-brands fa-google" aria-hidden="true"></i>
+            Continuar con Google
+          </button>
+
+          <div class="signup__divider" role="separator" aria-label="o">
+            <span class="line" aria-hidden="true"></span>
+            <span class="or">o</span>
+            <span class="line" aria-hidden="true"></span>
+          </div>
+
+          <form id="signupForm" class="signup__form" novalidate>
+            <div class="field">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                inputmode="email"
+                autocomplete="email"
+                required
+                placeholder="tu@correo.com"
+              />
+              <p class="field__error" id="emailErr" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="password">Contraseña</label>
+              <div class="password">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autocomplete="new-password"
+                  required
+                  minlength="8"
+                  aria-describedby="pwdHelp"
+                  placeholder="Mínimo 8 caracteres"
+                />
+                <button
+                  class="password__toggle"
+                  type="button"
+                  aria-label="Mostrar contraseña"
+                >
+                  <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p id="pwdHelp" class="help">
+                Debe incluir al menos 8 caracteres, con 1 mayúscula y 1 número.
+              </p>
+              <p class="field__error" id="passwordErr" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="fullname">Nombre completo</label>
+              <input
+                id="fullname"
+                name="fullname"
+                type="text"
+                autocomplete="name"
+                required
+                placeholder="Tu nombre y apellidos"
+              />
+              <p class="field__error" id="fullnameErr" aria-live="polite"></p>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="signupSubmit"
+              disabled
+            >
+              Continuar
+            </button>
+          </form>
+
+          <p class="signup__login">
+            ¿Ya tienes cuenta?
+            <a href="perfil.html">Inicia sesión</a>
+          </p>
+        </div>
+      </section>
     </main>
 
     <script
