@@ -48,8 +48,8 @@ window.addEventListener("resize", syncHeaderHeight);
 // JQUERY ACCORDION
 
 $(document).ready(function () {
-  const $toggles = $(".attraction-toggle");
-  const $panels = $(".attraction-panel");
+  const $toggles = $(".event-toggle");
+  const $panels = $(".event-panel");
 
   $panels.each(function () {
     $(this).hide();
@@ -57,13 +57,13 @@ $(document).ready(function () {
 
   $toggles.on("click", function () {
     const $btn = $(this);
-    const $card = $btn.closest(".attraction-card");
-    const $panel = $btn.next(".attraction-panel");
+    const $card = $btn.closest(".event-card");
+    const $panel = $btn.next(".event-panel");
     const isOpen = $card.hasClass("is-open");
 
-    $(".attraction-card").removeClass("is-open");
-    $(".attraction-toggle").attr("aria-expanded", "false");
-    $(".attraction-panel").stop(true, true).slideUp(200);
+    $(".event-card").removeClass("is-open");
+    $(".event-toggle").attr("aria-expanded", "false");
+    $(".event-panel").stop(true, true).slideUp(200);
 
     if (!isOpen) {
       $card.addClass("is-open");
