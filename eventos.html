@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NextRun · Eventos</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="media/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="media/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="media/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="media/favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="media/favicon/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v7.1.0/css/all.css"
+    />
+  </head>
+  <body>
+    <!-- ANCLA Y HEADER -->
+
+    <header class="site-header" id="top">
+      <a href="index.html" class="brand" aria-label="Ir a inicio">
+        <img
+          src="media/img/NextRun_logo.webp"
+          alt="NextRun"
+          class="brand__logo"
+        />
+      </a>
+
+      <nav class="nav" id="main-nav" aria-label="Navegación principal">
+        <ul class="menu" id="main-menu">
+          <li class="menulink"><a href="eventos.html">Eventos</a></li>
+          <li class="menulink"><a href="corredores.html">Corredores</a></li>
+          <li class="menulink"><a href="marcas.html">Mis marcas</a></li>
+          <li class="menulink menulink--profile-mobile">
+            <a href="perfil.html">Perfil</a>
+          </li>
+        </ul>
+
+        <a class="profile-icon" href="perfil.html" aria-label="Perfil">
+          <i class="fa-solid fa-user" aria-hidden="true"></i>
+        </a>
+
+        <button
+          class="burger"
+          type="button"
+          aria-controls="main-menu"
+          aria-expanded="false"
+          aria-label="Abrir menú"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer" id="site-footer" aria-labelledby="footerTitle">
+      <div class="footer__wrap">
+        <section class="footer__sponsors" aria-label="Patrocinadores">
+          <ul class="sponsor-grid">
+            <li class="sponsor-item">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/Polar.svg"
+                alt="Patrocinador 1 - Polar"
+                loading="lazy"
+              />
+            </li>
+            <li class="sponsor-item">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/BBVA.svg"
+                alt="Patrocinador 2 - BBVA"
+                loading="lazy"
+              />
+            </li>
+            <li class="sponsor-item">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/Garmin.svg"
+                alt="Patrocinador 3 - Garmin"
+                loading="lazy"
+              />
+            </li>
+            <li class="sponsor-item">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/Iberdrola.svg"
+                alt="Patrocinador 4 - Iberdrola"
+                loading="lazy"
+              />
+            </li>
+            <li class="sponsor-item">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/NIKE.svg"
+                alt="Patrocinador 5 - Nike"
+                loading="lazy"
+              />
+            </li>
+            <li class="sponsor-item">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/Asics.svg"
+                alt="Patrocinador 6 - Asics"
+                loading="lazy"
+              />
+            </li>
+          </ul>
+        </section>
+
+        <div class="footer__brand" aria-label="Marca NextRun">
+          <img
+            src="media/img/NextRun_logo.webp"
+            alt="NextRun"
+            class="footer__logo"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <nav class="footer__social" aria-label="Redes sociales">
+          <a
+            class="social-link"
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram de NextRun"
+            title="Instagram"
+          >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a
+            class="social-link"
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube de NextRun"
+            title="YouTube"
+          >
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+          </a>
+          <a
+            class="social-link"
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook de NextRun"
+            title="Facebook"
+          >
+            <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+          </a>
+        </nav>
+
+        <p class="footer__copy">© 2025 · NextRun</p>
+      </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
