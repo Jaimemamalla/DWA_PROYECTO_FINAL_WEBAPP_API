@@ -72,3 +72,89 @@ $(document).ready(function () {
     }
   });
 });
+
+// SLIDESHOW / CARRUSEL
+
+(function () {
+  const root = document.querySelector("#toprunners");
+  if (!root) return;
+
+  const container = root.querySelector(".slideshow-container");
+  if (!container) return;
+  if (container.dataset.carouselInit === "1") return;
+  container.dataset.carouselInit = "1";
+
+  let slideIndex = 1;
+  let autoSlideId = null;
+  let locked = false;
+
+  const slides = root.querySelectorAll(".runnerSlide");
+  const dots = root.querySelectorAll(".dot");
+  const prev = root.querySelector(".prev");
+  const next = root.querySelector(".next");
+
+  if (!slides.length) return;
+
+  function stopAutoSlide() {
+    if (autoSlideId !== null) {
+      clearInterval(autoSlideId);
+      autoSlideId = null;
+    }
+  }
+
+  function startAutoSlide() {
+    stopAutoSlide();
+    autoSlideId = setInterval(() => nextPrevSlide(1), 1800);
+  }
+
+  function showSlide(n) {
+    if (n > slides.length) slideIndex = 1;
+    if (n < 1) slideIndex = slides.length;
+
+    slides.forEach((s) => (s.style.display = "none"));
+    dots.forEach((d) => d.classList.remove("active"));
+
+    const active = slides[slideIndex - 1];
+    active.style.display = "block";
+    dots[slideIndex - 1]?.classList.add("active");
+  }
+
+  function nextPrevSlide(step) {
+    if (locked) return;
+    locked = true;
+    slideIndex += step;
+    showSlide(slideIndex);
+    setTimeout(() => {
+      locked = false;
+    }, 200);
+  }
+
+  showSlide(slideIndex);
+  startAutoSlide();
+
+  next?.addEventListener("click", (e) => {
+    e.preventDefault();
+    stopAutoSlide();
+    nextPrevSlide(1);
+    startAutoSlide();
+  });
+
+  prev?.addEventListener("click", (e) => {
+    e.preventDefault();
+    stopAutoSlide();
+    nextPrevSlide(-1);
+    startAutoSlide();
+  });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      stopAutoSlide();
+      slideIndex = i + 1;
+      showSlide(slideIndex);
+      startAutoSlide();
+    });
+  });
+
+  container.addEventListener("mouseenter", stopAutoSlide);
+  container.addEventListener("mouseleave", startAutoSlide);
+})();
