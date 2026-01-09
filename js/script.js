@@ -577,3 +577,174 @@ $(document).ready(function () {
     initCharts();
 
 })();
+
+
+$(document).ready(function() {
+    // 1. Perfil API
+    fetch('https://randomuser.me/api/')
+        .then(res => res.json())
+        .then(data => {
+            const user = data.results[0];
+            $('#api-avatar').attr('src', user.picture.large);
+            $('#api-name').text(`${user.name.first} ${user.name.last}`);
+            $('#api-username').text(`@${user.login.username}`);
+            $('#user-greeting').text(user.name.first + " Ochoa"); 
+        });
+
+    // 2. Inicializar Gráficos
+    initCharts();
+
+    // 3. Calendario
+    for (let i = 1; i <= 31; i++) {
+        let clase = (i === 12 || i === 25) ? "race-day" : "";
+        $('#calendar-days').append(`<span class="${clase}">${i}</span>`);
+    }
+});
+
+function initCharts() {
+    // Barras Semanales
+    new Chart(document.getElementById('weeklyBarChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sáb', 'Dom'],
+            datasets: [{
+                data: [5.2, 8.1, 0, 10.5, 6.2, 15.0, 4.0],
+                backgroundColor: (ctx) => ctx.index === 5 ? '#d4f14e' : '#444',
+                borderRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { grid: { color: '#333' }, ticks: { color: '#888' } },
+                x: { grid: { display: false }, ticks: { color: '#888' } }
+            }
+        }
+    });
+
+    // Doughnut Hoy
+    new Chart(document.getElementById('todayDoughnut'), {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [75, 25],
+                backgroundColor: ['#d4f14e', '#333'],
+                borderWidth: 0,
+                cutout: '85%'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { tooltip: { enabled: false } }
+        }
+    });
+}
+
+$(document).ready(function() {
+    // 1. Datos API Perfil
+    fetch('https://randomuser.me/api/')
+        .then(res => res.json())
+        .then(data => {
+            const user = data.results[0];
+            $('#api-avatar').attr('src', user.picture.large);
+            $('#api-name').text(`${user.name.first} ${user.name.last}`);
+            $('#api-username').text(`@${user.login.username}`);
+            // Mantenemos tu nombre si lo prefieres, o usamos el de la API
+            $('#user-greeting').text(user.name.first + " Ochoa"); 
+        });
+
+    // 2. Gráficos
+    initDashboardCharts();
+
+    // 3. Calendario
+    const cal = $('#calendar-days');
+    for (let i = 1; i <= 31; i++) {
+        cal.append(`<span>${i}</span>`);
+    }
+});
+
+function initDashboardCharts() {
+    // Barras Semanales
+    new Chart(document.getElementById('weeklyBarChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sáb', 'Dom'],
+            datasets: [{
+                data: [5, 8, 0, 10.5, 6, 15, 4],
+                backgroundColor: (ctx) => ctx.index === 5 ? '#d4f14e' : '#333',
+                borderRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { grid: { color: '#222' }, ticks: { color: '#555' } },
+                x: { grid: { display: false }, ticks: { color: '#555' } }
+            }
+        }
+    });
+
+    // Círculo Actividad
+    new Chart(document.getElementById('todayDoughnut'), {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [75, 25],
+                backgroundColor: ['#d4f14e', '#222'],
+                borderWidth: 0,
+                cutout: '85%'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { tooltip: { enabled: false } }
+        }
+    });
+}
+
+// ... (código de API y calendario igual) ...
+
+function initDashboardCharts() {
+    // Barras Semanales
+    new Chart(document.getElementById('weeklyBarChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sáb', 'Dom'],
+            datasets: [{
+                data: [5, 8, 0, 10.5, 6, 15, 4],
+                backgroundColor: (ctx) => ctx.index === 5 ? '#d4f14e' : '#333',
+                borderRadius: 6, // Bordes más redondeados
+                barThickness: 'flex' // Ancho de barra flexible
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, // ¡CRUCIAL! Llenará el espacio
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { display: false }, // Ocultamos eje Y para más limpieza
+                x: { grid: { display: false }, ticks: { color: '#666', font: { size: 11 } } }
+            },
+            layout: { padding: { top: 10 } } // Un poco de aire arriba
+        }
+    });
+
+    // Círculo Actividad (Sin cambios)
+    new Chart(document.getElementById('todayDoughnut'), {
+        type: 'doughnut',
+        data: { /* ... */ },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { tooltip: { enabled: false } },
+            cutout: '85%'
+        }
+    });
+}
+
