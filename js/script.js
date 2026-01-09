@@ -277,6 +277,7 @@ $(document).ready(function () {
   validate();
 })();
 
+<<<<<<< Updated upstream
 // SECCIOÓN CORREDORES
 (() => {
   const isRunnersPage = (location.pathname || "")
@@ -748,3 +749,39 @@ function initDashboardCharts() {
     });
 }
 
+=======
+
+
+
+
+
+
+
+
+// Marcas
+
+$(document).ready(function() {
+    // 1. Consumo de API para el perfil
+    fetch('https://randomuser.me/api/')
+        .then(response => response.json())
+        .then(data => {
+            const user = data.results[0];
+            // Actualizamos la sidebar con datos reales de la API
+            $('.avatar-circle').css('background-image', `url(${user.picture.large})`).css('background-size', 'cover');
+            // Mantenemos el nombre de Aitor si prefieres, o usamos el de la API:
+            // $('.profile-top h2').text(`${user.name.first} ${user.name.last}`);
+        });
+
+    // 2. Efecto Hover dinámico en los retos
+    $('.card-challenge').hover(
+        function() { $(this).css('border', `1px solid ${getComputedStyle(document.documentElement).getPropertyValue('--accent')}`); },
+        function() { $(this).css('border', '1px solid transparent'); }
+    );
+
+    // 3. Generación simple de calendario para visualización
+    const calendarGrid = $('.calendar-grid');
+    for (let i = 1; i <= 31; i++) {
+        calendarGrid.append(`<span>${i}</span>`);
+    }
+});
+>>>>>>> Stashed changes
