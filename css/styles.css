@@ -1783,6 +1783,8 @@ body { background-color: var(--bg-body); color: var(--text-high); }
     color: var(--accent); /* Tu verde lima */
 }z
 
+Cs
+
 /* Layout Maestro */
 .dashboard-wrapper { display: flex; min-height: 100vh; }
 .main-content { flex: 1; padding: 40px; max-width: calc(100% - 360px); }
@@ -1993,52 +1995,6 @@ body { background-color: var(--bg-body); color: var(--text-high); }
 
 .nav-links a:hover {
     color: var(--accent); /* Tu verde lima */
-}
-
-.btn-edit-profile {
-    background: #2a2a2a;
-    border: 1px solid #444;
-    color: var(--text-low);
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-bottom: 20px; /* Espacio con el avatar */
-}
-
-.btn-edit-profile:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: rgba(212, 241, 78, 0.05);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.btn-edit-profile {
-    background: #2a2a2a;
-    border: 1px solid #444;
-    color: var(--text-low);
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-bottom: 20px; /* Espacio con el avatar */
-}
-
-.btn-edit-profile:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: rgba(212, 241, 78, 0.05);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn-edit-profile {
