@@ -74,6 +74,71 @@
       </nav>
     </header>
 
+    <main class="page-profile">
+      <div class="profile-layout">
+        <aside class="profile-sidebar">
+          <div class="user-mini-card" id="sidebar-user-info">
+            <div class="loader">Cargando perfil...</div>
+          </div>
+          
+          <nav class="profile-menu">
+            <a href="#" class="active"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+            <a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+            <a href="#"><i class="fa-solid fa-music"></i> Música</a>
+            <a href="#"><i class="fa-solid fa-gear"></i> Ajustes</a>
+            <button id="btnLogout" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</button>
+          </nav>
+        </aside>
+
+        <div class="profile-content">
+          <div class="dashboard-header">
+            <h1 id="welcome-msg">Hola, Runner</h1>
+            <p>Aquí tienes tu resumen semanal de actividad.</p>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-card dark">
+              <h4><i class="fa-brands fa-deezer"></i> Power Playlist</h4>
+              <div id="deezer-widget">Cargando música...</div>
+            </div>
+            
+            <div class="stat-card">
+              <div class="mini-stats">
+                <div class="mini-stat">
+                  <span class="val">12k</span>
+                  <span class="lbl">Pasos</span>
+                </div>
+                <div class="mini-stat">
+                  <span class="val">850</span>
+                  <span class="lbl">Kcal</span>
+                </div>
+                <div class="mini-stat">
+                  <span class="val">7h</span>
+                  <span class="lbl">Sueño</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="charts-row">
+            <div class="chart-container">
+              <h4>Actividad Semanal</h4>
+              <div class="chart-wrapper">
+                <canvas id="activityChart"></canvas>
+              </div>
+            </div>
+            <div class="chart-container donut-container">
+              <h4>Objetivo Diario</h4>
+              <div class="donut-chart-wrapper">
+                <canvas id="goalChart"></canvas>
+                <div class="donut-center">57%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
     <!-- FOOTER -->
 
     <footer class="site-footer" id="site-footer" aria-labelledby="footerTitle">
@@ -174,6 +239,7 @@
 
     <!-- SCRIPTS -->
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="

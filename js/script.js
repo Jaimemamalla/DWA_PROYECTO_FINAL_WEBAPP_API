@@ -450,3 +450,130 @@ $(document).ready(function () {
   setActiveChip(activeFilter);
   loadRunners();
 })();
+
+//PERFIL
+
+(function() {
+    const ctxActivity = document.getElementById('activityChart');
+    if (!ctxActivity) return;
+
+    console.log("Iniciando Dashboard de Perfil...");
+
+    function loadUserProfile() {
+        let user = JSON.parse(localStorage.getItem("nextrun_user"));
+        const selectedRunner = JSON.parse(localStorage.getItem("nextrun_selected_runner"));
+
+        let isOwnProfile = true;
+
+        if (selectedRunner) {
+            user = {
+                fullname: selectedRunner.name,
+                username: selectedRunner.username,
+                img: selectedRunner.avatar
+            };
+            isOwnProfile = false;
+            localStorage.removeItem("nextrun_selected_runner");
+        } else if (!user) {
+            user = { 
+                fullname: "Jaime Amaya", 
+                username: "@jaime_runner", 
+                img: "https://randomuser.me/api/portraits/men/32.jpg" 
+            };
+        } else {
+            if(!user.img) user.img = "https://ui-avatars.com/api/?name=" + user.fullname + "&background=0b4650&color=fff";
+            user.username = "@" + user.fullname.replace(/\s+/g, '').toLowerCase();
+        }
+
+        const sidebarHTML = `
+            <img src="${user.img}" alt="Foto de perfil">
+            <h3>${user.fullname}</h3>
+            <p>${user.username || 'Runner'}</p>
+        `;
+        document.getElementById('sidebar-user-info').innerHTML = sidebarHTML;
+
+        const firstName = user.fullname.split(' ')[0];
+        document.getElementById('welcome-msg').textContent = isOwnProfile 
+            ? `Hola de nuevo, ${firstName}` 
+            : `Perfil de ${firstName}`;
+            
+        document.getElementById('deezer-widget').innerHTML = `
+            <iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/playlist/1479458365" width="100%" height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>
+        `;
+    }
+
+    function initCharts() {
+        const colorSecondary = '#0b4650';
+        const colorPrimary = '#e6ff2b';
+
+        new Chart(ctxActivity, {
+            type: 'bar',
+            data: {
+                labels: ['L', 'M', 'X', 'J', 'V', 'S', 'D'],
+                datasets: [{
+                    label: 'Km recorridos',
+                    data: [5, 8, 3, 12, 6, 15, 4],
+                    backgroundColor: colorSecondary,
+                    hoverBackgroundColor: colorPrimary,
+                    borderRadius: 6,
+                    barThickness: 'flex',
+                    maxBarThickness: 30
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#f0f0f0'},
+                        border: { display: false }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        border: { display: false }
+                    }
+                }
+            }
+        });
+
+        const ctxGoal = document.getElementById('goalChart');
+        if(ctxGoal) {
+            new Chart(ctxGoal, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Completado', 'Restante'],
+                    datasets: [{
+                        data: [57, 43],
+                        backgroundColor: [colorPrimary, '#e0e0e0'],
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '80%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: false }
+                    }
+                }
+            });
+        }
+    }
+
+    const btnLogout = document.getElementById('btnLogout');
+    if(btnLogout) {
+        btnLogout.addEventListener('click', () => {
+            if(confirm("¿Cerrar sesión?")) {
+                localStorage.removeItem("nextrun_user");
+                window.location.href = "index.html";
+            }
+        });
+    }
+
+    loadUserProfile();
+    initCharts();
+
+})();
