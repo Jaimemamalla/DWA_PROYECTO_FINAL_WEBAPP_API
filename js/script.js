@@ -276,3 +276,177 @@ $(document).ready(function () {
 
   validate();
 })();
+
+// SECCIOÓN CORREDORES
+(() => {
+  const isRunnersPage = (location.pathname || "")
+    .toLowerCase()
+    .includes("corredores");
+  if (!isRunnersPage) return;
+
+  const grid = document.getElementById("runnersGrid");
+  const status = document.getElementById("runnersStatus");
+  const searchInput = document.getElementById("searchRunner");
+  const filterBtns = Array.from(
+    document.querySelectorAll(".chip[data-filter]")
+  );
+
+  if (!grid) return;
+
+  let runners = [];
+  let activeFilter = "all";
+
+  const esc = (s) =>
+    String(s ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+  function setActiveChip(filter) {
+    filterBtns.forEach((b) =>
+      b.classList.toggle("is-active", b.dataset.filter === filter)
+    );
+  }
+
+  function buildUsername(user, i) {
+    const base = user?.login?.username
+      ? user.login.username
+      : `${user.name.first}${user.name.last}${String(2000 + i)}`;
+    return "@" + base.replace(/\s+/g, "").toLowerCase();
+  }
+
+  function makeRunner(user, i) {
+    const km = Math.floor(Math.random() * 160) + 40;
+    const trophies = Math.floor(Math.random() * 18) + 1;
+    const joinedDaysAgo = Math.floor(Math.random() * 120);
+
+    return {
+      id: crypto?.randomUUID ? crypto.randomUUID() : String(Date.now() + i),
+      name: `${user.name.first} ${user.name.last}`,
+      username: buildUsername(user, i),
+      city: user.location?.city || "—",
+      country: user.location?.country || "—",
+      nat: user.nat || "",
+      avatar: user.picture?.large || user.picture?.medium || "",
+      km,
+      trophies,
+      joinedDaysAgo,
+      score: km * 0.7 + trophies * 8,
+      isNew: joinedDaysAgo <= 14,
+    };
+  }
+
+  async function loadRunners() {
+    const n = 24;
+    if (status) status.textContent = "";
+    grid.innerHTML = "";
+
+    try {
+      const url =
+        "https://randomuser.me/api/?" +
+        new URLSearchParams({
+          results: String(n),
+          inc: "name,location,picture,nat,login",
+        });
+
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("RandomUser error");
+      const data = await res.json();
+
+      runners = (data.results || []).map(makeRunner);
+      render();
+    } catch (err) {
+      console.error(err);
+      if (status) status.textContent = "No se pudieron cargar corredores.";
+    }
+  }
+
+  function applyFilters(list) {
+    const q = (searchInput?.value || "").trim().toLowerCase();
+    let out = list;
+
+    if (activeFilter === "top") {
+      out = [...out].sort((a, b) => b.score - a.score).slice(0, 10);
+    } else if (activeFilter === "new") {
+      out = out.filter((r) => r.isNew);
+    } else if (activeFilter === "near") {
+      const myNat = out[0]?.nat || "";
+      out = out.filter((r) => r.nat === myNat);
+    }
+
+    if (q) {
+      out = out.filter((r) => {
+        const hay =
+          `${r.name} ${r.username} ${r.city} ${r.country} ${r.nat}`.toLowerCase();
+        return hay.includes(q);
+      });
+    }
+
+    return out;
+  }
+
+  function render() {
+    const filtered = applyFilters(runners);
+
+    if (!filtered.length) {
+      grid.innerHTML = `<p style="opacity:.75">Sin resultados con esos filtros.</p>`;
+      return;
+    }
+
+    grid.innerHTML = filtered
+      .map(
+        (r) => `
+          <article class="runner-card">
+            <div class="runner-card__top"></div>
+            <div class="runner-card__body">
+              <img class="runner-avatar" src="${esc(
+                r.avatar
+              )}" alt="Foto de ${esc(r.name)}" loading="lazy" />
+              <h3 class="runner-name">${esc(r.name)}</h3>
+              <p class="runner-handle">${esc(r.username)}</p>
+
+              <div class="runner-stats">
+                <span><i class="fa-solid fa-person-running" aria-hidden="true"></i> ${
+                  r.km
+                }k</span>
+                <span><i class="fa-solid fa-trophy" aria-hidden="true"></i> ${
+                  r.trophies
+                }</span>
+              </div>
+
+              <button class="runner-btn" type="button" data-runner-id="${esc(
+                r.id
+              )}">Ver perfil</button>
+            </div>
+          </article>
+        `
+      )
+      .join("");
+
+    grid.querySelectorAll("[data-runner-id]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-runner-id");
+        const runner = runners.find((x) => x.id === id);
+        if (!runner) return;
+
+        localStorage.setItem("nextrun_selected_runner", JSON.stringify(runner));
+        window.location.href = "perfil.html";
+      });
+    });
+  }
+
+  searchInput?.addEventListener("input", render);
+
+  filterBtns.forEach((b) => {
+    b.addEventListener("click", () => {
+      activeFilter = b.dataset.filter;
+      setActiveChip(activeFilter);
+      render();
+    });
+  });
+
+  setActiveChip(activeFilter);
+  loadRunners();
+})();

@@ -74,6 +74,57 @@
       </nav>
     </header>
 
+    <main class="page page--community">
+      <section class="community" aria-labelledby="communityTitle">
+        <div class="community__wrap">
+          <header class="community__head">
+            <h1 id="communityTitle" class="community__title">
+              Explorar comunidad
+            </h1>
+
+            <div class="community__search">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input
+                type="search"
+                id="searchRunner"
+                placeholder="Buscar por nombre o ciudad…"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="community__filters" aria-label="Filtros de comunidad">
+              <button class="chip is-active" type="button" data-filter="all">
+                Todos
+              </button>
+              <button class="chip" type="button" data-filter="top">
+                Top 10
+              </button>
+              <button class="chip" type="button" data-filter="near">
+                Cerca de mí
+              </button>
+              <button class="chip" type="button" data-filter="new">
+                Nuevos
+              </button>
+            </div>
+
+            <p
+              class="community__status"
+              id="runnersStatus"
+              aria-live="polite"
+            ></p>
+          </header>
+
+          <section
+            class="grid"
+            id="runnersGrid"
+            aria-label="Listado de corredores"
+          >
+            <!-- JS inyecta cards aquí -->
+          </section>
+        </div>
+      </section>
+    </main>
+
     <!-- FOOTER -->
 
     <footer class="site-footer" id="site-footer" aria-labelledby="footerTitle">
