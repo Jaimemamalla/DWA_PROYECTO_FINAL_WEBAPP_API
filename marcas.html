@@ -19,57 +19,7 @@
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    <script src="js/script.js" defer></script>
 
-   <style>
-       #podium-container {
-           display: flex;
-           justify-content: center;
-           align-items: flex-end;
-           gap: 20px;
-           margin: 30px 0 50px;
-           flex-wrap: wrap;
-       }
-       .podium-card {
-           background: var(--color-secondary);
-           color: #fff;
-           padding: 20px;
-           border-radius: 16px;
-           text-align: center;
-           width: 200px;
-           box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-           position: relative;
-           border: 1px solid rgba(255,255,255,0.1);
-       }
-       /* Escalar el ganador (Posición 1) */
-       .podium-card:first-child { transform: scale(1.1); z-index: 2; border-color: var(--color-primary); }
-       
-       .podium-card .pos {
-           font-family: var(--font-secondary);
-           font-size: 2.5rem;
-           color: var(--color-primary);
-           line-height: 1;
-           margin-bottom: 10px;
-       }
-       .podium-card .time {
-           background: rgba(255,255,255,0.1);
-           padding: 5px 10px;
-           border-radius: 8px;
-           margin-top: 10px;
-           font-family: var(--font-metric);
-           font-size: 0.9rem;
-       }
-
-       /* Tabla */
-       .table-container {
-           background: #fff;
-           border-radius: 16px;
-           box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-           overflow-x: auto;
-       }
-       table { width: 100%; border-collapse: collapse; min-width: 600px; }
-       th { background: #333; color: #fff; padding: 15px; text-align: left; }
-       td { padding: 15px; border-bottom: 1px solid #eee; color: #444; }
-       tr:hover { background: #f9f9f9; }
-   </style>
+   
 </head>
 <body class="page-marcas">
 
@@ -80,15 +30,14 @@
 
        <nav class="nav">
            <ul class="menu" id="main-menu">
-               <li class="menulink"><a href="index.html">Inicio</a></li>
+                <li class="menulink"><a href="eventos.html">Eventos</a></li>
                <li class="menulink"><a href="corredores.html">Corredores</a></li>
-               <li class="menulink"><a href="eventos.html">Eventos</a></li>
-               <li class="menulink"><a href="marcas.html" style="color: var(--color-primary);">Marcas</a></li>
+               <li class="menulink"><a href="marcas.html" style="color: var(--color-primary);">Mis Marcas</a></li>
                <li class="menulink menulink--profile-mobile"><a href="perfil.html">Mi Perfil</a></li>
            </ul>
 
            <a href="perfil.html" class="profile-icon" aria-label="Ir a mi perfil">
-               <i class="fa-regular fa-user"></i>
+               <i class="fa-solid fa-user" aria-hidden="true"></i>
            </a>
 
            <button class="burger" aria-label="Abrir menú" aria-expanded="false">
