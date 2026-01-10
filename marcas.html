@@ -1,210 +1,180 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NextRun</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="media/favicon/favicon-96x96.png"
-      sizes="96x96"
-    />
-    <link rel="icon" type="image/svg+xml" href="media/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="media/favicon/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="media/favicon/apple-touch-icon.png"
-    />
-    <link rel="manifest" href="media/favicon/manifest.json" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
-    <link
-      rel="stylesheet"
-      href="https://site-assets.fontawesome.com/releases/v7.1.0/css/all.css"
-    />
-  </head>
-<body>
-  <!-- ANCLA Y HEADER -->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NextRun</title>
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="icon"type="image/png"href="media/favicon/favicon-96x96.png"sizes="96x96"/>
+        <link rel="icon" type="image/svg+xml" href="media/favicon/favicon.svg" />
+        <link rel="shortcut icon" href="media/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="media/favicon/apple-touch-icon.png"/>
+        <link rel="manifest" href="media/favicon/manifest.json"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap"rel="stylesheet"/>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.1.0/css/all.css"/>
+    </head>
+    <body>
+        <!-- ANCLA Y HEADER -->
 
-    <header class="site-header" id="top">
-      <a href="index.html" class="brand" aria-label="Ir a inicio">
-        <img
-          src="media/img/NextRun_logo.webp"
-          alt="NextRun"
-          class="brand__logo"
-        />
-      </a>
+        <header class="site-header" id="top">
+            <a href="index.html" class="brand" aria-label="Ir a inicio">
+                <img src="media/img/NextRun_logo.webp"alt="NextRun" class="brand__logo"/>
+            </a>
 
-      <nav class="nav" id="main-nav" aria-label="Navegación principal">
-        <ul class="menu" id="main-menu">
-          <li class="menulink"><a href="eventos.html">Eventos</a></li>
-          <li class="menulink"><a href="corredores.html">Corredores</a></li>
-          <li class="menulink"><a href="marcas.html">Mis marcas</a></li>
-          <li class="menulink menulink--profile-mobile">
-            <a href="perfil.html">Perfil</a>
-          </li>
-        </ul>
+            <nav class="nav" id="main-nav" aria-label="Navegación principal">
+                <ul class="menu" id="main-menu">
+                <li class="menulink"><a href="eventos.html">Eventos</a></li>
+                <li class="menulink"><a href="corredores.html">Corredores</a></li>
+                <li class="menulink"><a href="marcas.html">Mis marcas</a></li>
+                <li class="menulink menulink--profile-mobile">
+                    <a href="perfil.html">Perfil</a>
+                </li>
+                </ul>
 
-        <a class="profile-icon" href="perfil.html" aria-label="Perfil">
-          <i class="fa-solid fa-user" aria-hidden="true"></i>
-        </a>
+                <a class="profile-icon" href="perfil.html" aria-label="Perfil">
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </a>
 
-        <button
-          class="burger"
-          type="button"
-          aria-controls="main-menu"
-          aria-expanded="false"
-          aria-label="Abrir menú"
-        >
-          <i class="fa-solid fa-bars" aria-hidden="true"></i>
-        </button>
-      </nav>
-    </header>
-    
+                <button class="burger"type="button"aria-controls="main-menu"aria-expanded="false" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+            </nav>
+        </header>
+        
 
-    <div class="dashboard-wrapper">
-        <main class="main-content">
-            <header class="main-header">
-                <h1>Hola de nuevo, <span id="user-greeting"></span></h1>
-                <p>Tu rendimiento esta semana ha subido un 12% respecto al mes anterior.</p>
-            </header>
+        <div class="dashboard-wrapper">
+            <main class="main-content">
+                <header class="main-header">
+                    <h1>Hola de nuevo, <span id="user-greeting"></span></h1>
+                    <p>Tu rendimiento esta semana ha subido un 12% respecto al mes anterior.</p>
+                </header>
 
-            <section class="content-block">
-                <h2 class="block-title">Progreso de hoy</h2>
-                <div class="today-grid">
-                    <article class="card hero-card hover-effect">
-                        <div class="hero-icon"><i class="fa-solid fa-stopwatch-20"></i></div>
-                        <div class="hero-data">
-                            <span class="hero-label">Ritmo Promedio</span>
-                            <span class="hero-value">4'45'' <small>min/km</small></span>
-                        </div>
-                        <div class="hero-sub-stats">
-                            <div class="sub-stat">
-                                <i class="fa-solid fa-heartbeat"></i> 145 bpm
+                <section class="content-block">
+                    <h2 class="block-title">Progreso de hoy</h2>
+                    <div class="today-grid">
+                        <article class="card hero-card hover-effect">
+                            <div class="hero-icon"><i class="fa-solid fa-stopwatch-20"></i></div>
+                            <div class="hero-data">
+                                <span class="hero-label">Ritmo Promedio</span>
+                                <span class="hero-value">4'45'' <small>min/km</small></span>
                             </div>
-                            <div class="sub-stat">
-                                <i class="fa-solid fa-clock"></i> 45:20 min
+                            <div class="hero-sub-stats">
+                                <div class="sub-stat">
+                                    <i class="fa-solid fa-heartbeat"></i> 145 bpm
+                                </div>
+                                <div class="sub-stat">
+                                    <i class="fa-solid fa-clock"></i> 45:20 min
+                                </div>
                             </div>
-                        </div>
-                    </article>
-                    
-                    <div class="mini-cards-grid">
-                        <div class="mini-card hover-effect">
-                            <i class="fa-solid fa-shoe-prints"></i>
-                            <div class="m-data"><strong>12.450</strong> <span>Pasos totales</span></div>
-                        </div>
-                        <div class="mini-card hover-effect">
-                            <i class="fa-solid fa-fire"></i>
-                            <div class="m-data"><strong>840</strong> <span>kcal quemadas</span></div>
-                        </div>
-                        <div class="mini-card hover-effect">
-                            <i class="fa-solid fa-moon"></i>
-                            <div class="m-data"><strong>7h 20m</strong> <span>Descanso</span></div>
+                        </article>
+                        
+                        <div class="mini-cards-grid">
+                            <div class="mini-card hover-effect">
+                                <i class="fa-solid fa-shoe-prints"></i>
+                                <div class="m-data"><strong>12.450</strong> <span>Pasos totales</span></div>
+                            </div>
+                            <div class="mini-card hover-effect">
+                                <i class="fa-solid fa-fire"></i>
+                                <div class="m-data"><strong>840</strong> <span>kcal quemadas</span></div>
+                            </div>
+                            <div class="mini-card hover-effect">
+                                <i class="fa-solid fa-moon"></i>
+                                <div class="m-data"><strong>7h 20m</strong> <span>Descanso</span></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <div class="stats-activity-row">
-                <section class="flex-1 chart-section">
-                    <h2 class="block-title">Estadísticas Semanales</h2>
-                    <article class="card card-dark hover-effect compact-card">
-                        <div class="chart-header"><span class="pill">Distancia (Km)</span></div>
-                        <div class="canvas-container">
-                            <canvas id="weeklyBarChart"></canvas>
-                        </div>
-                    </article>
                 </section>
 
-                <section class="flex-1 activity-section">
-                    <h2 class="block-title">Actividad de hoy</h2>
-                    <article class="card card-dark hover-effect compact-card">
-                        <div class="activity-split-compact">
-                            <div class="chart-circle-compact">
-                                <canvas id="todayDoughnut"></canvas>
-                                <div class="circle-label-compact"><strong>75%</strong><span>Meta</span></div>
+                <div class="stats-activity-row">
+                    <section class="flex-1 chart-section">
+                        <h2 class="block-title">Estadísticas Semanales</h2>
+                        <article class="card card-dark hover-effect compact-card">
+                            <div class="chart-header"><span class="pill">Distancia (Km)</span></div>
+                            <div class="canvas-container">
+                                <canvas id="weeklyBarChart"></canvas>
                             </div>
-                            <ul class="activity-info-compact">
-                                <li>
-                                    <div class="info-icon"><i class="fa-solid fa-person-running"></i></div>
-                                    <div class="info-text"><strong>8.2 km</strong> <span>Distancia</span></div>
-                                </li>
-                                <li>
-                                    <div class="info-icon"><i class="fa-solid fa-stairs"></i></div>
-                                    <div class="info-text"><strong>42</strong> <span>Escalones</span></div>
-                                </li>
-                                <li>
-                                    <div class="info-icon"><i class="fa-solid fa-temperature-half"></i></div>
-                                    <div class="info-text"><strong>16°C</strong> <span>Tmp. Media</span></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
+                        </article>
+                    </section>
+
+                    <section class="flex-1 activity-section">
+                        <h2 class="block-title">Actividad de hoy</h2>
+                        <article class="card card-dark hover-effect compact-card">
+                            <div class="activity-split-compact">
+                                <div class="chart-circle-compact">
+                                    <canvas id="todayDoughnut"></canvas>
+                                    <div class="circle-label-compact"><strong>75%</strong><span>Meta</span></div>
+                                </div>
+                                <ul class="activity-info-compact">
+                                    <li>
+                                        <div class="info-icon"><i class="fa-solid fa-person-running"></i></div>
+                                        <div class="info-text"><strong>8.2 km</strong> <span>Distancia</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="info-icon"><i class="fa-solid fa-stairs"></i></div>
+                                        <div class="info-text"><strong>42</strong> <span>Escalones</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="info-icon"><i class="fa-solid fa-temperature-half"></i></div>
+                                        <div class="info-text"><strong>16°C</strong> <span>Tmp. Media</span></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+
+                <section class="content-block">
+                    <h2 class="block-title">Retos Activos</h2>
+                    <div class="challenges-grid">
+                        <article class="challenge-card card-dark hover-effect">
+                            <div class="ch-icon"><i class="fa-solid fa-trophy"></i></div>
+                            <div class="ch-info">
+                                <span class="ch-days">Quedan 12 días</span>
+                                <strong>Completar 5 Maratones</strong>
+                                <div class="progress-bar"><div class="fill" style="width: 60%"></div></div>
+                            </div>
+                            <div class="ch-stat">60%</div>
+                        </article>
+
+                        <article class="challenge-card card-dark hover-effect">
+                            <div class="ch-icon"><i class="fa-solid fa-mountain"></i></div>
+                            <div class="ch-info">
+                                <span class="ch-days">Quedan 5 días</span>
+                                <strong>Desnivel +2000m</strong>
+                                <div class="progress-bar"><div class="fill" style="width: 35%"></div></div>
+                            </div>
+                            <div class="ch-stat">35%</div>
+                        </article>
+                    </div>
                 </section>
-            </div>
+            </main>
 
-            <section class="content-block">
-                <h2 class="block-title">Retos Activos</h2>
-                <div class="challenges-grid">
-                    <article class="challenge-card card-dark hover-effect">
-                        <div class="ch-icon"><i class="fa-solid fa-trophy"></i></div>
-                        <div class="ch-info">
-                            <span class="ch-days">Quedan 12 días</span>
-                            <strong>Completar 5 Maratones</strong>
-                            <div class="progress-bar"><div class="fill" style="width: 60%"></div></div>
-                        </div>
-                        <div class="ch-stat">60%</div>
-                    </article>
-
-                    <article class="challenge-card card-dark hover-effect">
-                        <div class="ch-icon"><i class="fa-solid fa-mountain"></i></div>
-                        <div class="ch-info">
-                            <span class="ch-days">Quedan 5 días</span>
-                            <strong>Desnivel +2000m</strong>
-                            <div class="progress-bar"><div class="fill" style="width: 35%"></div></div>
-                        </div>
-                        <div class="ch-stat">35%</div>
-                    </article>
+            <aside class="sidebar-profile">
+                <div class="profile-header">
+                    <button class="btn-edit">Editar Perfil</button>
+                    <div class="avatar-circle">
+                        <img src="" alt="Avatar" id="api-avatar">
+                    </div>
+                    <h2 id="api-name">Cargando...</h2>
+                    <span class="handle" id="api-username">@loading</span>
                 </div>
-            </section>
-        </main>
 
-        <aside class="sidebar-profile">
-            <div class="profile-header">
-                <button class="btn-edit">Editar Perfil</button>
-                <div class="avatar-circle">
-                    <img src="" alt="Avatar" id="api-avatar">
+                <div class="bio-grid">
+                    <div class="bio-box"><span>Peso</span><strong>68 kg</strong></div>
+                    <div class="bio-box"><span>Altura</span><strong>178 cm</strong></div>
+                    <div class="bio-box"><span>Edad</span><strong>24</strong></div>
                 </div>
-                <h2 id="api-name">Cargando...</h2>
-                <span class="handle" id="api-username">@loading</span>
-            </div>
 
-            <div class="bio-grid">
-                <div class="bio-box"><span>Peso</span><strong>68 kg</strong></div>
-                <div class="bio-box"><span>Altura</span><strong>178 cm</strong></div>
-                <div class="bio-box"><span>Edad</span><strong>24</strong></div>
-            </div>
+                <div class="calendar-card">
+                    <h3>Marzo, 2025</h3>
+                    <div class="calendar-grid" id="calendar-days"></div>
+                </div>
+            </aside>
+        </div>
 
-            <div class="calendar-card">
-                <h3>Marzo, 2025</h3>
-                <div class="calendar-grid" id="calendar-days"></div>
-            </div>
-        </aside>
-    </div>
-
-    <script src="js/script.js"></script>
-</body>
+        <script src="js/script.js"></script>
+    </body>
 </html>
