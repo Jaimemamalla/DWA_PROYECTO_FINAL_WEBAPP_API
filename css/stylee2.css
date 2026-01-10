@@ -2027,7 +2027,7 @@ Cs
 
 /* ESTRUCTURA Y FONDO */
 .page-results {
-    padding-top: calc(var(--header-h) + 20px);
+    padding-top: 0;
     background-color: var(--color-neutral-light);
     min-height: 100vh;
 }
@@ -2040,8 +2040,9 @@ Cs
 /* HEADER OSCURO DE FILTROS */
 .results-filters {
     background-color: var(--color-secondary);
-    padding: 30px 0;
-    margin-bottom: 20px;
+    padding: 120px 0 40px 0; 
+    margin-top: 0;
+    width: 100%;
 }
 
 .search-bar {
