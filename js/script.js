@@ -330,7 +330,7 @@ $(document).ready(function () {
 })();
 
 
-<<<<<<< Updated upstream
+
 // SECCIOÓN CORREDORES
 (() => {
  const isRunnersPage = (location.pathname || "")
@@ -857,8 +857,6 @@ function initDashboardCharts() {
 }
 
 
-=======
-
 
 
 
@@ -902,4 +900,87 @@ $(document).ready(function() {
    for (let i = 1; i <= 31; i++) {
        calendarGrid.append(`<span>${i}</span>`);
    }
+});
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Script cargado correctamente");
+
+    // 1. Datos
+    const runnersData = [
+        { pos: 1, dorsal: 7, nombre: "Levy", apellidos: "Kibet Chematot", tiempo: "01:00:45", neto: "01:00:45", nacionalidad: "Kenia", flag: "https://flagcdn.com/ke.svg", club: "Adidas", categoria: "Media Maratón", ciudad: "Madrid" },
+        { pos: 2, dorsal: 12, nombre: "Titus", apellidos: "Kiprotich Kibet", tiempo: "01:00:48", neto: "01:00:48", nacionalidad: "Kenia", flag: "https://flagcdn.com/ke.svg", club: "N/A", categoria: "Media Maratón", ciudad: "Madrid" },
+        { pos: 3, dorsal: 3, nombre: "Daniel", apellidos: "Sinda", tiempo: "01:01:04", neto: "01:01:04", nacionalidad: "Tailandia", flag: "https://flagcdn.com/th.svg", club: "Nike", categoria: "Media Maratón", ciudad: "Madrid" }
+    ];
+
+    const tableBody = document.getElementById('runners-table-body');
+    const podiumContainer = document.getElementById('podium-container');
+
+    // 2. Función para pintar
+    function render(data) {
+        if(!tableBody || !podiumContainer) return;
+
+        tableBody.innerHTML = '';
+        podiumContainer.innerHTML = '';
+
+        data.forEach(r => {
+            // Tabla
+            tableBody.innerHTML += `
+                <tr>
+                    <td><strong>${r.pos}</strong></td>
+                    <td>${r.dorsal}</td>
+                    <td>${r.nombre}</td>
+                    <td>${r.apellidos}</td>
+                    <td>${r.tiempo}</td>
+                    <td>${r.neto}</td>
+                    <td><img src="${r.flag}" width="20"> ${r.nacionalidad}</td>
+                    <td>${r.club}</td>
+                </tr>`;
+            
+            // Podio (solo primeros 3)
+            if(r.pos <= 3) {
+                podiumContainer.innerHTML += `
+                    <div class="podium-card">
+                        <div class="pos">${r.pos}</div>
+                        <div>
+                            <span class="name"><strong>${r.nombre} ${r.apellidos}</strong></span><br>
+                            <small>${r.club}</small>
+                            <div class="time">⏱ ${r.tiempo}</div>
+                        </div>
+                    </div>`;
+            }
+        });
+    }
+
+    // 3. Eventos de Filtros
+    const allButtons = document.querySelectorAll('.chip, .chip-city, .tab');
+    
+    allButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Quitar clase activa de los hermanos
+            const siblings = btn.parentElement.querySelectorAll('button');
+            siblings.forEach(s => s.classList.remove('is-active', 'active'));
+            
+            // Añadir clase activa al actual
+            btn.classList.add('is-active');
+
+            const valor = btn.textContent.trim();
+            console.log("Filtrando por:", valor);
+
+            if(valor === "Todos") {
+                render(runnersData);
+            } else {
+                const filtrados = runnersData.filter(r => 
+                    r.categoria === valor || r.ciudad === valor
+                );
+                render(filtrados);
+            }
+        });
+    });
+
+    // Carga inicial
+    render(runnersData);
 });
