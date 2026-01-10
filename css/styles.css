@@ -32,13 +32,9 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
   position: relative;
 }
 
-body.no-scroll {
-  overflow: hidden;
-}
 
 /* HEADER */
 
@@ -2031,9 +2027,7 @@ Cs
     --nav-height: 90px;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
 
        .page--community {
            padding-top: 180px !important; 
@@ -2047,9 +2041,7 @@ Cs
        }
        /* ---------------------------------- */
 
->>>>>>> parent of b56fc0e (navbar arreglada)
-=======
->>>>>>> parent of 41e9ab8 (marcas arreglado?)
+
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 body { background-color: var(--bg-body); color: var(--text-high); }
 

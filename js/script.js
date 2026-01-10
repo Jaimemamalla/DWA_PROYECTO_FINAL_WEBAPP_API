@@ -1,6 +1,5 @@
 // MENÚ HAMBURGUESA
 
-
 const burgerBtn = document.querySelector(".burger");
 const burgerIcon = document.querySelector(".burger > i");
 const menu = document.querySelector("#main-menu");
