@@ -2025,6 +2025,32 @@ Cs
 
 /*MAIN*/
 
+/* Color de nombres en las tarjetas del podio */
+.podium-card .name strong, 
+.podium-card .name {
+    color: var(--color-secondary) !important; /* El azul muy oscuro/negro de tu paleta */
+    font-weight: var(--fw-bold);
+}
+
+/* Color de los nombres en la tabla */
+.nextrun-table td {
+    color: #333333; /* Gris casi negro para lectura suave */
+}
+
+/* Asegurar que el club y otros textos del podio no sean blancos */
+.podium-card .club {
+    color: var(--color-neutral-medium) !important;
+}
+
+.podium-card .time {
+    color: var(--color-secondary);
+}
+
+/* El número de posición (1, 2, 3) en el podio */
+.podium-card .pos {
+    color: rgba(10, 25, 33, 0.1) !important; /* Negro con mucha transparencia para el efecto de fondo */
+}
+
 /* ESTRUCTURA Y FONDO */
 .page-results {
     padding-top: 0;
