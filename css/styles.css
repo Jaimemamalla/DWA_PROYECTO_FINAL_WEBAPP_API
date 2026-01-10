@@ -1444,25 +1444,7 @@ body {
   }
 }
 
-:root {
-  --bg-body: #121212;
-  --bg-card: #222222;
-  --bg-sidebar: #2a2a2a;
-  --accent: #d4f14e;
-  --text-high: #ffffff;
-  --text-low: #a0a0a0;
-}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-}
-body {
-  background-color: var(--bg-body);
-  color: var(--text-high);
-}
 
 .dashboard-wrapper {
   display: flex;
@@ -1678,25 +1660,7 @@ body {
   }
 }
 
-:root {
-  --bg-body: #0d0d0d;
-  --bg-card: #1a1a1a;
-  --bg-sidebar: #151515;
-  --accent: #d4f14e;
-  --text-high: #ffffff;
-  --text-low: #888888;
-}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-}
-body {
-  background-color: var(--bg-body);
-  color: var(--text-high);
-}
 
 /* Layout Maestro */
 .dashboard-wrapper {
@@ -1924,25 +1888,7 @@ body {
   }
 }
 
-:root {
-  --bg-body: #0d0d0d;
-  --bg-card: #1a1a1a;
-  --bg-sidebar: #151515;
-  --accent: #d4f14e;
-  --text-high: #ffffff;
-  --text-low: #888888;
-}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-}
-body {
-  background-color: var(--bg-body);
-  color: var(--text-high);
-}
 
 /* Layout Maestro */
 .dashboard-wrapper {
@@ -2388,31 +2334,7 @@ body {
 
 
 
-/* --- 1. VARIABLES Y CONFIGURACIÓN --- */
-:root {
-  --bg-body: #0d0d0d;
-  --bg-card: #1a1a1a;
-  --bg-sidebar: #151515;
-  --accent: #d4f14e; /* Verde Lima */
-  --text-high: #ffffff;
-  --text-low: #888888;
-  --nav-height: 80px;
-  --radius: 20px;
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-  background-color: var(--bg-body);
-  color: var(--text-high);
-  overflow-x: hidden;
-}
 
 /* --- 2. NAVBAR PREMIUM (Glassmorphism) --- */
 .navbar {
