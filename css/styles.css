@@ -2022,122 +2022,27 @@ Cs
 
 
 :root {
-  --bg-body: #0d0d0d;
-  --bg-card: #1a1a1a;
-  --bg-sidebar: #151515;
-  --accent: #d4f14e;
-  --text-high: #ffffff;
-  --text-low: #888888;
-  --nav-height: 90px;
+    --bg-body: #0d0d0d;
+    --bg-card: #1a1a1a;
+    --bg-sidebar: #151515;
+    --accent: #d4f14e;
+    --text-high: #ffffff;
+    --text-low: #888888;
+    --nav-height: 90px;
 }
 
 
-.page--community {
-  padding-top: 180px !important; 
-}
+       .page--community {
+           padding-top: 180px !important; 
+       }
 
-/* Ajuste para móviles (donde la navbar puede ser más pequeña) */
-@media (max-width: 768px) {
-  .page--community {
-    padding-top: 140px !important;
-  }
-}
-
-    /* --- CORRECCIÓN DE LAYOUT Y DESBORDAMIENTO --- */
-    
-    /* 1. Espacio para evitar solapamiento con la Navbar fija */
-    .page--community {
-        padding-top: 140px; /* Móviles */
-    }
-    @media (min-width: 768px) {
-        .page--community {
-            padding-top: 180px; /* Escritorio */
-        }
-    }
-
-    /* 2. Contenedor del Podio */
-    #podium-container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-end; /* Alinea las bases de las tarjetas */
-        gap: 20px;
-        margin: 30px 0 60px; /* Margen inferior extra por el efecto scale */
-        flex-wrap: wrap;
-    }
-
-    /* 3. Tarjetas del Podio (Corregido desbordamiento de texto) */
-    .podium-card {
-        background: var(--color-secondary);
-        color: #fff;
-        padding: 20px;
-        border-radius: 16px;
-        text-align: center;
-        
-        /* Propiedades clave para evitar desbordamiento */
-        width: 100%;               
-        max-width: 220px;          /* Ancho máximo, no fijo */
-        word-wrap: break-word;     /* Rompe palabras largas si es necesario */
-        overflow-wrap: break-word;
-        
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        position: relative;
-        border: 1px solid rgba(255,255,255,0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Destacar al ganador (1er lugar) */
-    .podium-card:first-child { 
-        transform: scale(1.1); 
-        z-index: 2; 
-        border-color: var(--color-primary);
-        margin-bottom: 10px; /* Espacio visual */
-    }
-    
-    .podium-card .pos {
-        font-family: var(--font-secondary);
-        font-size: 2.5rem;
-        color: var(--color-primary);
-        line-height: 1;
-        margin-bottom: 10px;
-    }
-
-    .podium-card .name {
-        font-weight: bold;
-        line-height: 1.3;
-        width: 100%; /* Asegura que el texto use el ancho disponible */
-    }
-
-    .podium-card .time {
-        background: rgba(255,255,255,0.1);
-        padding: 5px 10px;
-        border-radius: 8px;
-        margin-top: 10px;
-        font-family: var(--font-metric);
-        font-size: 0.9rem;
-        white-space: nowrap; /* El tiempo no debe romperse */
-    }
-
-    /* 4. Tabla Responsiva (Scroll horizontal en móvil) */
-    .table-container {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        width: 100%;
-        overflow-x: auto; /* IMPORTANTE: Permite scroll si la tabla es muy ancha */
-    }
-    
-    table { 
-        width: 100%; 
-        border-collapse: collapse; 
-        min-width: 600px; /* Fuerza el scroll en pantallas pequeñas */
-    }
-    
-    th { background: #333; color: #fff; padding: 15px; text-align: left; }
-    td { padding: 15px; border-bottom: 1px solid #eee; color: #444; }
-    tr:hover { background: #f9f9f9; }
-       
+       /* Ajuste para móviles (donde la navbar puede ser más pequeña) */
+       @media (max-width: 768px) {
+           .page--community {
+               padding-top: 140px !important;
+           }
+       }
+       /* ---------------------------------- */
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 body { background-color: var(--bg-body); color: var(--text-high); }
