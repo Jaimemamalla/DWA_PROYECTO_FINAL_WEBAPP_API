@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NextRun · Eventos</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/stylee2.css" />
     <link
       rel="icon"
       type="image/png"
@@ -73,6 +73,64 @@
         </button>
       </nav>
     </header>
+
+    <section class="results-filters">
+    <div class="results__wrap">
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar carrera, ciudad, día...">
+        </div>
+        
+        <div class="chips-scroll" id="type-filters">
+            <button class="chip active">Todos</button>
+            <button class="chip">Media Maratón</button>
+            <button class="chip">Maratón</button>
+            <button class="chip">10K</button>
+            <button class="chip">5K</button>
+            <button class="chip">Cross</button>
+        </div>
+
+        <div class="chips-scroll" id="city-filters">
+            <button class="chip-city active">Madrid</button>
+            <button class="chip-city">Valencia</button>
+            <button class="chip-city">Barcelona</button>
+            <button class="chip-city">Sevilla</button>
+        </div>
+    </section>
+
+    <h2 class="section-title">Resultados 2025</h2>
+
+    <section class="results-panel">
+        <div class="panel-header">
+            <h3>Individual</h3>
+            <div class="tab-group">
+                <button class="tab active">INDIVIDUAL</button>
+                <button class="tab">EQUIPOS</button>
+                <button class="tab">RESUMEN</button>
+            </div>
+        </div>
+
+        <div class="podium-grid" id="podium-container">
+            </div>
+
+        <div class="table-responsive">
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Posición</th>
+                        <th>Dorsal</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Tiempo</th>
+                        <th>Nacionalidad</th>
+                        <th>Club</th>
+                    </tr>
+                </thead>
+                <tbody id="runners-table-body">
+                    </tbody>
+            </table>
+        </div>
+    </section>
+</main>
 
     <!-- FOOTER -->
 

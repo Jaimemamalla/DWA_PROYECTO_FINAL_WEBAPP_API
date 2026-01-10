@@ -2019,3 +2019,247 @@ Cs
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
+
+
+
+
+/*MAIN*/
+
+/* ESTILOS ESPECÍFICOS RESULTADOS */
+
+.page-results {
+    padding-top: calc(var(--header-h) + 40px);
+    background-color: var(--color-neutral-light);
+}
+
+.results-filters {
+    background-color: var(--color-secondary);
+    padding: 30px 0;
+}
+
+.results__wrap {
+    width: min(1500px, calc(100% - 2rem));
+    margin: 0 auto;
+}
+
+.search-bar {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 25px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 14px 20px 14px 50px;
+    border-radius: 999px;
+    border: none;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-neutral-medium);
+}
+
+.chips-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    justify-content: center;
+}
+
+.chips-scroll::-webkit-scrollbar { display: none; }
+
+/* Board de resultados (Figma) */
+.results-board {
+    background: #ffffff;
+    border: 12px solid #e2e2e2;
+    border-radius: 24px;
+    padding: 40px;
+    margin-bottom: 50px;
+}
+
+.board__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
+}
+
+.board__tabs {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tab {
+    padding: 10px 20px;
+    border: none;
+    background: #fff;
+    font-family: var(--font-primary);
+    font-weight: var(--fw-bold);
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: var(--color-neutral-medium);
+}
+
+.tab.is-active {
+    background: #f5f5f5;
+    color: var(--color-neutral-dark);
+}
+
+.podium-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.podium-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.podium-card .pos {
+    font-family: var(--font-metric);
+    font-size: 3.5rem;
+    font-weight: var(--fw-bold);
+    color: #333;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.podium-card .name {
+    font-family: var(--font-primary);
+    font-weight: var(--fw-bold);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.podium-card .club {
+    color: var(--color-neutral-medium);
+    font-size: 0.85rem;
+}
+
+.podium-card .time {
+    margin-top: 15px;
+    font-family: var(--font-metric);
+    font-weight: var(--fw-bold);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Tabla Estilo NextRun */
+.table-container { overflow-x: auto; margin-top: 30px; }
+
+.nextrun-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-primary);
+}
+
+.nextrun-table th {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #eee;
+    color: var(--color-neutral-medium);
+    font-size: 0.9rem;
+}
+
+.nextrun-table td {
+    padding: 18px 15px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.flag-icon {
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .podium-grid { grid-template-columns: 1fr; }
+    .results-board { padding: 20px; border-width: 6px; }
+}
+
+/* CORRECCIÓN DE POSICIONAMIENTO */
+.page-results {
+    /* Esto evita que el contenido se meta debajo del header fixed */
+    padding-top: calc(var(--header-h) + 60px); 
+    background-color: var(--color-neutral-light); /* Fondo crema de Figma */
+    min-height: 100vh;
+}
+
+/* CONTENEDOR DE FILTROS SUPERIOR */
+.results-filters {
+    background-color: var(--color-secondary);
+    padding: 40px 0 20px;
+    margin-top: -60px; /* Ajuste para pegar al header si es necesario */
+    margin-bottom: 40px;
+}
+
+/* EL TABLERO BLANCO (Board) */
+.results-board {
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.05); /* Borde sutil en lugar de grueso */
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom: 80px;
+}
+
+/* ESTILO DE LOS CHIPS DE FILTRO (Header Oscuro) */
+.chip {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.chip.is-active {
+    background-color: var(--color-primary); /* Amarillo lima */
+    color: var(--color-secondary);
+    font-weight: var(--fw-bold);
+}
+
+/* MINI FILTROS (General, Género...) */
+.board__mini-filters {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.mini-chip {
+    background: #f0f2f5;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: var(--color-neutral-medium);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #e0e0e0;
+}
