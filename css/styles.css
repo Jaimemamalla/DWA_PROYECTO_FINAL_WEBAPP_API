@@ -2031,6 +2031,19 @@ Cs
     --nav-height: 90px;
 }
 
+
+       .page--community {
+           padding-top: 180px !important; 
+       }
+
+       /* Ajuste para móviles (donde la navbar puede ser más pequeña) */
+       @media (max-width: 768px) {
+           .page--community {
+               padding-top: 140px !important;
+           }
+       }
+       /* ---------------------------------- */
+
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 body { background-color: var(--bg-body); color: var(--text-high); }
 
