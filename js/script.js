@@ -683,7 +683,7 @@ $(document).ready(function() {
            $('#api-avatar').attr('src', user.picture.large);
            $('#api-name').text(`${user.name.first} ${user.name.last}`);
            $('#api-username').text(`@${user.login.username}`);
-           $('#user-greeting').text(user.name.first + " Ochoa");
+           $('#user-greeting').text(user.name.first);
        });
 
 
@@ -753,7 +753,7 @@ $(document).ready(function() {
            $('#api-name').text(`${user.name.first} ${user.name.last}`);
            $('#api-username').text(`@${user.login.username}`);
            // Mantenemos tu nombre si lo prefieres, o usamos el de la API
-           $('#user-greeting').text(user.name.first + " Ochoa");
+           $('#user-greeting').text(user.name.first);
        });
 
 
