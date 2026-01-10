@@ -2046,10 +2046,6 @@ Cs
     color: var(--color-secondary);
 }
 
-/* El número de posición (1, 2, 3) en el podio */
-.podium-card .pos {
-    color: rgba(10, 25, 33, 0.1) !important; /* Negro con mucha transparencia para el efecto de fondo */
-}
 
 /* ESTRUCTURA Y FONDO */
 .page-results {
@@ -2197,7 +2193,7 @@ Cs
     font-family: var(--font-metric);
     font-size: 3rem;
     font-weight: var(--fw-bold);
-    color: var(--color-neutral-dark);
+    color: var(--color-secondary);
 }
 
 /* TABLA */
