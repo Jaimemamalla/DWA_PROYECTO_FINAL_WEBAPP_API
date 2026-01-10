@@ -2216,3 +2216,75 @@ Cs
     padding: 20px 15px;
     border-bottom: 1px solid #f9f9f9;
 }
+
+
+/* AJUSTES PARA MÓVIL (Menos de 768px) */
+@media (max-width: 768px) {
+    
+    /* 1. Ajuste del espaciado superior para que el buscador no quede muy pegado */
+    .results-filters {
+        padding: 100px 0 30px 0;
+    }
+
+    /* 2. El Podio: De 3 columnas a 1 sola columna */
+    .podium-grid {
+        grid-template-columns: 1fr; /* Una tarjeta debajo de otra */
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .podium-card {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .podium-card .pos {
+        font-size: 2.5rem; /* Número un poco más pequeño en móvil */
+        min-width: 50px;
+    }
+
+    /* 3. El Tablero Blanco: Menos padding para aprovechar el ancho */
+    .results-board {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+    /* 4. Cabecera del tablero: Título y Tabs uno arriba del otro */
+    .board__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .board__tabs {
+        width: 100%;
+        display: flex;
+    }
+
+    .tab {
+        flex: 1; /* Los botones de Individual/Equipos ocupan todo el ancho */
+        text-align: center;
+        padding: 10px 5px;
+        font-size: 0.7rem;
+    }
+
+    /* 5. Tabla: Permitir scroll lateral si los datos no caben */
+    .table-container {
+        margin-top: 20px;
+        overflow-x: auto; /* Habilita el scroll horizontal */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nextrun-table {
+        min-width: 600px; /* Obliga a la tabla a no encogerse demasiado */
+    }
+
+    /* 6. Chips de filtros: Asegurar que se pueda hacer scroll lateral */
+    .chips-scroll {
+        justify-content: flex-start; /* En móvil alineamos a la izquierda */
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
