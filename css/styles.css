@@ -21,6 +21,10 @@
   --header-h: 76px;
 }
 
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 /* ESTILOS GLOBALES */
 
 html,
@@ -2725,6 +2729,11 @@ body {
   .search-bar input {
     width: 80%;
   }
+
+  .main-content, .sidebar-profile {
+    min-width: 0; /* Evita que los flex items se nieguen a encoger */
+    overflow-x: hidden; /* Corta cualquier posible desborde de gráficos */
+  }
 }
 
 /* Responsive */
@@ -2752,4 +2761,77 @@ body {
   }
 }
 
+/* --- RESPONSIVE ESPECÍFICO: MIS MARCAS (DASHBOARD) --- */
 
+/* Tablet y Pantallas Medianas (menos de 1100px) */
+@media (max-width: 1100px) {
+  
+  /* 1. Cambiamos el layout principal a columna */
+  .dashboard-wrapper {
+    flex-direction: column;
+  }
+
+  /* 2. El contenido principal ahora ocupa todo el ancho */
+  .main-content {
+    max-width: 100%;
+    padding: 30px 20px; /* Reducimos un poco el padding lateral */
+  }
+
+  /* 3. La barra lateral pasa abajo y ocupa todo el ancho */
+  .sidebar-profile {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil de separación arriba */
+    padding: 40px 20px;
+  }
+
+  /* 4. Convertimos todos los grids de 2 columnas a 1 sola */
+  .today-grid,
+  .challenges-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* 5. La fila de gráficos (que usa Flexbox) pasa a columna */
+  .stats-activity-row {
+    flex-direction: column;
+  }
+
+  /* 6. Ajuste para que las tarjetas de esa fila ocupen el 100% */
+  .compact-card {
+    width: 100%;
+  }
+
+  /* 7. Mantenemos el donut y la lista lado a lado en tablets para aprovechar espacio */
+  .activity-split-compact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+/* Móviles Pequeños (menos de 600px) */
+@media (max-width: 600px) {
+  
+  /* 1. Apilamos el donut y la lista de actividad uno encima del otro */
+  .activity-split-compact {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+
+  /* 2. Centramos los iconos y textos de la lista */
+  .activity-info-compact li {
+    justify-content: center;
+  }
+  
+  /* 3. Ajuste de márgenes para la Hero Card */
+  .hero-card {
+    padding: 20px;
+  }
+  
+  .hero-value {
+    font-size: 2.8rem; /* Reducimos un poco el tamaño de la fuente gigante */
+  }
+}
