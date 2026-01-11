@@ -811,6 +811,7 @@ $(document).ready(function () {
   }
 });
 
+// SECCIÓN EVENTOS - RESULTADOS CORREDORES
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Script cargado correctamente");
 
@@ -925,3 +926,5 @@ document.addEventListener("DOMContentLoaded", () => {
   // Carga inicial
   render(runnersData);
 });
+
+// SECCIÓN EVENTOS

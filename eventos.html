@@ -100,9 +100,102 @@
         </div>
       </section>
 
+      <section class="events-list" aria-labelledby="eventsTitle">
+        <div class="events__wrap">
+          <header class="events-head">
+            <h2
+              class="welcome__title"
+              style="text-align: center; margin: 3rem 0"
+            >
+              EVENTOS
+            </h2>
+            <p class="events-subtitle" id="eventsCount" aria-live="polite"></p>
+          </header>
+
+          <div
+            class="events-grid"
+            id="eventsGrid"
+            aria-label="Listado de eventos"
+          >
+            <!-- JS inyecta cards aquí -->
+          </div>
+
+          <p class="events-empty" id="eventsEmpty" hidden>
+            No hay eventos con esos filtros.
+          </p>
+        </div>
+      </section>
+      <!-- 2) MODAL DETALLES     -->
+      <!-- ===================== -->
+
+      <dialog
+        class="event-modal"
+        id="eventModal"
+        aria-labelledby="eventModalTitle"
+      >
+        <div class="event-modal__inner">
+          <button
+            class="event-modal__close"
+            type="button"
+            id="closeEventModal"
+            aria-label="Cerrar"
+          >
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+
+          <div class="event-modal__media" aria-hidden="true">
+            <!-- Puedes meter imagen / mapa / placeholder -->
+            <div class="event-modal__media-box"></div>
+          </div>
+
+          <div class="event-modal__content">
+            <h2 id="eventModalTitle" class="event-modal__title">
+              Título evento
+            </h2>
+
+            <p class="event-modal__meta" id="eventModalMeta">
+              <!-- JS: fecha + ciudad -->
+            </p>
+
+            <div class="event-modal__details" id="eventModalDetails">
+              <!-- JS: distancia, desnivel, avituallamiento, etc. -->
+            </div>
+
+            <div class="event-modal__price">
+              <span class="event-modal__price-label">Precio</span>
+              <strong class="event-modal__price-value" id="eventModalPrice"
+                >—</strong
+              >
+            </div>
+
+            <button class="event-modal__cta" id="eventSignupBtn" type="button">
+              Inscribirse
+            </button>
+          </div>
+        </div>
+      </dialog>
+
+      <!-- Toast/Mensaje inscripción -->
+      <div
+        class="signup-toast"
+        id="signupToast"
+        role="status"
+        aria-live="polite"
+        hidden
+      >
+        <p class="signup-toast__title">
+          ¡Inscripción completada correctamente!
+        </p>
+        <p class="signup-toast__text">
+          En unos momentos te redirigiremos a la home principal.<br />
+          ¡Gracias por confiar en nosotros!
+        </p>
+      </div>
+
+      <!-- 3) RESULTADOS     -->
       <div class="results__wrap">
         <h2 class="welcome__title" style="text-align: center; margin: 3rem 0">
-          RESULTADOS 2025
+          RESULTADOS
         </h2>
 
         <section class="results-board">
