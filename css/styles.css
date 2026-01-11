@@ -1020,6 +1020,7 @@ body {
   background: var(--color-primary);
   color: var(--font-primary);
 }
+
 /* =========================
 ACTIVIDAD RECIENTE (FEED VIVO)
 ========================= */
@@ -3302,3 +3303,206 @@ ACTIVIDAD RECIENTE (FEED VIVO)
     align-items: center;
   }
 }
+
+
+
+
+
+
+
+
+
+
+/* Cambios Ale */
+
+/* ==========================================================================
+   OPTIMIZACIÓN SECCIÓN BIENVENIDA (MODO LIGHT PREMIUM)
+   ========================================================================== */
+
+.welcome {
+  width: min(1500px, calc(100% - 2rem));
+  margin: 4rem auto; /* Más espacio arriba y abajo */
+  padding: 2rem 1rem;
+}
+
+.welcome__wrap {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Equilibrio de masas visuales */
+  gap: 4rem;
+  align-items: center; /* Centrado vertical perfecto */
+}
+
+/* Etiqueta superior decorativa */
+.welcome__tag {
+  display: inline-block;
+  background: var(--accent-soft);
+  color: var(--color-secondary);
+  padding: 6px 16px;
+  border-radius: 99px;
+  font-family: var(--font-metric);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.welcome__title {
+  margin: 0 0 2rem;
+  font-family: var(--font-secondary);
+  font-weight: 800;
+  letter-spacing: -0.02em; /* Tipografía más compacta y moderna */
+  color: var(--color-secondary);
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Título más grande */
+  line-height: 1.1;
+}
+
+.welcome__title strong {
+  color: var(--accent-dark); /* Resaltado en verde lima oscuro para lectura sobre blanco */
+  font-weight: 900;
+}
+
+/* El párrafo único que pediste */
+.welcome__description {
+  font-family: var(--font-primary);
+  font-size: 1.35rem; /* Tamaño de letra aumentado para impacto */
+  line-height: 1.7; /* Interlineado generoso para elegancia */
+  color: var(--text-muted);
+  max-width: 65ch; /* Limita el ancho para que el ojo no se canse al leer */
+  text-align: left;
+}
+
+.welcome__img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.05), 
+              -20px -20px 60px rgba(255, 255, 255, 0.8);
+  transition: var(--transition);
+}
+
+.welcome__img:hover {
+  transform: scale(1.02);
+}
+
+/* ==========================================================================
+   ADAPTACIÓN MÓVIL (ULTRA-RESPONSIVE)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .welcome__wrap {
+    grid-template-columns: 1fr; /* Apilado en tablets y móviles */
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .welcome__description {
+    margin: 0 auto;
+    font-size: 1.2rem; /* Un poco más pequeña en móvil para que no sea gigante */
+  }
+
+  .welcome__media {
+    order: -1; /* La imagen sale primero en móvil para atraer al usuario */
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome {
+    margin: 2rem auto;
+  }
+  
+  .welcome__title {
+    font-size: 2.2rem;
+  }
+}
+
+
+/* ==========================================================================
+   AJUSTE IMAGEN BIENVENIDA (Cuadrado Premium)
+   Pega esto sobre tus estilos actuales de .welcome__media y .welcome__img
+   ========================================================================== */
+
+.welcome__wrap {
+  display: grid;
+  /* Ajustamos ligeramente las columnas para dar más aire al texto */
+  grid-template-columns: 1.2fr 0.8fr; 
+  gap: 4rem;
+  align-items: center;
+}
+
+/* El contenedor define la forma cuadrada y el tamaño máximo */
+.welcome__media {
+  position: relative;
+  width: 100%;
+  max-width: 550px; /* Evita que sea GIGANTE en pantallas muy anchas */
+  aspect-ratio: 1 / 1; /* Fuerza la forma cuadrada exacta */
+  justify-self: center; /* Centra el cuadrado en su columna */
+  border-radius: 30px; /* Esquinas muy redondeadas (estilo "squircle") */
+  /* Sombra suave premium para dar profundidad */
+  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.05), 
+              -20px -20px 60px rgba(255, 255, 255, 0.8);
+}
+
+/* La imagen rellena el cuadrado sin deformarse */
+.welcome__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta la imagen para llenar el cuadrado */
+  border-radius: inherit; /* Hereda las esquinas del contenedor */
+  transition: var(--transition);
+}
+
+/* Efecto hover sutil */
+.welcome__media:hover .welcome__img {
+  transform: scale(1.03);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .welcome__wrap {
+    grid-template-columns: 1fr; /* Apilado en tablets y móviles */
+    text-align: center;
+  }
+
+  .welcome__media {
+    order: -1; /* Imagen arriba en móvil */
+    max-width: 450px; /* Un poco más pequeña en tablet para equilibrio */
+    margin: 0 auto; /* Centrada */
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome__media {
+     max-width: 100%; /* En móviles pequeños, ocupa el ancho disponible */
+  }
+}
+
+
+/* ==========================================================================
+   AJUSTES TIPOGRAFÍA MÓVIL
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .welcome__description {
+    /* Un poco más pequeño que antes (1.2rem -> 1.1rem) */
+    font-size: 1.1rem; 
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome__title {
+    /* Ajuste fino del título para que no ocupe tantas líneas */
+    font-size: 2rem; 
+  }
+  
+  .welcome__description {
+    font-size: 1.05rem; /* El tamaño justo para legibilidad sin saturar */
+    line-height: 1.6;
+  }
+}
+
+
+
+
