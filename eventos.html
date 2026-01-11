@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -74,77 +74,90 @@
       </nav>
     </header>
 
-   <main class="page-results">
-    <section class="results-filters">
+    <main class="page-results">
+      <section class="results-filters">
         <div class="results__wrap">
-            <div class="search-bar">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Buscar carrera, ciudad, día...">
-            </div>
-            
-            <div class="chips-scroll" id="type-filters">
-                <button class="chip is-active">Todos</button>
-                <button class="chip">Media Maratón</button>
-                <button class="chip">Maratón</button>
-                <button class="chip">10K</button>
-                <button class="chip">5K</button>
-                <button class="chip">Cross</button>
-            </div>
+          <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Buscar carrera, ciudad, día..." />
+          </div>
 
-            <div class="chips-scroll" id="city-filters">
-                <button class="chip-city is-active">Madrid</button>
-                <button class="chip-city">Valencia</button>
-                <button class="chip-city">Barcelona</button>
-                <button class="chip-city">Sevilla</button>
-            </div>
+          <div class="chips-scroll" id="type-filters">
+            <button class="chip is-active">Todos</button>
+            <button class="chip">Media Maratón</button>
+            <button class="chip">Maratón</button>
+            <button class="chip">10K</button>
+            <button class="chip">5K</button>
+            <button class="chip">Cross</button>
+          </div>
+
+          <div class="chips-scroll" id="city-filters">
+            <button class="chip-city is-active">Madrid</button>
+            <button class="chip-city">Valencia</button>
+            <button class="chip-city">Barcelona</button>
+            <button class="chip-city">Sevilla</button>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <div class="results__wrap">
-        <h2 class="welcome__title" style="text-align: center; margin: 3rem 0;">Resultados 2025</h2>
+      <div class="results__wrap">
+        <h2 class="welcome__title" style="text-align: center; margin: 3rem 0">
+          Resultados 2025
+        </h2>
 
         <section class="results-board">
-            <div class="board__header">
-                <h3 class="font-secondary" style="font-size: 2rem; color: var(--color-secondary);">Individual</h3>
-                <div class="board__tabs">
-                    <button class="tab is-active">INDIVIDUAL</button>
-                    <button class="tab">EQUIPOS</button>
-                    <button class="tab">RESUMEN</button>
-                </div>
+          <div class="board__header">
+            <h3
+              class="font-secondary"
+              style="font-size: 2rem; color: var(--color-secondary)"
+            >
+              Individual
+            </h3>
+            <div class="board__tabs">
+              <button class="tab is-active">INDIVIDUAL</button>
+              <button class="tab">EQUIPOS</button>
+              <button class="tab">RESUMEN</button>
             </div>
+          </div>
 
-            <p style="color: var(--color-neutral-medium); margin-top: 10px;">General</p>
+          <p style="color: var(--color-neutral-medium); margin-top: 10px">
+            General
+          </p>
 
-            <div class="board__mini-filters">
-                <span class="mini-chip"><i class="fa-solid fa-users"></i> General 20918</span>
-                <span class="mini-chip"><i class="fa-solid fa-venus-mars"></i> Género 2</span>
-                <span class="mini-chip"><i class="fa-solid fa-calendar"></i> Categoría 25</span>
-            </div>
+          <div class="board__mini-filters">
+            <span class="mini-chip"
+              ><i class="fa-solid fa-users"></i> General 20918</span
+            >
+            <span class="mini-chip"
+              ><i class="fa-solid fa-venus-mars"></i> Género 2</span
+            >
+            <span class="mini-chip"
+              ><i class="fa-solid fa-calendar"></i> Categoría 25</span
+            >
+          </div>
 
-            <div class="podium-grid" id="podium-container">
-                </div>
+          <div class="podium-grid" id="podium-container"></div>
 
-            <div class="table-container">
-                <table class="nextrun-table">
-                    <thead>
-                        <tr>
-                            <th>Posición</th>
-                            <th>Dorsal</th>
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                            <th>Tiempo</th>
-                            <th>Neto</th>
-                            <th>Nacionalidad</th>
-                            <th>Club</th>
-                        </tr>
-                    </thead>
-                    <tbody id="runners-table-body">
-                        </tbody>
-                </table>
-            </div>
+          <div class="table-container">
+            <table class="nextrun-table">
+              <thead>
+                <tr>
+                  <th>Posición</th>
+                  <th>Dorsal</th>
+                  <th>Nombre</th>
+                  <th>Apellidos</th>
+                  <th>Tiempo</th>
+                  <th>Neto</th>
+                  <th>Nacionalidad</th>
+                  <th>Club</th>
+                </tr>
+              </thead>
+              <tbody id="runners-table-body"></tbody>
+            </table>
+          </div>
         </section>
-    </div>
-</main>
+      </div>
+    </main>
 
     <!-- FOOTER -->
 

@@ -3,7 +3,7 @@
 :root {
   /* Tipografías */
   --font-primary: "Inter", sans-serif;
-  --font-secondary: "BBH Bartle", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
   --font-metric: "Space Grotesk", sans-serif;
   /* Pesos */
   --fw-light: 300;
@@ -1105,8 +1105,6 @@ body {
   color: var(--primary);
 }
 
-
-
 .dashboard-wrapper {
   display: flex;
   min-height: 100vh;
@@ -1303,8 +1301,6 @@ body {
   border-radius: 4px;
   font-weight: bold;
 }
-
-
 
 /* Layout Maestro */
 .dashboard-wrapper {
@@ -1512,8 +1508,6 @@ body {
   gap: 5px;
   margin-top: 15px;
 }
-
-
 
 /* Layout Maestro */
 .dashboard-wrapper {
@@ -1856,8 +1850,6 @@ body {
   margin-top: 15px;
 }
 
-
-
 /* --- Estilo del Botón Editar Perfil --- */
 
 /* Aseguramos que el contenedor centra el contenido */
@@ -2120,8 +2112,6 @@ body {
   grid-template-columns: repeat(7, 1fr);
 }
 
-
-
 /* EVENTOS */
 
 /*MAIN*/
@@ -2219,8 +2209,6 @@ body {
   color: var(--color-secondary);
   transition: 0.3s;
 }
-
-
 
 /* EL TABLERO (BOARD) */
 .results-board {
@@ -2809,4 +2797,3 @@ body {
     width: 80%;
   }
 }
-
