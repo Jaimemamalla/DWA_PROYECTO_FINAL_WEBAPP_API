@@ -296,7 +296,6 @@ $(document).ready(function () {
   let runners = [];
   let activeFilter = "all";
 
-  // ====== FOLLOW STATE (localStorage) ======
   const FOLLOW_KEY = "nextrun_following";
   const getFollowing = () =>
     new Set(JSON.parse(localStorage.getItem(FOLLOW_KEY) || "[]"));
@@ -475,10 +474,8 @@ $(document).ready(function () {
       }
     };
   }
-  // ============================================================
-  // ACTIVIDAD RECIENTE (feed vivo)
-  // Usa los mismos runners ya cargados y crea actividades fake
-  // ============================================================
+
+  // / SECCIÓN CORREDORES- actividad reciente
 
   const activityViewport = document.getElementById("activityViewport");
   const activityList = document.getElementById("activityList");
@@ -568,7 +565,6 @@ $(document).ready(function () {
   function startActivityTicker() {
     if (!activityViewport || !activityList) return;
 
-    // Limpia clones previos
     activityList.classList.remove("is-animated");
     activityList.style.removeProperty("--ticker-shift");
     activityList.style.removeProperty("--ticker-duration");
@@ -577,7 +573,6 @@ $(document).ready(function () {
     const items = Array.from(activityList.children);
     if (items.length < 5) return;
 
-    // Duplicar para loop
     items.forEach((node) => {
       const clone = node.cloneNode(true);
       clone.setAttribute("data-dup", "true");
@@ -585,16 +580,13 @@ $(document).ready(function () {
       activityList.appendChild(clone);
     });
 
-    // Medimos altura del primer set
-    const gap = 12; // coincide con CSS
+    const gap = 12;
     const firstSetHeight =
       items.reduce((acc, el) => acc + el.offsetHeight, 0) +
       (items.length - 1) * gap;
 
-    // Si no hay suficiente para scrollear, no animar
     if (firstSetHeight <= activityViewport.clientHeight + 40) return;
 
-    // Velocidad
     const pxPerSecond = 38;
     const duration = Math.max(12, Math.round(firstSetHeight / pxPerSecond));
 
@@ -604,13 +596,10 @@ $(document).ready(function () {
   }
 
   function initActivityFeed() {
-    // Si no existe el bloque en HTML, no hacemos nada
     if (!activityList || !activityViewport) return;
 
-    // Si runners aún no están, no hacemos nada
     if (!runners.length) return;
 
-    // Creamos 14–18 actividades usando runners random
     const n = 16;
     const activities = Array.from({ length: n }, () =>
       makeActivity(pick(runners))
@@ -618,10 +607,8 @@ $(document).ready(function () {
 
     renderActivity(activities);
 
-    // Espera un frame para que el DOM mida alturas bien
     requestAnimationFrame(() => startActivityTicker());
 
-    // Opcional: cada 6s mete una actividad nueva arriba (se siente "vivo")
     window.clearInterval(window.__nextrunActivityInterval);
     window.__nextrunActivityInterval = window.setInterval(() => {
       const newOne = makeActivity(pick(runners));
@@ -629,17 +616,15 @@ $(document).ready(function () {
         activityList.querySelectorAll(".activity-item")
       )
         .slice(0, n - 1)
-        .map((el) => el); // solo para limitar
+        .map((el) => el);
 
-      // Re-render rápido (simple)
-      // (reconstruimos una lista nueva combinando el nuevo + los primeros 15)
       const temp = [
         newOne,
         ...Array.from({ length: n - 1 }, () => makeActivity(pick(runners))),
       ];
       renderActivity(temp);
       requestAnimationFrame(() => startActivityTicker());
-    }, 6000);
+    }, 10000);
   }
 
   searchInput?.addEventListener("input", render);
