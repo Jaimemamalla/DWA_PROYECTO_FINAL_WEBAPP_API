@@ -277,7 +277,7 @@ $(document).ready(function () {
   validate();
 })();
 
-// SECCIOÓN CORREDORES
+// SECCIÓN CORREDORES
 (() => {
   const isRunnersPage = (location.pathname || "")
     .toLowerCase()
@@ -295,6 +295,13 @@ $(document).ready(function () {
 
   let runners = [];
   let activeFilter = "all";
+
+  // ====== FOLLOW STATE (localStorage) ======
+  const FOLLOW_KEY = "nextrun_following";
+  const getFollowing = () =>
+    new Set(JSON.parse(localStorage.getItem(FOLLOW_KEY) || "[]"));
+  const saveFollowing = (set) =>
+    localStorage.setItem(FOLLOW_KEY, JSON.stringify([...set]));
 
   const esc = (s) =>
     String(s ?? "")
@@ -389,6 +396,7 @@ $(document).ready(function () {
 
   function render() {
     const filtered = applyFilters(runners);
+    const following = getFollowing();
 
     if (!filtered.length) {
       grid.innerHTML = `<p style="opacity:.75">Sin resultados con esos filtros.</p>`;
@@ -396,47 +404,75 @@ $(document).ready(function () {
     }
 
     grid.innerHTML = filtered
-      .map(
-        (r) => `
-         <article class="runner-card">
-           <div class="runner-card__top"></div>
-           <div class="runner-card__body">
-             <img class="runner-avatar" src="${esc(
-               r.avatar
-             )}" alt="Foto de ${esc(r.name)}" loading="lazy" />
-             <h3 class="runner-name">${esc(r.name)}</h3>
-             <p class="runner-handle">${esc(r.username)}</p>
+      .map((r) => {
+        const isFollowing = following.has(r.id);
+        return `
+          <article class="runner-card" data-runner-card="${esc(r.id)}">
+            <button
+              class="runner-follow ${isFollowing ? "is-following" : ""}"
+              type="button"
+              data-follow-id="${esc(r.id)}"
+              aria-pressed="${isFollowing ? "true" : "false"}"
+            >
+              ${isFollowing ? "✓" : "Seguir"}
+            </button>
 
+            <div class="runner-card__top"></div>
 
-             <div class="runner-stats">
-               <span><i class="fa-solid fa-person-running" aria-hidden="true"></i> ${
-                 r.km
-               }k</span>
-               <span><i class="fa-solid fa-trophy" aria-hidden="true"></i> ${
-                 r.trophies
-               }</span>
-             </div>
+            <div class="runner-card__body">
+              <img class="runner-avatar" src="${esc(
+                r.avatar
+              )}" alt="Foto de ${esc(r.name)}" loading="lazy" />
+              <h3 class="runner-name">${esc(r.name)}</h3>
+              <p class="runner-handle">${esc(r.username)}</p>
 
+              <div class="runner-stats">
+                <span><i class="fa-solid fa-person-running" aria-hidden="true"></i> ${
+                  r.km
+                }k</span>
+                <span><i class="fa-solid fa-trophy" aria-hidden="true"></i> ${
+                  r.trophies
+                }</span>
+              </div>
 
-             <button class="runner-btn" type="button" data-runner-id="${esc(
-               r.id
-             )}">Ver perfil</button>
-           </div>
-         </article>
-       `
-      )
+              <button class="runner-btn" type="button" data-runner-id="${esc(
+                r.id
+              )}">Ver perfil</button>
+            </div>
+          </article>
+        `;
+      })
       .join("");
 
-    grid.querySelectorAll("[data-runner-id]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const id = btn.getAttribute("data-runner-id");
+    grid.onclick = (e) => {
+      const followBtn = e.target.closest("[data-follow-id]");
+      if (followBtn) {
+        const id = followBtn.getAttribute("data-follow-id");
+        if (!id) return;
+
+        const set = getFollowing();
+        if (set.has(id)) set.delete(id);
+        else set.add(id);
+
+        saveFollowing(set);
+
+        const nowFollowing = set.has(id);
+        followBtn.classList.toggle("is-following", nowFollowing);
+        followBtn.textContent = nowFollowing ? "✓" : "Seguir";
+        followBtn.setAttribute("aria-pressed", nowFollowing ? "true" : "false");
+        return;
+      }
+
+      const profileBtn = e.target.closest("[data-runner-id]");
+      if (profileBtn) {
+        const id = profileBtn.getAttribute("data-runner-id");
         const runner = runners.find((x) => x.id === id);
         if (!runner) return;
 
         localStorage.setItem("nextrun_selected_runner", JSON.stringify(runner));
         window.location.href = "perfil.html";
-      });
-    });
+      }
+    };
   }
 
   searchInput?.addEventListener("input", render);
