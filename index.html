@@ -77,40 +77,33 @@
     <!-- MAIN CONTENT -->
 
     <main>
-      <!-- HERO VÍDEO -->
-
       <section class="hero" aria-label="Hero con vídeo">
-        <video
-          class="hero__video"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="auto"
-        >
-          <source
-            src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_Video.mp4"
-            type="video/mp4"
-          />
-          <p class="video-fallback">
-            Tu navegador no es compatible con vídeo HTML5.
-            <a href="https://ik.imagekit.io/TU_ID/ruta/hero.mp4" download
-              >Descargar vídeo</a
-            >
-          </p>
-        </video>
-        <div class="video-fallback-overlay" id="videoFallback" hidden>
-          <p>
-            No se ha podido cargar el vídeo en este dispositivo.
-            <a
-              href="https://ik.imagekit.io/TU_ID/ruta/hero.mp4"
-              target="_blank"
-              rel="noopener"
-              >Abrir vídeo</a
-            >
-          </p>
-        </div>
-      </section>
+  <video class="hero__video" autoplay muted loop playsinline preload="auto">
+    <source src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_Video.mp4" type="video/mp4" />
+    <p class="video-fallback">
+      Tu navegador no es compatible con vídeo HTML5.
+      <a href="https://ik.imagekit.io/TU_ID/ruta/hero.mp4" download>Descargar vídeo</a>
+    </p>
+  </video>
+
+  <div class="hero__overlay">
+    <div class="hero__content">
+      <h1 class="hero__title">SUPERA TUS <span class="accent-text">LÍMITES</span></h1>
+      <p class="hero__paragraph">Únete a la comunidad de corredores más grande y alcanza tu mejor versión hoy mismo.</p>
+    </div>
+
+    <a href="#welcome-section" class="hero__scroll-down" aria-label="Bajar">
+      <i class="fa-solid fa-chevron-down"></i>
+    </a>
+  </div>
+
+  <div class="video-fallback-overlay" id="videoFallback" hidden>
+    <p>
+      No se ha podido cargar el vídeo en este dispositivo.
+      <a href="https://ik.imagekit.io/TU_ID/ruta/hero.mp4" target="_blank" rel="noopener">Abrir vídeo</a>
+    </p>
+  </div>
+</section>
 
       <!-- SECCIÓN WELCOME -->
 
@@ -472,75 +465,51 @@
       <!-- SECCIÓN DESCARGA APP -->
 
       <section class="app-download" aria-labelledby="appDownloadTitle">
-        <div class="app-download__wrap">
-          <h2 id="appDownloadTitle" class="app-download__title">
-            DESCARGA NUESTRA <strong>APP</strong>
-          </h2>
+  <div class="app-download__wrap grid-showcase">
+    
+    <div class="app-media-container">
+      <figure class="app-mockup">
+        <img
+          src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_Mockup.png"
+          alt="App NextRun"
+          loading="lazy"
+        />
+      </figure>
+    </div>
 
-          <div class="app-download__row">
-            <figure
-              class="app-download__mockup"
-              aria-label="Vista previa de la aplicación"
-            >
-              <img
-                class="app-download__mockup-img"
-                src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_Mockup.png"
-                alt="Vista previa de la app NextRun"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
+    <div class="app-content">
+      <header class="app-header">
+        <span class="welcome__tag">Lleva NextRun contigo</span>
+        <h2 id="appDownloadTitle" class="welcome__title">
+          TU ENTRENADOR <strong>DE BOLSILLO</strong>
+        </h2>
+      </header>
 
-            <div class="app-download__stores" aria-label="Descarga en tiendas">
-              <a
-                class="store-badge"
-                href="https://play.google.com/store/games?hl=es"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Descargar en Google Play"
-              >
-                <img
-                  class="store-badge__img"
-                  src="https://ik.imagekit.io/aitoroa/WEBAPP/Google%20Play.png"
-                  alt="Disponible en Google Play"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
+      <div class="app-description">
+        <p>Desbloquea todo el potencial de NextRun desde tu móvil. Sincroniza tus dispositivos, accede a métricas avanzadas y supera tus metas.</p>
+        
+        <ul class="app-features-list">
+          <li><i class="fa-solid fa-circle-check"></i> Seguimiento GPS en vivo</li>
+          <li><i class="fa-solid fa-circle-check"></i> Análisis biométrico avanzado</li>
+        </ul>
+      </div>
 
-              <a
-                class="store-badge"
-                href="https://www.apple.com/es/app-store/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Descargar en App Store"
-              >
-                <img
-                  class="store-badge__img"
-                  src="https://ik.imagekit.io/aitoroa/WEBAPP/Apple%20Store.png"
-                  alt="Disponible en App Store"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-            </div>
-
-            <div
-              class="app-download__qr"
-              aria-label="Código QR para descargar la app"
-            >
-              <img
-                class="app-download__qr-img"
-                src="https://ik.imagekit.io/aitoroa/WEBAPP/QR.png"
-                alt="Código QR de descarga"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
+      <div class="app-actions-block">
+        <div class="app-stores-column">
+          <a class="store-btn" href="#"><img src="https://ik.imagekit.io/aitoroa/WEBAPP/Google%20Play.png" alt="Google Play"></a>
+          <a class="store-btn" href="#"><img src="https://ik.imagekit.io/aitoroa/WEBAPP/Apple%20Store.png" alt="App Store"></a>
         </div>
-      </section>
-    </main>
+        <div class="app-qr-column">
+          <div class="qr-frame"><img src="https://ik.imagekit.io/aitoroa/WEBAPP/QR.png" alt="QR"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    </div> </div>
+</section>
 
     <!-- FOOTER -->
 

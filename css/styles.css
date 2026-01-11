@@ -4157,3 +4157,702 @@ main {
   .nav-btn.prev { left: 10px; }
   .nav-btn.next { right: 10px; }
 }
+
+/* ==========================================================================
+   SECCIÓN APP SHOWCASE (DISEÑO PREMIUM EQUILIBRADO)
+   ========================================================================== */
+
+.app-download {
+  padding: 6rem 0;
+  /* Un fondo sutil diferente para separar visualmente la sección */
+  background: linear-gradient(to bottom, #ffffff, #f8fafc);
+  overflow: hidden; /* Evita que elementos decorativos se salgan */
+}
+
+/* El layout principal de 2 columnas */
+.grid-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50% / 50% */
+  gap: 5rem; /* Espacio generoso entre móvil y texto */
+  align-items: center;
+}
+
+/* --- COLUMNA IZQUIERDA: MEDIA (EL MÓVIL) --- */
+.app-media-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* Altura máxima controlada para que no sea gigante */
+  height: 650px; 
+}
+
+/* Fondo decorativo (blob) detrás del móvil */
+.app-blob-bg {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%; height: 100%;
+  background: radial-gradient(circle, var(--accent-soft) 0%, rgba(255,255,255,0) 70%);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.app-mockup {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* LA CLAVE DE LA IMAGEN: object-fit contain */
+.app-mockup img {
+  height: 100%; /* Fuerza a la imagen a respetar la altura del contenedor de 650px */
+  width: auto;
+  max-width: 100%;
+  /* 'contain' asegura que se vea el móvil entero sin recortarse, 
+     pero centrando la imagen y eliminando el exceso de aire si el contenedor es más pequeño */
+  object-fit: contain; 
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.15)); /* Sombra realista para el móvil */
+}
+
+/* --- COLUMNA DERECHA: CONTENIDO --- */
+.app-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Descripción y lista de características */
+.app-description p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.app-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.app-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.app-features-list i {
+  color: var(--accent); /* Iconos de check en verde lima */
+  font-size: 1.3rem;
+}
+
+/* --- BLOQUE DE ACCIONES (BOTONES + QR) --- */
+.app-actions-block {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee; /* Línea separadora sutil */
+}
+
+.app-stores-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.store-btn img {
+  height: 50px; /* Altura estandarizada para los botones */
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.store-btn:hover img {
+  transform: translateY(-3px);
+}
+
+/* QR con marco */
+.app-qr-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.qr-frame {
+  background: #fff;
+  padding: 10px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.qr-frame img {
+  width: 120px;
+  height: 120px;
+  display: block;
+}
+
+/* ==========================================================================
+   RESPONSIVE (ADAPTACIÓN MÓVIL)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .grid-showcase {
+    grid-template-columns: 1fr; /* Apilado en una columna */
+    gap: 3rem;
+    text-align: center;
+  }
+
+  /* En tablet/móvil, la imagen va arriba */
+  .app-media-container {
+    order: -1; 
+    height: 500px; /* Un poco más pequeño en tablets */
+  }
+  
+  /* Centramos las listas y contenidos */
+  .app-features-list {
+    align-items: center;
+  }
+
+  .app-actions-block {
+    flex-direction: column; /* Botones arriba, QR abajo en móvil */
+    gap: 2rem;
+  }
+  
+  .app-stores-column {
+    flex-direction: row; /* Botones en horizontal en móvil */
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-media-container {
+    height: 400px; /* Móvil pequeño */
+  }
+  
+  .store-btn img {
+    height: 42px; /* Botones un pelín más pequeños */
+  }
+}
+
+
+
+
+/* ==========================================================================
+   AJUSTE DE RECORTE DE IMAGEN APP
+   Sustituye estos bloques en tu CSS actual
+   ========================================================================== */
+
+/* --- COLUMNA IZQUIERDA: MEDIA (EL MÓVIL) --- */
+.app-media-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* Reducimos un poco la altura para hacer el marco más "cuadrado" (antes 650px) */
+  height: 580px; 
+  width: 100%;
+  /* Opcional: Para forzar una forma más cuadrada en escritorio si lo prefieres */
+  /* aspect-ratio: 4 / 5; */ 
+  overflow: hidden; /* Asegura que lo recortado no se vea */
+  border-radius: 30px; /* Un toque extra de acabado premium en el contenedor */
+}
+
+/* ... (mantén el .app-blob-bg igual) ... */
+
+.app-mockup {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centrado vertical */
+}
+
+/* LA MAGIA DEL RECORTE: object-fit: cover */
+.app-mockup img {
+  width: 100%;
+  height: 100%;
+  /* 'cover' hace zoom para llenar el contenedor, recortando el exceso de arriba y abajo */
+  object-fit: cover;
+  /* Asegura que el centro del móvil sea el foco */
+  object-position: center center; 
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.15));
+}
+
+/* --- AJUSTE RESPONSIVE --- */
+@media (max-width: 1024px) {
+  /* En tablet/móvil ajustamos la altura para que no sea tan alta */
+  .app-media-container {
+    order: -1; 
+    height: 500px; 
+    max-width: 500px; /* Limitamos el ancho para que no se desmadre en tablets */
+    margin: 0 auto; /* Centrado */
+  }
+}
+
+@media (max-width: 600px) {
+  .app-media-container {
+    height: 450px; /* Altura óptima para móviles */
+  }
+}
+
+
+/* ==========================================================================
+   CORRECCIÓN SECCIÓN APP (IMAGEN REDONDEADA Y MARGENES MÓVIL)
+   ========================================================================== */
+
+.app-download {
+  padding: 5rem 0;
+  background-color: #ffffff; /* Blanco puro, sin bloques grises */
+}
+
+/* Contenedor de la imagen sin fondo */
+.app-media-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Dejamos que la imagen dicte el alto */
+  background: transparent !important; /* Eliminamos cualquier rastro de gris */
+}
+
+.app-mockup {
+  width: 100%;
+  max-width: 450px; /* Tamaño controlado para que no se vea gigante */
+}
+
+/* IMAGEN CON BORDES REDONDEADOS */
+.app-mockup img {
+  width: 100%;
+  height: auto;
+  border-radius: 40px; /* Bordes redondeados solicitados */
+  object-fit: cover;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
+}
+
+/* --- CORRECCIÓN DE MÁRGENES MÓVIL (SIMETRÍA TOTAL) --- */
+@media (max-width: 1024px) {
+  .app-download__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1.5rem !important; /* Forzamos márgenes laterales iguales */
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .app-content {
+    width: 100%;
+    max-width: 500px; /* Evita que el texto se estire demasiado */
+    padding: 0;
+    margin: 0 auto; /* Centrado absoluto */
+  }
+
+  .app-media-container {
+    order: -1; /* Imagen arriba */
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  /* Ajuste de los botones para que no se peguen a un lado */
+  .app-actions-block {
+    justify-content: center;
+    width: 100%;
+    gap: 1.5rem;
+    padding-right: 0 !important; /* Quitamos posibles paddings heredados */
+    margin-left: 0 !important;
+  }
+
+  .app-stores-column {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* Solución global para el cuerpo desequilibrado en móvil */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden; /* Evita el scroll lateral si algo sobresale */
+  }
+  
+  /* Aseguramos que el envoltorio principal no tenga márgenes asimétricos */
+  .grid-showcase {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+}
+
+
+
+/* ==========================================================================
+   SECCIÓN APP: RECORTE CUADRADO Y FIX MÓVIL
+   ========================================================================== */
+
+.app-download {
+  padding: 4rem 0; /* Espacio equilibrado */
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* Layout Desktop */
+.grid-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* CONTENEDOR DE IMAGEN CUADRADO */
+.app-media-container {
+  width: 100%;
+  max-width: 550px;
+  aspect-ratio: 1 / 1; /* FORZAMOS FORMA CUADRADA */
+  margin: 0 auto;
+  border-radius: 40px; /* Bordes redondeados */
+  overflow: hidden;
+  background: transparent !important; /* Fuera bloque gris */
+}
+
+.app-mockup {
+  width: 100%;
+  height: 100%;
+}
+
+.app-mockup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta arriba y abajo para rellenar el cuadrado */
+  object-position: center top; /* Prioriza ver la parte superior del móvil */
+  border-radius: 40px;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.08));
+}
+
+/* CONTENIDO TEXTO */
+.app-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* --- ADAPTACIÓN MÓVIL (CORRECCIÓN HUECO Y TAMAÑO) --- */
+@media (max-width: 1024px) {
+  .app-download {
+    padding: 1.5rem 0 3rem; /* REDUCIMOS PADDING TOP PARA QUITAR EL HUECO GIGANTE */
+  }
+
+  .grid-showcase {
+    grid-template-columns: 1fr; /* Una columna */
+    gap: 2rem;
+    text-align: center;
+  }
+
+  /* IMAGEN GRANDE EN MÓVIL */
+  .app-media-container {
+    order: -1; /* La foto siempre arriba */
+    width: 90%; /* OCUPA CASI TODO EL ANCHO DEL MÓVIL */
+    max-width: 400px;
+    margin-bottom: 1rem;
+  }
+
+  /* FIX MÁRGENES ASIMÉTRICOS (CENTRADO TOTAL) */
+  .app-download__wrap {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    margin: 0 auto !important;
+  }
+
+  .app-features-list {
+    align-items: center;
+    padding: 0;
+  }
+
+  .app-actions-block {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    border-top: none;
+    padding-top: 1rem;
+  }
+
+  .app-stores-column {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+/* Ajuste fino para evitar que el texto "baile" a la derecha */
+@media (max-width: 480px) {
+  .app-download__wrap {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .welcome__title {
+    font-size: 1.8rem;
+  }
+}
+
+/* ==========================================================================
+   FIX DEFINITIVO: APP SHOWCASE (MÓVIL SIN HUECOS)
+   ========================================================================== */
+
+/* 1. Reducimos el espacio al final del registro para acercar la siguiente sección */
+.signup {
+  padding-bottom: 2rem; /* Antes era mucho mayor */
+}
+
+.app-download {
+  padding: 3rem 0;
+  background: #ffffff;
+}
+
+/* Contenedor de la imagen (Desktop) */
+.app-media-container {
+  width: 100%;
+  max-width: 550px;
+  aspect-ratio: 1 / 1; /* Forma cuadrada */
+  margin: 0 auto;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.app-mockup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 40px;
+}
+
+/* ==========================================================================
+   ADAPTACIÓN MÓVIL (CORRECCIÓN SEGÚN CAPTURA 19.22.10)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* ELIMINAR EL HUECO GIGANTE */
+  .signup {
+    padding-bottom: 0.5rem !important; /* Casi pegamos el final del registro */
+  }
+
+  .app-download {
+    padding-top: 0 !important; /* Quitamos el espacio superior de la descarga */
+    margin-top: -1rem; /* Ajuste fino para succionar el contenido hacia arriba */
+  }
+
+  .grid-showcase {
+    gap: 1.5rem; /* Menos espacio entre la foto y el texto */
+  }
+
+  /* IMAGEN GIGANTE EN MÓVIL (Borde a borde) */
+  .app-media-container {
+    order: -1; 
+    width: 100% !important; /* Ocupa todo el ancho del contenedor */
+    max-width: 100% !important; /* Eliminamos cualquier restricción de tamaño */
+    aspect-ratio: 1 / 1; /* Mantenemos el recorte cuadrado */
+    border-radius: 20px; /* Bordes un poco menos agresivos en móvil */
+  }
+
+  .app-mockup img {
+    border-radius: 20px;
+  }
+
+  /* REPARAR MÁRGENES ASIMÉTRICOS */
+  .app-download__wrap {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .app-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Centrado de los iconos de descarga */
+  .app-actions-block {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .app-stores-column {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+
+
+/* ==========================================================================
+   AJUSTE FINAL DE EQUILIBRIO (MÓVIL)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* 1. Damos un poco de aire al final del registro */
+  .signup {
+    padding-bottom: 3rem !important; /* Espacio suficiente pero no excesivo */
+  }
+
+  /* 2. Recuperamos un padding superior decente para la descarga */
+  .app-download {
+    padding-top: 2rem !important; 
+    margin-top: 0 !important; /* ELIMINAMOS el margin negativo que pegaba todo */
+  }
+
+  .grid-showcase {
+    gap: 2.5rem; /* Espacio equilibrado entre la foto cuadrada y el texto */
+  }
+
+  /* 3. La imagen sigue siendo protagonista y cuadrada */
+  .app-media-container {
+    order: -1; 
+    width: 100% !important; 
+    max-width: 100% !important; 
+    aspect-ratio: 1 / 1; 
+    border-radius: 30px; /* Bordes redondeados consistentes */
+  }
+
+  .app-mockup img {
+    border-radius: 30px;
+    object-fit: cover;
+  }
+
+  /* 4. Simetría de márgenes laterales */
+  .app-download__wrap {
+    padding-left: 6% !important;
+    padding-right: 6% !important;
+  }
+
+  /* Centrado de contenidos */
+  .app-content {
+    text-align: center;
+  }
+}
+
+
+
+/* ==========================================================================
+   HERO OVERLAY (TEXTO Y FLECHA)
+   ========================================================================== */
+
+.hero {
+  position: relative; /* Necesario para posicionar el contenido encima */
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.35); /* Capa oscura para leer mejor el texto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el texto verticalmente */
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  color: #ffffff;
+}
+
+.hero__title {
+  font-family: var(--font-secondary);
+  font-weight: 900;
+  font-size: clamp(2.5rem, 8vw, 5rem); /* Grande y responsive */
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  line-height: 0.9;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.hero__title .accent-text {
+  color: var(--accent); /* Tu verde lima */
+}
+
+.hero__paragraph {
+  font-family: var(--font-primary);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  max-width: 600px;
+  opacity: 0.9;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* --- FLECHA INDICADORA ANIMADA --- */
+.hero__scroll-down {
+  position: absolute;
+  bottom: 30px; /* Al límite inferior del video */
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent);
+  font-size: 2.5rem;
+  transition: opacity 0.3s ease;
+  animation: bounce 2s infinite; /* Efecto rebote */
+}
+
+.hero__scroll-down:hover {
+  opacity: 0.7;
+}
+
+/* Animación de la flecha */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-15px); }
+  60% { transform: translateX(-50%) translateY(-8px); }
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px) {
+  .hero__title { font-size: 3rem; }
+  .hero__scroll-down { font-size: 2rem; bottom: 20px; }
+}
+
+/* ==========================================================================
+   CORRECCIÓN DE CENTRADO HERO (WEB/ORDENADOR)
+   ========================================================================== */
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* ESTA ES LA CLAVE: Alinea título y párrafo al centro horizontal */
+  align-items: center; 
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center; /* Asegura que el texto en sí esté centrado */
+}
+
+.hero__paragraph {
+  font-family: var(--font-primary);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  max-width: 650px; /* Limitamos el ancho para que no sea una línea infinita */
+  margin: 1rem auto 0; /* 'auto' en los lados centra el bloque del párrafo */
+  opacity: 0.9;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Aseguramos que la flecha también mantenga su eje central */
+.hero__scroll-down {
+  left: 50%;
+  transform: translateX(-50%);
+}
