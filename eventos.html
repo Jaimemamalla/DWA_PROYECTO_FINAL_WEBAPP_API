@@ -79,23 +79,34 @@
         <div class="results__wrap">
           <div class="search-bar">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Buscar carrera, ciudad, día..." />
+            <input
+              type="search"
+              id="eventsSearch"
+              placeholder="Buscar carrera, ciudad, día..."
+              autocomplete="off"
+            />
           </div>
 
-          <div class="chips-scroll" id="type-filters">
-            <button class="chip is-active">Todos</button>
-            <button class="chip">Media Maratón</button>
-            <button class="chip">Maratón</button>
-            <button class="chip">10K</button>
-            <button class="chip">5K</button>
-            <button class="chip">Cross</button>
+          <div class="chips-scroll" id="typeFilters">
+            <button class="chip is-active" data-type="all">Todos</button>
+            <button class="chip" data-type="Media Maratón">
+              Media Maratón
+            </button>
+            <button class="chip" data-type="Maratón">Maratón</button>
+            <button class="chip" data-type="10K">10K</button>
+            <button class="chip" data-type="5K">5K</button>
+            <button class="chip" data-type="Cross">Cross</button>
           </div>
 
-          <div class="chips-scroll" id="city-filters">
-            <button class="chip-city is-active">Madrid</button>
-            <button class="chip-city">Valencia</button>
-            <button class="chip-city">Barcelona</button>
-            <button class="chip-city">Sevilla</button>
+          <div class="chips-scroll" id="cityFilters">
+            <button class="chip-city is-active" data-city="Madrid">
+              Madrid
+            </button>
+            <button class="chip-city" data-city="Valencia">Valencia</button>
+            <button class="chip-city" data-city="Barcelona">Barcelona</button>
+            <button class="chip-city" data-city="Sevilla">Sevilla</button>
+            <!-- opcional -->
+            <button class="chip-city" data-city="all">Todas</button>
           </div>
         </div>
       </section>
@@ -125,8 +136,7 @@
           </p>
         </div>
       </section>
-      <!-- 2) MODAL DETALLES     -->
-      <!-- ===================== -->
+      <!-- MODAL DETALLES     -->
 
       <dialog
         class="event-modal"

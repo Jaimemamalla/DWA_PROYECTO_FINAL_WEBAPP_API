@@ -811,11 +811,391 @@ $(document).ready(function () {
   }
 });
 
-// SECCIÓN EVENTOS - RESULTADOS CORREDORES
+// SECCIÓN EVENTOS
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Script cargado correctamente");
 
-  // 1. Datos
+  // Ejecutar solo en eventos.html
+  const isEventosPage = (location.pathname || "")
+    .toLowerCase()
+    .includes("eventos");
+  if (!isEventosPage) return;
+
+  // ============================================================
+  // (A) EVENTOS (ARRIBA): grid + filtros + buscador + modal
+  // ============================================================
+
+  const eventsGrid = document.getElementById("eventsGrid");
+  const eventsCount = document.getElementById("eventsCount");
+  const eventsEmpty = document.getElementById("eventsEmpty");
+
+  const searchInput = document.getElementById("eventsSearch");
+  const typeWrap = document.getElementById("typeFilters");
+  const cityWrap = document.getElementById("cityFilters");
+
+  // Modal
+  const modal = document.getElementById("eventModal");
+  const closeModalBtn = document.getElementById("closeEventModal");
+  const modalTitle = document.getElementById("eventModalTitle");
+  const modalMeta = document.getElementById("eventModalMeta");
+  const modalDetails = document.getElementById("eventModalDetails");
+  const modalPrice = document.getElementById("eventModalPrice");
+  const signupBtn = document.getElementById("eventSignupBtn");
+  const signupToast = document.getElementById("signupToast");
+
+  // Guard: si no existe el bloque de eventos aún, no rompe
+  if (!eventsGrid || !searchInput || !typeWrap || !cityWrap) {
+    console.warn(
+      "[NextRun] Faltan IDs de EVENTOS (eventsGrid/eventsSearch/typeFilters/cityFilters)."
+    );
+    return;
+  }
+
+  // Data mock (inventada, está bien)
+  const eventsData = [
+    {
+      id: "ev-1",
+      title: "Maratón Popular 2026",
+      type: "Maratón",
+      city: "Madrid",
+      dateISO: "2026-04-24",
+      place: "Alcobendas, Madrid",
+      distanceKm: 42.195,
+      elevationM: 320,
+      aidStations: 8,
+      recommended: "Zapatillas mixtas (asfalto)",
+      priceEUR: 35,
+      details:
+        "Recorrido urbano con tramos rápidos. Avituallamiento cada 5 km. Categorías por edad. Guardarropa disponible.",
+    },
+    {
+      id: "ev-2",
+      title: "Media Maratón Ciudad",
+      type: "Media Maratón",
+      city: "Madrid",
+      dateISO: "2026-05-10",
+      place: "Centro, Madrid",
+      distanceKm: 21.097,
+      elevationM: 180,
+      aidStations: 5,
+      recommended: "Zapatillas de asfalto (ligeras)",
+      priceEUR: 22,
+      details:
+        "Circuito homologado. Cajones por ritmo. Puestos de hidratación y geles.",
+    },
+    {
+      id: "ev-3",
+      title: "Cross Sierra",
+      type: "Cross",
+      city: "Sevilla",
+      dateISO: "2026-03-15",
+      place: "Parque Natural",
+      distanceKm: 12,
+      elevationM: 420,
+      aidStations: 2,
+      recommended: "Trail / tacos",
+      priceEUR: 18,
+      details:
+        "Terreno mixto con desnivel. Recomendable trail. Tiempo límite 2h.",
+    },
+    {
+      id: "ev-4",
+      title: "10K Nocturna Valencia",
+      type: "10K",
+      city: "Valencia",
+      dateISO: "2026-06-08",
+      place: "Valencia (Centro)",
+      distanceKm: 10,
+      elevationM: 40,
+      aidStations: 2,
+      recommended: "Asfalto (reactivas)",
+      priceEUR: 15,
+      details:
+        "Carrera nocturna con ambiente y música. Circuito rápido, ideal para marca personal.",
+    },
+    {
+      id: "ev-5",
+      title: "5K Popular Barcelona",
+      type: "5K",
+      city: "Barcelona",
+      dateISO: "2026-02-02",
+      place: "Barcelona (Parc de la Ciutadella)",
+      distanceKm: 5,
+      elevationM: 20,
+      aidStations: 1,
+      recommended: "Asfalto (ligeras)",
+      priceEUR: 10,
+      details:
+        "Carrera corta para todos los niveles. Perfecta para principiantes o para hacer series.",
+    },
+    {
+      id: "ev-6",
+      title: "Media Maratón Sevilla Río",
+      type: "Media Maratón",
+      city: "Sevilla",
+      dateISO: "2026-03-22",
+      place: "Sevilla (Triana)",
+      distanceKm: 21.097,
+      elevationM: 110,
+      aidStations: 5,
+      recommended: "Asfalto (mixtas)",
+      priceEUR: 20,
+      details:
+        "Recorrido llano bordeando el río. Cajones por ritmo y avituallamiento cada 5 km.",
+    },
+    {
+      id: "ev-7",
+      title: "Maratón Barcelona 2026",
+      type: "Maratón",
+      city: "Barcelona",
+      dateISO: "2026-04-12",
+      place: "Barcelona (Salida en Plaça Catalunya)",
+      distanceKm: 42.195,
+      elevationM: 260,
+      aidStations: 9,
+      recommended: "Asfalto (rodadoras)",
+      priceEUR: 45,
+      details:
+        "Maratón urbano con tramos turísticos. Puntos de hidratación y geles. Guardarropa disponible.",
+    },
+    {
+      id: "ev-8",
+      title: "Maratón Madrid Río",
+      type: "Maratón",
+      city: "Madrid",
+      dateISO: "2026-04-05",
+      place: "Madrid Río · Casa de Campo",
+      distanceKm: 42.195,
+      elevationM: 280,
+      aidStations: 9,
+      recommended: "Asfalto (rodadoras)",
+      priceEUR: 42,
+      details:
+        "Recorrido urbano bordeando el río Manzanares. Tramos verdes y rápidos.",
+    },
+    {
+      id: "ev-9",
+      title: "Maratón Castellana",
+      type: "Maratón",
+      city: "Madrid",
+      dateISO: "2026-05-17",
+      place: "Paseo de la Castellana",
+      distanceKm: 42.195,
+      elevationM: 310,
+      aidStations: 8,
+      recommended: "Asfalto (mixtas)",
+      priceEUR: 40,
+      details: "Maratón urbano atravesando el eje norte-sur de Madrid.",
+    },
+  ];
+
+  let activeType = "all";
+  let activeCity = "Madrid";
+  let selectedEvent = null;
+
+  const esc = (s) =>
+    String(s ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+  function formatDateES(iso) {
+    const [y, m, d] = String(iso)
+      .split("-")
+      .map((x) => parseInt(x, 10));
+    if (!y || !m || !d) return iso;
+    const date = new Date(y, m - 1, d);
+    const opts = { day: "2-digit", month: "short" };
+    const dayMonth = date.toLocaleDateString("es-ES", opts).replace(".", "");
+    return `${dayMonth} · ${y}`;
+  }
+
+  function setActiveBtn(container, selector, btn) {
+    container
+      .querySelectorAll(selector)
+      .forEach((b) => b.classList.remove("is-active"));
+    btn.classList.add("is-active");
+  }
+
+  function applyEventsFilters(list) {
+    const q = (searchInput?.value || "").trim().toLowerCase();
+    let out = [...list];
+
+    if (activeType !== "all") out = out.filter((e) => e.type === activeType);
+    if (activeCity !== "all") out = out.filter((e) => e.city === activeCity);
+
+    if (q) {
+      out = out.filter((e) => {
+        const hay =
+          `${e.title} ${e.type} ${e.city} ${e.place} ${e.dateISO}`.toLowerCase();
+        return hay.includes(q);
+      });
+    }
+
+    return out;
+  }
+
+  function renderEvents() {
+    const filtered = applyEventsFilters(eventsData);
+
+    if (eventsCount) eventsCount.textContent = ``;
+
+    if (!filtered.length) {
+      eventsGrid.innerHTML = "";
+      if (eventsEmpty) eventsEmpty.hidden = false;
+      return;
+    }
+    if (eventsEmpty) eventsEmpty.hidden = true;
+
+    eventsGrid.innerHTML = filtered
+      .map(
+        (e) => `
+        <article class="event-card" data-event-id="${esc(e.id)}">
+          <div class="event-card__top">${esc(formatDateES(e.dateISO))} · ${esc(
+          e.place
+        )}</div>
+          <div class="event-card__body">
+            <h3 class="event-card__name">${esc(e.title)}</h3>
+            <p class="event-card__meta">${esc(e.type)} · ${esc(e.city)}</p>
+
+            <div class="event-card__actions">
+              <button class="event-btn event-btn--primary" type="button" data-action="details">
+                Detalles
+              </button>
+            </div>
+          </div>
+        </article>
+      `
+      )
+      .join("");
+  }
+
+  function openEventModal(ev) {
+    selectedEvent = ev;
+
+    if (modalTitle) modalTitle.textContent = ev.title;
+    if (modalMeta)
+      modalMeta.textContent = `${formatDateES(ev.dateISO)} · ${ev.place}`;
+
+    if (modalDetails) {
+      modalDetails.innerHTML = `
+        <p><strong>Distancia:</strong> ${esc(ev.distanceKm)} km</p>
+        <p><strong>Desnivel:</strong> ${esc(ev.elevationM)} m</p>
+        <p><strong>Avituallamiento:</strong> ${esc(ev.aidStations)} puntos</p>
+        <p><strong>Recomendación:</strong> ${esc(ev.recommended)}</p>
+        <p style="margin-top:12px; opacity:.9">${esc(ev.details)}</p>
+      `;
+    }
+
+    if (modalPrice) modalPrice.textContent = `${ev.priceEUR}€`;
+
+    if (signupBtn) {
+      signupBtn.disabled = false;
+      signupBtn.textContent = "Inscribirse";
+    }
+
+    // ✅ Soporta <dialog> o modal con clase
+    if (modal && typeof modal.showModal === "function") {
+      modal.showModal();
+    } else if (modal) {
+      modal.classList.add("is-open");
+      modal.removeAttribute("hidden");
+    }
+  }
+
+  function closeEventModal() {
+    if (!modal) return;
+
+    if (typeof modal.close === "function") {
+      modal.close();
+    } else {
+      modal.classList.remove("is-open");
+      modal.setAttribute("hidden", "true");
+    }
+  }
+
+  closeModalBtn?.addEventListener("click", closeEventModal);
+
+  // Cerrar clic fuera (solo si es <dialog>)
+  modal?.addEventListener("click", (e) => {
+    if (!modal || typeof modal.close !== "function") return;
+
+    const rect = modal.getBoundingClientRect();
+    const clickOutside =
+      e.clientX < rect.left ||
+      e.clientX > rect.right ||
+      e.clientY < rect.top ||
+      e.clientY > rect.bottom;
+    if (clickOutside) closeEventModal();
+  });
+
+  function showToastAndRedirect() {
+    if (!signupToast) return;
+    signupToast.hidden = false;
+    window.setTimeout(() => (window.location.href = "index.html"), 1500);
+  }
+
+  signupBtn?.addEventListener("click", () => {
+    if (!selectedEvent || !signupBtn) return;
+
+    signupBtn.disabled = true;
+    signupBtn.textContent = "Procesando...";
+
+    window.setTimeout(() => {
+      closeEventModal();
+      showToastAndRedirect();
+    }, 3000);
+  });
+
+  typeWrap.addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-type]");
+    if (!btn) return;
+    activeType = btn.dataset.type;
+    setActiveBtn(typeWrap, "button[data-type]", btn);
+    renderEvents();
+  });
+
+  cityWrap.addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-city]");
+    if (!btn) return;
+    activeCity = btn.dataset.city;
+    setActiveBtn(cityWrap, "button[data-city]", btn);
+    renderEvents();
+  });
+
+  searchInput.addEventListener("input", renderEvents);
+
+  eventsGrid.addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-action]");
+    if (!btn) return;
+
+    const card = btn.closest("[data-event-id]");
+    if (!card) return;
+
+    const id = card.getAttribute("data-event-id");
+    const ev = eventsData.find((x) => x.id === id);
+    if (!ev) return;
+
+    if (btn.getAttribute("data-action") === "details") openEventModal(ev);
+  });
+
+  // ✅ Init chips activos coherentes con tu estado
+  const initTypeBtn = typeWrap.querySelector('button[data-type="all"]');
+  if (initTypeBtn) setActiveBtn(typeWrap, "button[data-type]", initTypeBtn);
+
+  const initCityBtn =
+    cityWrap.querySelector(`button[data-city="${activeCity}"]`) ||
+    cityWrap.querySelector('button[data-city="all"]');
+  if (initCityBtn) setActiveBtn(cityWrap, "button[data-city]", initCityBtn);
+
+  renderEvents();
+
+  // ============================================================
+  // RESULTADOS (ABAJO): podio + tabla + tabs
+
   const runnersData = [
     {
       pos: 1,
@@ -861,70 +1241,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const tableBody = document.getElementById("runners-table-body");
   const podiumContainer = document.getElementById("podium-container");
 
-  // 2. Función para pintar
-  function render(data) {
+  function renderResults(data) {
     if (!tableBody || !podiumContainer) return;
 
     tableBody.innerHTML = "";
     podiumContainer.innerHTML = "";
 
     data.forEach((r) => {
-      // Tabla
       tableBody.innerHTML += `
-                <tr>
-                    <td><strong>${r.pos}</strong></td>
-                    <td>${r.dorsal}</td>
-                    <td>${r.nombre}</td>
-                    <td>${r.apellidos}</td>
-                    <td>${r.tiempo}</td>
-                    <td>${r.neto}</td>
-                    <td><img src="${r.flag}" width="20"> ${r.nacionalidad}</td>
-                    <td>${r.club}</td>
-                </tr>`;
+        <tr>
+          <td><strong>${r.pos}</strong></td>
+          <td>${r.dorsal}</td>
+          <td>${r.nombre}</td>
+          <td>${r.apellidos}</td>
+          <td>${r.tiempo}</td>
+          <td>${r.neto}</td>
+          <td><img src="${r.flag}" width="20" alt="Bandera ${r.nacionalidad}"> ${r.nacionalidad}</td>
+          <td>${r.club}</td>
+        </tr>`;
 
-      // Podio (solo primeros 3)
       if (r.pos <= 3) {
         podiumContainer.innerHTML += `
-                    <div class="podium-card">
-                        <div class="pos">${r.pos}</div>
-                        <div>
-                            <span class="name"><strong>${r.nombre} ${r.apellidos}</strong></span><br>
-                            <small>${r.club}</small>
-                            <div class="time">⏱ ${r.tiempo}</div>
-                        </div>
-                    </div>`;
+          <div class="podium-card">
+            <div class="pos">${r.pos}</div>
+            <div>
+              <span class="name"><strong>${r.nombre} ${r.apellidos}</strong></span><br>
+              <small class="club">${r.club}</small>
+              <div class="time">⏱ ${r.tiempo}</div>
+            </div>
+          </div>`;
       }
     });
   }
 
-  // 3. Eventos de Filtros
-  const allButtons = document.querySelectorAll(".chip, .chip-city, .tab");
+  // Tabs SOLO de resultados
+  const resultTabs = document.querySelectorAll(".board__tabs .tab");
 
-  allButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      // Quitar clase activa de los hermanos
-      const siblings = btn.parentElement.querySelectorAll("button");
-      siblings.forEach((s) => s.classList.remove("is-active", "active"));
-
-      // Añadir clase activa al actual
+  resultTabs.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      resultTabs.forEach((b) => b.classList.remove("is-active"));
       btn.classList.add("is-active");
-
-      const valor = btn.textContent.trim();
-      console.log("Filtrando por:", valor);
-
-      if (valor === "Todos") {
-        render(runnersData);
-      } else {
-        const filtrados = runnersData.filter(
-          (r) => r.categoria === valor || r.ciudad === valor
-        );
-        render(filtrados);
-      }
+      renderResults(runnersData);
     });
   });
 
-  // Carga inicial
-  render(runnersData);
+  renderResults(runnersData);
 });
-
-// SECCIÓN EVENTOS
