@@ -2396,6 +2396,10 @@ body {
     padding-left: 10px;
     padding-right: 10px;
   }
+
+  .search-bar input {
+    width: 80%;
+  }
 }
 
 /* RESPONSIVE */
@@ -2404,10 +2408,18 @@ body {
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .search-bar input {
+    width: 80%;
+  }
 }
 @media (max-width: 820px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-bar input {
+    width: 80%;
   }
 }
 @media (max-width: 520px) {
@@ -2419,6 +2431,10 @@ body {
   }
   .community__title {
     font-size: 2rem;
+  }
+
+  .search-bar input {
+    width: 80%;
   }
 }
 
@@ -2587,6 +2603,10 @@ body {
     width: 44px;
     height: 44px;
   }
+
+  .search-bar input {
+    width: 80%;
+  }
 }
 
 @media (max-width: 900px) {
@@ -2698,6 +2718,11 @@ body {
   #deezer-widget iframe {
     width: 100% !important;
   }
+  
+  .search-bar input {
+    width: 80%;
+  }
+  
 }
 
 @media (max-width: 1000px) {
@@ -2714,6 +2739,10 @@ body {
   .challenges-layout {
     flex-direction: column;
     grid-template-columns: 1fr;
+  }
+
+  .search-bar input {
+    width: 80%;
   }
 }
 
@@ -2733,6 +2762,10 @@ body {
   .stats-activity-row,
   .challenges-grid {
     grid-template-columns: 1fr;
+  }
+
+  .search-bar input {
+    width: 80%;
   }
 }
 
@@ -2770,6 +2803,10 @@ body {
   .activity-info-compact li {
     justify-content: center;
   }
+
+  .search-bar input {
+    width: 80%;
+  }
 }
 
 /* --- 7. RESPONSIVE --- */
@@ -2793,6 +2830,10 @@ body {
   .sidebar-profile {
     border-left: none;
     border-top: 1px solid #222;
+  }
+
+  .search-bar input {
+    width: 80%;
   }
 }
 
