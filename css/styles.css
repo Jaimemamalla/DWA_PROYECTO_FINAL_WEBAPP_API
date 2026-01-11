@@ -21,8 +21,9 @@
   --header-h: 76px;
 }
 
-
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 /* ESTILOS GLOBALES */
@@ -180,12 +181,12 @@ body {
 }
 
 .welcome__title {
-  margin: 0 0 4rem;
+  margin: 0 0 2rem;
   font-family: var(--font-secondary);
   font-weight: var(--fw-bold);
   letter-spacing: 0.02em;
   color: var(--color-secondary);
-  font-size: clamp(1.4rem, 3.2vw, 2.6rem);
+  font-size: clamp(1.2rem, 3vw, 2.4rem);
 }
 
 .welcome__text p {
@@ -1117,7 +1118,6 @@ body {
   flex: 1;
   padding: 40px;
   max-width: calc(100% - 360px);
-  
 }
 .sidebar-profile {
   width: 360px;
@@ -1966,7 +1966,7 @@ body {
   flex: 1;
   padding: 30px 40px;
   max-width: calc(100% - 360px);
-  padding-top: calc(var(--header-height,76px) + 50px);
+  padding-top: calc(var(--header-height, 76px) + 50px);
 }
 
 .sidebar-profile {
@@ -1975,7 +1975,7 @@ body {
   padding: 40px 25px;
   border-left: 1px solid #222;
   text-align: center;
-  padding-top: calc(var(--header-height,76px) + 50px);
+  padding-top: calc(var(--header-height, 76px) + 50px);
 }
 
 /* --- 4. COMPONENTES REUTILIZABLES (Cards) --- */
@@ -2323,16 +2323,12 @@ body {
   border-bottom: 1px solid #f9f9f9;
 }
 
-
-
 /* MEDIA QUERYS  */
 
 @media (max-width: 768px) {
-  
   .results-filters {
     padding: 100px 0 30px 0;
   }
-
 
   .podium-grid {
     grid-template-columns: 1fr;
@@ -2710,15 +2706,13 @@ body {
   #deezer-widget iframe {
     width: 100% !important;
   }
-  
+
   .search-bar input {
     width: 80%;
   }
-  
 }
 
 @media (max-width: 1000px) {
-
   .search-bar input {
     width: 80%;
   }
@@ -2729,23 +2723,22 @@ body {
     width: 80%;
   }
 
-  .main-content, .sidebar-profile {
+  .main-content,
+  .sidebar-profile {
     min-width: 0;
     overflow-x: hidden;
-    padding-top: calc(var(--header-height,76px) + 50px);
+    padding-top: calc(var(--header-height, 76px) + 50px);
     padding-top: 40px;
   }
 }
 
 @media (max-width: 600px) {
-  
   .search-bar input {
     width: 80%;
   }
 }
 
 @media (max-width: 1100px) {
-
   .search-bar input {
     width: 80%;
   }
@@ -2760,7 +2753,7 @@ body {
 
 
 @media (max-width: 1100px) {
-  
+
   .dashboard-wrapper {
     flex-direction: column;
   }
@@ -2775,7 +2768,7 @@ body {
     border-left: none;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 40px 20px;
-    padding-top: calc(var(--header-height,76px) + 50px);
+    padding-top: calc(var(--header-height, 76px) + 50px);
   }
 
   .today-grid,
@@ -2801,6 +2794,7 @@ body {
 }
 
 @media (max-width: 600px) {
+
   
   .activity-split-compact {
     flex-direction: column;
@@ -2815,7 +2809,7 @@ body {
   .hero-card {
     padding: 20px;
   }
-  
+
   .hero-value {
     font-size: 2.8rem;
   }
