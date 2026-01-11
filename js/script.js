@@ -1056,7 +1056,8 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 35,
       details:
         "Recorrido urbano con tramos rápidos. Avituallamiento cada 5 km. Categorías por edad. Guardarropa disponible.",
-      image: "media/eventos/maratonvale.png",
+      image:
+        "https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_20.png?updatedAt=1768158023338",
     },
     {
       id: "ev-2",
@@ -1072,7 +1073,8 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 22,
       details:
         "Circuito homologado. Cajones por ritmo. Puestos de hidratación y geles.",
-      image: "media/eventos/maratoncentro.jpg",
+      image:
+        "https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_17.jpg?updatedAt=1768158023362",
     },
     {
       id: "ev-3",
@@ -1088,7 +1090,8 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 18,
       details:
         "Terreno mixto con desnivel. Recomendable trail. Tiempo límite 2h.",
-      image: "media/eventos/maratonpopu.png",
+      image:
+        "https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_11.jpeg?updatedAt=1768157928620",
     },
     {
       id: "ev-4",
@@ -1104,7 +1107,8 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 15,
       details:
         "Carrera nocturna con ambiente y música. Circuito rápido, ideal para marca personal.",
-      image: "media/eventos/maratonpopu.jpg",
+      image:
+        "https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_18.jpg?updatedAt=1768158023382",
     },
     {
       id: "ev-5",
@@ -1120,7 +1124,8 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 10,
       details:
         "Carrera corta para todos los niveles. Perfecta para principiantes o para hacer series.",
-      image: "media/eventos/maratonbarce.png",
+      image:
+        "https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_12.jpeg?updatedAt=1768157928611",
     },
     {
       id: "ev-6",
@@ -1136,7 +1141,8 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 20,
       details:
         "Recorrido llano bordeando el río. Cajones por ritmo y avituallamiento cada 5 km.",
-      image: "media/eventos/maratonpopu.png",
+      image:
+        "https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_13.avif?updatedAt=1768157928716",
     },
     {
       id: "ev-7",
@@ -1152,7 +1158,8 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 45,
       details:
         "Maratón urbano con tramos turísticos. Puntos de hidratación y geles. Guardarropa disponible.",
-      image: "media/eventos/maratonpopu.png",
+      image:
+        "https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_14.jpeg?updatedAt=1768157928560",
     },
     {
       id: "ev-8",
@@ -1168,7 +1175,8 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 42,
       details:
         "Recorrido urbano bordeando el río Manzanares. Tramos verdes y rápidos.",
-      image: "media/eventos/maratonrio.jpg",
+      image:
+        "https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_19.jpg?updatedAt=1768158023285",
     },
     {
       id: "ev-9",
@@ -1183,7 +1191,8 @@ document.addEventListener("DOMContentLoaded", () => {
       recommended: "Asfalto (mixtas)",
       priceEUR: 40,
       details: "Maratón urbano atravesando el eje norte-sur de Madrid.",
-      image: "media/eventos/maratoncaste.webp",
+      image:
+        "https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_16.webp?updatedAt=1768158023477",
     },
   ];
 

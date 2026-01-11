@@ -78,58 +78,90 @@
 
     <main>
       <section class="hero" aria-label="Hero con vídeo">
-  <video class="hero__video" autoplay muted loop playsinline preload="auto">
-    <source src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_Video.mp4" type="video/mp4" />
-    <p class="video-fallback">
-      Tu navegador no es compatible con vídeo HTML5.
-      <a href="https://ik.imagekit.io/TU_ID/ruta/hero.mp4" download>Descargar vídeo</a>
-    </p>
-  </video>
+        <video
+          class="hero__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <source
+            src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_Video.mp4"
+            type="video/mp4"
+          />
+          <p class="video-fallback">
+            Tu navegador no es compatible con vídeo HTML5.
+            <a href="https://ik.imagekit.io/TU_ID/ruta/hero.mp4" download
+              >Descargar vídeo</a
+            >
+          </p>
+        </video>
 
-  <div class="hero__overlay">
-    <div class="hero__content">
-      <h1 class="hero__title">SUPERA TUS <span class="accent-text">LÍMITES</span></h1>
-      <p class="hero__paragraph">Únete a la comunidad de corredores más grande y alcanza tu mejor versión hoy mismo.</p>
-    </div>
+        <div class="hero__overlay">
+          <div class="hero__content">
+            <h1 class="hero__title">
+              SUPERA TUS <span class="accent-text">LÍMITES</span>
+            </h1>
+            <p class="hero__paragraph">
+              Únete a la comunidad de corredores más grande y alcanza tu mejor
+              versión hoy mismo.
+            </p>
+          </div>
 
-    <a href="#welcome-section" class="hero__scroll-down" aria-label="Bajar">
-      <i class="fa-solid fa-chevron-down"></i>
-    </a>
-  </div>
+          <a
+            href="#welcome-section"
+            class="hero__scroll-down"
+            aria-label="Bajar"
+          >
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+        </div>
 
-  <div class="video-fallback-overlay" id="videoFallback" hidden>
-    <p>
-      No se ha podido cargar el vídeo en este dispositivo.
-      <a href="https://ik.imagekit.io/TU_ID/ruta/hero.mp4" target="_blank" rel="noopener">Abrir vídeo</a>
-    </p>
-  </div>
-</section>
+        <div class="video-fallback-overlay" id="videoFallback" hidden>
+          <p>
+            No se ha podido cargar el vídeo en este dispositivo.
+            <a
+              href="https://ik.imagekit.io/TU_ID/ruta/hero.mp4"
+              target="_blank"
+              rel="noopener"
+              >Abrir vídeo</a
+            >
+          </p>
+        </div>
+      </section>
 
       <!-- SECCIÓN WELCOME -->
 
       <section class="welcome" aria-label="Bienvenida">
-  <div class="welcome__wrap">
-    <div class="welcome__text">
-      <span class="welcome__tag">Tu próxima meta</span>
-      <h1 class="welcome__title">
-        BIENVENIDOS A <strong>NextRun</strong>
-      </h1>
+        <div class="welcome__wrap">
+          <div class="welcome__text">
+            <span class="welcome__tag">Tu próxima meta</span>
+            <h1 class="welcome__title">
+              BIENVENIDOS A <strong>NextRun</strong>
+            </h1>
 
-      <p class="welcome__description">
-        NextRun es la plataforma definitiva diseñada por y para corredores, donde podrás descubrir los mejores eventos deportivos, desde maratones urbanas hasta desafíos de montaña. Gestiona tu perfil, analiza tus marcas personales con datos biométricos precisos y conecta con una comunidad global que comparte tu pasión por el running. Todo lo que necesitas para preparar tu próxima carrera y superar tus límites está a un solo clic de distancia.
-      </p>
-    </div>
+            <p class="welcome__description">
+              NextRun es la plataforma definitiva diseñada por y para
+              corredores, donde podrás descubrir los mejores eventos deportivos,
+              desde maratones urbanas hasta desafíos de montaña. Gestiona tu
+              perfil, analiza tus marcas personales con datos biométricos
+              precisos y conecta con una comunidad global que comparte tu pasión
+              por el running. Todo lo que necesitas para preparar tu próxima
+              carrera y superar tus límites está a un solo clic de distancia.
+            </p>
+          </div>
 
-    <figure class="welcome__media">
-      <img
-        src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_1.png"
-        alt="Corredor entrenando"
-        class="welcome__img"
-        loading="lazy"
-      />
-    </figure>
-  </div>
-</section>
+          <figure class="welcome__media">
+            <img
+              src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_1.png"
+              alt="Corredor entrenando"
+              class="welcome__img"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
 
       <!-- SECCIÓN PRÓXIMOS EVENTOS -->
 
@@ -312,204 +344,284 @@
 
       <!-- SECCIÓN TOP RUNNERS -->
 
-      <section id="toprunners" class="section-toprunners" aria-labelledby="topRunnersTitle">
-  <div class="toprunners__wrap">
-    <header class="section-header">
-      <span class="welcome__tag">Récords de la Comunidad</span>
-      <h2 id="topRunnersTitle" class="welcome__title">TOP <strong>RUNNERS</strong></h2>
-    </header>
+      <section
+        id="toprunners"
+        class="section-toprunners"
+        aria-labelledby="topRunnersTitle"
+      >
+        <div class="toprunners__wrap">
+          <header class="section-header">
+            <span class="welcome__tag">Récords de la Comunidad</span>
+            <h2 id="topRunnersTitle" class="welcome__title">
+              TOP <strong>RUNNERS</strong>
+            </h2>
+          </header>
 
-    <div class="toprunners-slideshow">
-      <div class="slideshow-container">
-        <div class="viewport">
-          <figure class="runnerSlide fade">
-            <img src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_6.png" alt="Alejandro Hernández">
-            <figcaption class="caption">
-              <div class="caption__info">
-                <span class="runner-name">ALEJANDRO HERNÁNDEZ</span>
-                <span class="runner-event">MARATÓN CIUDAD · 10K</span>
-              </div>
-              <div class="caption__metric">
-                <i class="fa-solid fa-stopwatch"></i>
-                <span class="time">33:12</span>
-              </div>
-            </figcaption>
-          </figure>
+          <div class="toprunners-slideshow">
+            <div class="slideshow-container">
+              <div class="viewport">
+                <figure class="runnerSlide fade">
+                  <img
+                    src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_6.png"
+                    alt="Alejandro Hernández"
+                  />
+                  <figcaption class="caption">
+                    <div class="caption__info">
+                      <span class="runner-name">ALEJANDRO HERNÁNDEZ</span>
+                      <span class="runner-event">MARATÓN CIUDAD · 10K</span>
+                    </div>
+                    <div class="caption__metric">
+                      <i class="fa-solid fa-stopwatch"></i>
+                      <span class="time">33:12</span>
+                    </div>
+                  </figcaption>
+                </figure>
 
-          <figure class="runnerSlide fade">
-            <img src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_7.png" alt="Jaime Amaya">
-            <figcaption class="caption">
-              <div class="caption__info">
-                <span class="runner-name">JAIME AMAYA</span>
-                <span class="runner-event">MEDIA MARATÓN COSTA</span>
-              </div>
-              <div class="caption__metric">
-                <i class="fa-solid fa-stopwatch"></i>
-                <span class="time">1:12:45</span>
-              </div>
-            </figcaption>
-          </figure>
+                <figure class="runnerSlide fade">
+                  <img
+                    src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_7.png"
+                    alt="Jaime Amaya"
+                  />
+                  <figcaption class="caption">
+                    <div class="caption__info">
+                      <span class="runner-name">JAIME AMAYA</span>
+                      <span class="runner-event">MEDIA MARATÓN COSTA</span>
+                    </div>
+                    <div class="caption__metric">
+                      <i class="fa-solid fa-stopwatch"></i>
+                      <span class="time">1:12:45</span>
+                    </div>
+                  </figcaption>
+                </figure>
 
-          <figure class="runnerSlide fade">
-            <img src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_8.png" alt="Aitor Ochoa">
-            <figcaption class="caption">
-              <div class="caption__info">
-                <span class="runner-name">AITOR OCHOA</span>
-                <span class="runner-event">POPULAR MADRID · 5K</span>
-              </div>
-              <div class="caption__metric">
-                <i class="fa-solid fa-stopwatch"></i>
-                <span class="time">16:58</span>
-              </div>
-            </figcaption>
-          </figure>
+                <figure class="runnerSlide fade">
+                  <img
+                    src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_8.png"
+                    alt="Aitor Ochoa"
+                  />
+                  <figcaption class="caption">
+                    <div class="caption__info">
+                      <span class="runner-name">AITOR OCHOA</span>
+                      <span class="runner-event">POPULAR MADRID · 5K</span>
+                    </div>
+                    <div class="caption__metric">
+                      <i class="fa-solid fa-stopwatch"></i>
+                      <span class="time">16:58</span>
+                    </div>
+                  </figcaption>
+                </figure>
 
-          <figure class="runnerSlide fade">
-            <img src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_9.png" alt="Micaela Noriega">
-            <figcaption class="caption">
-              <div class="caption__info">
-                <span class="runner-name">MICAELA NORIEGA</span>
-                <span class="runner-event">MARATÓN VALENCIA</span>
-              </div>
-              <div class="caption__metric">
-                <i class="fa-solid fa-stopwatch"></i>
-                <span class="time">2:37:41</span>
-              </div>
-            </figcaption>
-          </figure>
+                <figure class="runnerSlide fade">
+                  <img
+                    src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_9.png"
+                    alt="Micaela Noriega"
+                  />
+                  <figcaption class="caption">
+                    <div class="caption__info">
+                      <span class="runner-name">MICAELA NORIEGA</span>
+                      <span class="runner-event">MARATÓN VALENCIA</span>
+                    </div>
+                    <div class="caption__metric">
+                      <i class="fa-solid fa-stopwatch"></i>
+                      <span class="time">2:37:41</span>
+                    </div>
+                  </figcaption>
+                </figure>
 
-          <figure class="runnerSlide fade">
-            <img src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_10.png" alt="Jose Mª Cancho">
-            <figcaption class="caption">
-              <div class="caption__info">
-                <span class="runner-name">JOSE Mª CANCHO</span>
-                <span class="runner-event">ULTRATRAIL MONT BLANC</span>
+                <figure class="runnerSlide fade">
+                  <img
+                    src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_10.png"
+                    alt="Jose Mª Cancho"
+                  />
+                  <figcaption class="caption">
+                    <div class="caption__info">
+                      <span class="runner-name">JOSE Mª CANCHO</span>
+                      <span class="runner-event">ULTRATRAIL MONT BLANC</span>
+                    </div>
+                    <div class="caption__metric">
+                      <i class="fa-solid fa-stopwatch"></i>
+                      <span class="time">42:15:31</span>
+                    </div>
+                  </figcaption>
+                </figure>
               </div>
-              <div class="caption__metric">
-                <i class="fa-solid fa-stopwatch"></i>
-                <span class="time">42:15:31</span>
-              </div>
-            </figcaption>
-          </figure>
+
+              <button class="nav-btn prev" aria-label="Anterior">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button class="nav-btn next" aria-label="Siguiente">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+
+            <div class="dots-container">
+              <span class="dot"></span><span class="dot"></span
+              ><span class="dot"></span><span class="dot"></span
+              ><span class="dot"></span>
+            </div>
+          </div>
         </div>
-
-        <button class="nav-btn prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="nav-btn next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
-      </div>
-
-      <div class="dots-container">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       <!-- FORMULARIO -->
 
       <section id="signup" class="signup" aria-labelledby="signupTitle">
-  <div class="signup__card">
-    <header class="signup__header">
-      <h2 id="signupTitle" class="welcome__title">
-        ÚNETE A <strong>NextRun</strong>
-      </h2>
-      <p class="signup__subtitle">Crea tu cuenta y empieza a superar tus metas hoy mismo.</p>
-    </header>
+        <div class="signup__card">
+          <header class="signup__header">
+            <h2 id="signupTitle" class="welcome__title">
+              ÚNETE A <strong>NextRun</strong>
+            </h2>
+            <p class="signup__subtitle">
+              Crea tu cuenta y empieza a superar tus metas hoy mismo.
+            </p>
+          </header>
 
-    <div class="signup__social">
-      <button class="btn btn-google" type="button" id="signupGoogle">
-        <img src="https://ik.imagekit.io/aitoroa/WEBAPP/google-icon.svg" alt="" width="20">
-        Continuar con Google
-      </button>
-    </div>
+          <div class="signup__social">
+            <button class="btn btn-google" type="button" id="signupGoogle">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/google-icon.svg"
+                alt=""
+                width="20"
+              />
+              Continuar con Google
+            </button>
+          </div>
 
-    <div class="signup__divider">
-      <span>o regístrate con tu email</span>
-    </div>
+          <div class="signup__divider">
+            <span>o regístrate con tu email</span>
+          </div>
 
-    <form id="signupForm" class="signup__form" novalidate>
-      <div class="field">
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required placeholder="ejemplo@correo.com" />
-        <p class="field__error" id="emailErr"></p>
-      </div>
+          <form id="signupForm" class="signup__form" novalidate>
+            <div class="field">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="ejemplo@correo.com"
+              />
+              <p class="field__error" id="emailErr"></p>
+            </div>
 
-      <div class="field">
-        <label for="password">Contraseña</label>
-        <div class="password-wrapper">
-          <input id="password" name="password" type="password" required placeholder="Mínimo 8 caracteres" />
-          <button class="password__toggle" type="button" aria-label="Mostrar">
-            <i class="fa-regular fa-eye"></i>
-          </button>
+            <div class="field">
+              <label for="password">Contraseña</label>
+              <div class="password-wrapper">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  placeholder="Mínimo 8 caracteres"
+                />
+                <button
+                  class="password__toggle"
+                  type="button"
+                  aria-label="Mostrar"
+                >
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+              <p class="field__help">Debe incluir 1 mayúscula y 1 número.</p>
+              <p class="field__error" id="passwordErr"></p>
+            </div>
+
+            <div class="field">
+              <label for="fullname">Nombre completo</label>
+              <input
+                id="fullname"
+                name="fullname"
+                type="text"
+                required
+                placeholder="Tu nombre y apellidos"
+              />
+              <p class="field__error" id="fullnameErr"></p>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="signupSubmit"
+              disabled
+            >
+              CREAR CUENTA
+            </button>
+          </form>
+
+          <footer class="signup__footer">
+            ¿Ya eres parte de la comunidad?
+            <a href="perfil.html">Inicia sesión</a>
+          </footer>
         </div>
-        <p class="field__help">Debe incluir 1 mayúscula y 1 número.</p>
-        <p class="field__error" id="passwordErr"></p>
-      </div>
-
-      <div class="field">
-        <label for="fullname">Nombre completo</label>
-        <input id="fullname" name="fullname" type="text" required placeholder="Tu nombre y apellidos" />
-        <p class="field__error" id="fullnameErr"></p>
-      </div>
-
-      <button type="submit" class="btn btn-primary" id="signupSubmit" disabled>
-        CREAR CUENTA
-      </button>
-    </form>
-
-    <footer class="signup__footer">
-      ¿Ya eres parte de la comunidad? <a href="perfil.html">Inicia sesión</a>
-    </footer>
-  </div>
-</section>
+      </section>
 
       <!-- SECCIÓN DESCARGA APP -->
 
       <section class="app-download" aria-labelledby="appDownloadTitle">
-  <div class="app-download__wrap grid-showcase">
-    
-    <div class="app-media-container">
-      <figure class="app-mockup">
-        <img
-          src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_Mockup.png"
-          alt="App NextRun"
-          loading="lazy"
-        />
-      </figure>
-    </div>
+        <div class="app-download__wrap grid-showcase">
+          <div class="app-media-container">
+            <figure class="app-mockup">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_Mockup.png"
+                alt="App NextRun"
+                loading="lazy"
+              />
+            </figure>
+          </div>
 
-    <div class="app-content">
-      <header class="app-header">
-        <span class="welcome__tag">Lleva NextRun contigo</span>
-        <h2 id="appDownloadTitle" class="welcome__title">
-          TU ENTRENADOR <strong>DE BOLSILLO</strong>
-        </h2>
-      </header>
+          <div class="app-content">
+            <header class="app-header">
+              <span class="welcome__tag">Lleva NextRun contigo</span>
+              <h2 id="appDownloadTitle" class="welcome__title">
+                TU ENTRENADOR <strong>DE BOLSILLO</strong>
+              </h2>
+            </header>
 
-      <div class="app-description">
-        <p>Desbloquea todo el potencial de NextRun desde tu móvil. Sincroniza tus dispositivos, accede a métricas avanzadas y supera tus metas.</p>
-        
-        <ul class="app-features-list">
-          <li><i class="fa-solid fa-circle-check"></i> Seguimiento GPS en vivo</li>
-          <li><i class="fa-solid fa-circle-check"></i> Análisis biométrico avanzado</li>
-        </ul>
-      </div>
+            <div class="app-description">
+              <p>
+                Desbloquea todo el potencial de NextRun desde tu móvil.
+                Sincroniza tus dispositivos, accede a métricas avanzadas y
+                supera tus metas.
+              </p>
 
-      <div class="app-actions-block">
-        <div class="app-stores-column">
-          <a class="store-btn" href="#"><img src="https://ik.imagekit.io/aitoroa/WEBAPP/Google%20Play.png" alt="Google Play"></a>
-          <a class="store-btn" href="#"><img src="https://ik.imagekit.io/aitoroa/WEBAPP/Apple%20Store.png" alt="App Store"></a>
+              <ul class="app-features-list">
+                <li>
+                  <i class="fa-solid fa-circle-check"></i> Seguimiento GPS en
+                  vivo
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check"></i> Análisis biométrico
+                  avanzado
+                </li>
+              </ul>
+            </div>
+
+            <div class="app-actions-block">
+              <div class="app-stores-column">
+                <a class="store-btn" href="#"
+                  ><img
+                    src="https://ik.imagekit.io/aitoroa/WEBAPP/Google%20Play.png"
+                    alt="Google Play"
+                /></a>
+                <a class="store-btn" href="#"
+                  ><img
+                    src="https://ik.imagekit.io/aitoroa/WEBAPP/Apple%20Store.png"
+                    alt="App Store"
+                /></a>
+              </div>
+              <div class="app-qr-column">
+                <div class="qr-frame">
+                  <img
+                    src="https://ik.imagekit.io/aitoroa/WEBAPP/QR.png"
+                    alt="QR"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="app-qr-column">
-          <div class="qr-frame"><img src="https://ik.imagekit.io/aitoroa/WEBAPP/QR.png" alt="QR"></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-    </div> </div>
-</section>
+      </section>
+    </main>
 
     <!-- FOOTER -->
 

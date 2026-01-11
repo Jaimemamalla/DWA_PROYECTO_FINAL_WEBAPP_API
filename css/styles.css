@@ -3304,15 +3304,6 @@ ACTIVIDAD RECIENTE (FEED VIVO)
   }
 }
 
-
-
-
-
-
-
-
-
-
 /* Cambios Ale */
 
 /* ==========================================================================
@@ -3358,7 +3349,9 @@ ACTIVIDAD RECIENTE (FEED VIVO)
 }
 
 .welcome__title strong {
-  color: var(--accent-dark); /* Resaltado en verde lima oscuro para lectura sobre blanco */
+  color: var(
+    --accent-dark
+  ); /* Resaltado en verde lima oscuro para lectura sobre blanco */
   font-weight: 900;
 }
 
@@ -3376,8 +3369,8 @@ ACTIVIDAD RECIENTE (FEED VIVO)
   width: 100%;
   height: auto;
   border-radius: var(--radius);
-  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.05), 
-              -20px -20px 60px rgba(255, 255, 255, 0.8);
+  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.05),
+    -20px -20px 60px rgba(255, 255, 255, 0.8);
   transition: var(--transition);
 }
 
@@ -3411,12 +3404,11 @@ ACTIVIDAD RECIENTE (FEED VIVO)
   .welcome {
     margin: 2rem auto;
   }
-  
+
   .welcome__title {
     font-size: 2.2rem;
   }
 }
-
 
 /* ==========================================================================
    AJUSTE IMAGEN BIENVENIDA (Cuadrado Premium)
@@ -3426,7 +3418,7 @@ ACTIVIDAD RECIENTE (FEED VIVO)
 .welcome__wrap {
   display: grid;
   /* Ajustamos ligeramente las columnas para dar más aire al texto */
-  grid-template-columns: 1.2fr 0.8fr; 
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 4rem;
   align-items: center;
 }
@@ -3440,8 +3432,8 @@ ACTIVIDAD RECIENTE (FEED VIVO)
   justify-self: center; /* Centra el cuadrado en su columna */
   border-radius: 30px; /* Esquinas muy redondeadas (estilo "squircle") */
   /* Sombra suave premium para dar profundidad */
-  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.05), 
-              -20px -20px 60px rgba(255, 255, 255, 0.8);
+  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.05),
+    -20px -20px 60px rgba(255, 255, 255, 0.8);
 }
 
 /* La imagen rellena el cuadrado sin deformarse */
@@ -3474,10 +3466,9 @@ ACTIVIDAD RECIENTE (FEED VIVO)
 
 @media (max-width: 480px) {
   .welcome__media {
-     max-width: 100%; /* En móviles pequeños, ocupa el ancho disponible */
+    max-width: 100%; /* En móviles pequeños, ocupa el ancho disponible */
   }
 }
-
 
 /* ==========================================================================
    AJUSTES TIPOGRAFÍA MÓVIL
@@ -3486,7 +3477,7 @@ ACTIVIDAD RECIENTE (FEED VIVO)
 @media (max-width: 1024px) {
   .welcome__description {
     /* Un poco más pequeño que antes (1.2rem -> 1.1rem) */
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
     max-width: 90%;
   }
 }
@@ -3494,33 +3485,30 @@ ACTIVIDAD RECIENTE (FEED VIVO)
 @media (max-width: 768px) {
   .welcome__title {
     /* Ajuste fino del título para que no ocupe tantas líneas */
-    font-size: 2rem; 
+    font-size: 2rem;
   }
-  
+
   .welcome__description {
     font-size: 1.05rem; /* El tamaño justo para legibilidad sin saturar */
     line-height: 1.6;
   }
 }
 
-
-
-
-
 /* ==========================================================================
    EFECTO BLUR EN EL CONTENIDO TRASERO
    ========================================================================== */
 
 /* Preparamos los contenedores para la transición suave */
-main, footer {
+main,
+footer {
   transition: filter 0.4s ease, opacity 0.4s ease;
 }
 
 /* Cuando el menú está abierto (clase controlada por script.js) */
-body.no-scroll main, 
+body.no-scroll main,
 body.no-scroll footer {
   filter: blur(8px); /* Desenfoque del contenido de fondo */
-  opacity: 0.4;     /* Oscurecemos un poco más el fondo para resaltar el texto del menú */
+  opacity: 0.4; /* Oscurecemos un poco más el fondo para resaltar el texto del menú */
   pointer-events: none; /* Evita clics accidentales en el contenido mientras el menú está abierto */
 }
 
@@ -3528,19 +3516,18 @@ body.no-scroll footer {
 @media (max-width: 768px) {
   .menu {
     /* Usamos un color más suave pero con un blur interno potente */
-    background: rgba(11, 70, 80, 0.4) !important; 
-    backdrop-filter: blur(20px) !important; /* Blur propio del contenedor del menú */
+    background: rgba(11, 70, 80, 0.4) !important;
+    backdrop-filter: blur(
+      20px
+    ) !important; /* Blur propio del contenedor del menú */
     -webkit-backdrop-filter: blur(20px) !important;
   }
-  
+
   .menu a {
     /* Aumentamos un poco el contraste del texto en el menú */
-    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   }
 }
-
-
-
 
 /* ==========================================================================
    MÁRGENES GLOBALES Y CONTENEDORES
@@ -3665,8 +3652,6 @@ main {
   }
 }
 
-
-
 /* --- CORRECCIÓN PANEL DESPLEGABLE (LEGUIBILIDAD) --- */
 
 .event-panel {
@@ -3713,7 +3698,7 @@ main {
   .event-panel {
     padding: 1.2rem 1.5rem 2rem;
   }
-  
+
   .event-panel p {
     font-size: 1rem; /* Un poco más pequeño en móvil */
   }
@@ -3723,7 +3708,6 @@ main {
   }
 }
 
-
 /* ==========================================================================
    1. LIBERAR EL CONTENEDOR PRINCIPAL
    ========================================================================== */
@@ -3731,7 +3715,7 @@ main {
 main {
   width: 100%;
   max-width: none; /* Eliminamos la restricción */
-  padding: 0;      /* Eliminamos el padding global */
+  padding: 0; /* Eliminamos el padding global */
   margin: 0;
 }
 
@@ -3758,10 +3742,10 @@ main {
    ========================================================================== */
 
 /* Creamos una regla para todos los envoltorios que SI deben llevar margen */
-.welcome__wrap, 
-.section-cards, 
-.section-toprunners, 
-.signup, 
+.welcome__wrap,
+.section-cards,
+.section-toprunners,
+.signup,
 .app-download__wrap,
 .footer__wrap,
 .community__wrap,
@@ -3775,10 +3759,10 @@ main {
 
 /* Ajuste fino para móviles */
 @media (max-width: 768px) {
-  .welcome__wrap, 
-  .section-cards, 
-  .section-toprunners, 
-  .signup, 
+  .welcome__wrap,
+  .section-cards,
+  .section-toprunners,
+  .signup,
   .app-download__wrap,
   .footer__wrap,
   .community__wrap,
@@ -3938,18 +3922,20 @@ main {
     border-radius: 30px;
     margin: 0 1rem;
   }
-  
+
   .signup__header .welcome__title {
     font-size: 1.8rem;
   }
 }
 
-
 /* ==========================================================================
    TOP RUNNERS (DISEÑO PREMIUM FINAL)
    ========================================================================== */
 
-.section-toprunners { padding: 4rem 0; background-color: #ffffff; }
+.section-toprunners {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
 
 .toprunners-slideshow .slideshow-container {
   position: relative;
@@ -3974,53 +3960,98 @@ main {
   transition: transform 1s ease;
 }
 
-.slideshow-container:hover .runnerSlide img { transform: scale(1.05); }
+.slideshow-container:hover .runnerSlide img {
+  transform: scale(1.05);
+}
 
 /* --- CAPTION GLASSMORPHISM (DESKTOP) --- */
 .toprunners-slideshow .caption {
   position: absolute;
-  left: 2.5rem; right: 2.5rem; bottom: 2.5rem;
+  left: 2.5rem;
+  right: 2.5rem;
+  bottom: 2.5rem;
   padding: 1.5rem 2rem;
-  display: flex; justify-content: space-between; align-items: center;
-  background: rgba(255, 255, 255, 0.1); 
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 28px;
   color: #fff;
   z-index: 5;
 }
 
-.runner-name { font-family: var(--font-secondary); font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; }
-.runner-event { font-size: 0.8rem; color: var(--accent); font-weight: 600; margin-top: 4px; display: block; }
+.runner-name {
+  font-family: var(--font-secondary);
+  font-weight: 900;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+.runner-event {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-top: 4px;
+  display: block;
+}
 
 .caption__metric {
-  display: flex; align-items: center; gap: 10px;
-  background: var(--accent); color: #000;
-  padding: 10px 18px; border-radius: 16px;
-  font-family: var(--font-metric); font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--accent);
+  color: #000;
+  padding: 10px 18px;
+  border-radius: 16px;
+  font-family: var(--font-metric);
+  font-weight: 800;
 }
 
 /* --- BOTONES NAVEGACIÓN --- */
 .nav-btn {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 50px; height: 50px; border-radius: 50%; border: 0;
-  background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);
-  color: #fff; cursor: pointer; transition: 0.3s; z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 10;
 }
-.nav-btn:hover { background: var(--accent); color: #000; }
-.nav-btn.prev { left: 1rem; }
-.nav-btn.next { right: 1rem; }
+.nav-btn:hover {
+  background: var(--accent);
+  color: #000;
+}
+.nav-btn.prev {
+  left: 1rem;
+}
+.nav-btn.next {
+  right: 1rem;
+}
 
 /* ==========================================================================
    AJUSTE ESPECÍFICO PARA MÓVIL (CORRECCIÓN CAPTURA)
    ========================================================================== */
 @media (max-width: 768px) {
-  .toprunners-slideshow .viewport { aspect-ratio: 4 / 5; } /* Formato más vertical */
-  
-  .runnerSlide img { border-radius: 30px; } /* Bordes un poco menos agresivos en móvil */
+  .toprunners-slideshow .viewport {
+    aspect-ratio: 4 / 5;
+  } /* Formato más vertical */
+
+  .runnerSlide img {
+    border-radius: 30px;
+  } /* Bordes un poco menos agresivos en móvil */
 
   .toprunners-slideshow .caption {
-    left: 1rem; right: 1rem; bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
     padding: 1rem;
     flex-direction: column; /* Apilamos para ahorrar espacio */
     text-align: center;
@@ -4028,16 +4059,23 @@ main {
     border-radius: 22px;
   }
 
-  .runner-name { font-size: 1.1rem; }
-  .runner-event { font-size: 0.75rem; }
-  
+  .runner-name {
+    font-size: 1.1rem;
+  }
+  .runner-event {
+    font-size: 0.75rem;
+  }
+
   .caption__metric {
     padding: 6px 14px;
     font-size: 1rem;
     width: fit-content;
   }
-  
-  .nav-btn { width: 40px; height: 40px; }
+
+  .nav-btn {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 /* ==========================================================================
@@ -4048,27 +4086,27 @@ main {
   display: flex;
   justify-content: center; /* Centrado absoluto */
   align-items: center;
-  gap: 12px;               /* Espacio equilibrado entre puntos */
-  margin-top: 2.5rem;      /* Aire respecto al carrusel */
+  gap: 12px; /* Espacio equilibrado entre puntos */
+  margin-top: 2.5rem; /* Aire respecto al carrusel */
   width: 100%;
 }
 
 .dot {
   cursor: pointer;
   height: 10px;
-  width: 10px;            /* Forma inicial circular */
+  width: 10px; /* Forma inicial circular */
   background-color: #e2e8f0; /* Gris suave para inactivos */
   border-radius: 50%;
   display: inline-block;
   /* Transición fluida para el efecto de estiramiento */
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --- EFECTO ANIMADO AL ACTIVARSE --- */
 .dot.active {
   background-color: var(--accent); /* Verde Lima */
-  width: 35px;                    /* Se estira formando una "píldora" */
-  border-radius: 10px;            /* Mantiene bordes redondeados al estirarse */
+  width: 35px; /* Se estira formando una "píldora" */
+  border-radius: 10px; /* Mantiene bordes redondeados al estirarse */
   box-shadow: 0 4px 12px rgba(212, 241, 78, 0.3); /* Brillo sutil */
 }
 
@@ -4084,12 +4122,12 @@ main {
     margin-top: 1.5rem;
     gap: 10px;
   }
-  
+
   .dot {
     height: 8px;
     width: 8px;
   }
-  
+
   .dot.active {
     width: 28px;
   }
@@ -4103,9 +4141,9 @@ main {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 54px;               /* Tamaño equilibrado */
+  width: 54px; /* Tamaño equilibrado */
   height: 54px;
-  border-radius: 16px;       /* Forma de cuadrado redondeado premium */
+  border-radius: 16px; /* Forma de cuadrado redondeado premium */
   border: 0;
   background: rgba(255, 255, 255, 0.15); /* Efecto Glassmorphism */
   backdrop-filter: blur(12px);
@@ -4116,46 +4154,54 @@ main {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* --- LA MAGIA PARA CENTRAR LAS FLECHAS --- */
-  display: flex;             /* Activamos Flexbox */
-  align-items: center;       /* Centrado vertical */
-  justify-content: center;    /* Centrado horizontal */
+  display: flex; /* Activamos Flexbox */
+  align-items: center; /* Centrado vertical */
+  justify-content: center; /* Centrado horizontal */
 }
 
 /* Ajuste del tamaño del icono interno */
 .nav-btn i {
-  font-size: 1.4rem;         /* Flecha más visible */
-  display: block;            /* Evita espacios extra de línea */
-  line-height: 1;            /* Asegura que no haya padding tipográfico */
+  font-size: 1.4rem; /* Flecha más visible */
+  display: block; /* Evita espacios extra de línea */
+  line-height: 1; /* Asegura que no haya padding tipográfico */
 }
 
 /* --- EFECTOS HOVER --- */
 .nav-btn:hover {
   background: var(--accent); /* Verde Lima al pasar el ratón */
-  color: #000000;            /* Icono negro para máximo contraste */
+  color: #000000; /* Icono negro para máximo contraste */
   transform: translateY(-50%) scale(1.1);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Posicionamiento lateral */
-.nav-btn.prev { left: 1.5rem; }
-.nav-btn.next { right: 1.5rem; }
+.nav-btn.prev {
+  left: 1.5rem;
+}
+.nav-btn.next {
+  right: 1.5rem;
+}
 
 /* ==========================================================================
    AJUSTE PARA MÓVIL (CORRECCIÓN CAPTURA)
    ========================================================================== */
 @media (max-width: 768px) {
   .nav-btn {
-    width: 46px;             /* Un poco más pequeños en móvil */
+    width: 46px; /* Un poco más pequeños en móvil */
     height: 46px;
     border-radius: 12px;
   }
-  
+
   .nav-btn i {
     font-size: 1.1rem;
   }
 
-  .nav-btn.prev { left: 10px; }
-  .nav-btn.next { right: 10px; }
+  .nav-btn.prev {
+    left: 10px;
+  }
+  .nav-btn.next {
+    right: 10px;
+  }
 }
 
 /* ==========================================================================
@@ -4183,16 +4229,22 @@ main {
   display: flex;
   justify-content: center;
   /* Altura máxima controlada para que no sea gigante */
-  height: 650px; 
+  height: 650px;
 }
 
 /* Fondo decorativo (blob) detrás del móvil */
 .app-blob-bg {
   position: absolute;
-  top: 50%; left: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 120%; height: 100%;
-  background: radial-gradient(circle, var(--accent-soft) 0%, rgba(255,255,255,0) 70%);
+  width: 120%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    var(--accent-soft) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
   opacity: 0.6;
   z-index: 0;
 }
@@ -4213,8 +4265,10 @@ main {
   max-width: 100%;
   /* 'contain' asegura que se vea el móvil entero sin recortarse, 
      pero centrando la imagen y eliminando el exceso de aire si el contenedor es más pequeño */
-  object-fit: contain; 
-  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.15)); /* Sombra realista para el móvil */
+  object-fit: contain;
+  filter: drop-shadow(
+    0 30px 60px rgba(0, 0, 0, 0.15)
+  ); /* Sombra realista para el móvil */
 }
 
 /* --- COLUMNA DERECHA: CONTENIDO --- */
@@ -4293,8 +4347,8 @@ main {
   background: #fff;
   padding: 10px;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .qr-frame img {
@@ -4315,10 +4369,10 @@ main {
 
   /* En tablet/móvil, la imagen va arriba */
   .app-media-container {
-    order: -1; 
+    order: -1;
     height: 500px; /* Un poco más pequeño en tablets */
   }
-  
+
   /* Centramos las listas y contenidos */
   .app-features-list {
     align-items: center;
@@ -4328,7 +4382,7 @@ main {
     flex-direction: column; /* Botones arriba, QR abajo en móvil */
     gap: 2rem;
   }
-  
+
   .app-stores-column {
     flex-direction: row; /* Botones en horizontal en móvil */
     justify-content: center;
@@ -4339,14 +4393,11 @@ main {
   .app-media-container {
     height: 400px; /* Móvil pequeño */
   }
-  
+
   .store-btn img {
     height: 42px; /* Botones un pelín más pequeños */
   }
 }
-
-
-
 
 /* ==========================================================================
    AJUSTE DE RECORTE DE IMAGEN APP
@@ -4359,10 +4410,10 @@ main {
   display: flex;
   justify-content: center;
   /* Reducimos un poco la altura para hacer el marco más "cuadrado" (antes 650px) */
-  height: 580px; 
+  height: 580px;
   width: 100%;
   /* Opcional: Para forzar una forma más cuadrada en escritorio si lo prefieres */
-  /* aspect-ratio: 4 / 5; */ 
+  /* aspect-ratio: 4 / 5; */
   overflow: hidden; /* Asegura que lo recortado no se vea */
   border-radius: 30px; /* Un toque extra de acabado premium en el contenedor */
 }
@@ -4386,7 +4437,7 @@ main {
   /* 'cover' hace zoom para llenar el contenedor, recortando el exceso de arriba y abajo */
   object-fit: cover;
   /* Asegura que el centro del móvil sea el foco */
-  object-position: center center; 
+  object-position: center center;
   filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.15));
 }
 
@@ -4394,8 +4445,8 @@ main {
 @media (max-width: 1024px) {
   /* En tablet/móvil ajustamos la altura para que no sea tan alta */
   .app-media-container {
-    order: -1; 
-    height: 500px; 
+    order: -1;
+    height: 500px;
     max-width: 500px; /* Limitamos el ancho para que no se desmadre en tablets */
     margin: 0 auto; /* Centrado */
   }
@@ -4406,7 +4457,6 @@ main {
     height: 450px; /* Altura óptima para móviles */
   }
 }
-
 
 /* ==========================================================================
    CORRECCIÓN SECCIÓN APP (IMAGEN REDONDEADA Y MARGENES MÓVIL)
@@ -4488,15 +4538,13 @@ main {
   body {
     overflow-x: hidden; /* Evita el scroll lateral si algo sobresale */
   }
-  
+
   /* Aseguramos que el envoltorio principal no tenga márgenes asimétricos */
   .grid-showcase {
     margin: 0 !important;
     width: 100% !important;
   }
 }
-
-
 
 /* ==========================================================================
    SECCIÓN APP: RECORTE CUADRADO Y FIX MÓVIL
@@ -4602,7 +4650,7 @@ main {
     width: 100%;
     box-sizing: border-box;
   }
-  
+
   .welcome__title {
     font-size: 1.8rem;
   }
@@ -4660,7 +4708,7 @@ main {
 
   /* IMAGEN GIGANTE EN MÓVIL (Borde a borde) */
   .app-media-container {
-    order: -1; 
+    order: -1;
     width: 100% !important; /* Ocupa todo el ancho del contenedor */
     max-width: 100% !important; /* Eliminamos cualquier restricción de tamaño */
     aspect-ratio: 1 / 1; /* Mantenemos el recorte cuadrado */
@@ -4702,8 +4750,6 @@ main {
   }
 }
 
-
-
 /* ==========================================================================
    AJUSTE FINAL DE EQUILIBRIO (MÓVIL)
    ========================================================================== */
@@ -4716,7 +4762,7 @@ main {
 
   /* 2. Recuperamos un padding superior decente para la descarga */
   .app-download {
-    padding-top: 2rem !important; 
+    padding-top: 2rem !important;
     margin-top: 0 !important; /* ELIMINAMOS el margin negativo que pegaba todo */
   }
 
@@ -4726,10 +4772,10 @@ main {
 
   /* 3. La imagen sigue siendo protagonista y cuadrada */
   .app-media-container {
-    order: -1; 
-    width: 100% !important; 
-    max-width: 100% !important; 
-    aspect-ratio: 1 / 1; 
+    order: -1;
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 1 / 1;
     border-radius: 30px; /* Bordes redondeados consistentes */
   }
 
@@ -4749,8 +4795,6 @@ main {
     text-align: center;
   }
 }
-
-
 
 /* ==========================================================================
    HERO OVERLAY (TEXTO Y FLECHA)
@@ -4782,7 +4826,7 @@ main {
   letter-spacing: -2px;
   line-height: 0.9;
   margin-bottom: 1.5rem;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .hero__title .accent-text {
@@ -4794,7 +4838,7 @@ main {
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   max-width: 600px;
   opacity: 0.9;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* --- FLECHA INDICADORA ANIMADA --- */
@@ -4815,15 +4859,30 @@ main {
 
 /* Animación de la flecha */
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-  40% { transform: translateX(-50%) translateY(-15px); }
-  60% { transform: translateX(-50%) translateY(-8px); }
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-15px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-8px);
+  }
 }
 
 /* Ajuste móvil */
 @media (max-width: 768px) {
-  .hero__title { font-size: 3rem; }
-  .hero__scroll-down { font-size: 2rem; bottom: 20px; }
+  .hero__title {
+    font-size: 3rem;
+  }
+  .hero__scroll-down {
+    font-size: 2rem;
+    bottom: 20px;
+  }
 }
 
 /* ==========================================================================
@@ -4835,7 +4894,7 @@ main {
   flex-direction: column;
   justify-content: center;
   /* ESTA ES LA CLAVE: Alinea título y párrafo al centro horizontal */
-  align-items: center; 
+  align-items: center;
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
@@ -4848,7 +4907,7 @@ main {
   max-width: 650px; /* Limitamos el ancho para que no sea una línea infinita */
   margin: 1rem auto 0; /* 'auto' en los lados centra el bloque del párrafo */
   opacity: 0.9;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Aseguramos que la flecha también mantenga su eje central */
