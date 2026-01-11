@@ -3564,7 +3564,6 @@ main {
 }
 
 .event-card {
-  background: var(--bg-card);
   border-radius: 28px; /* Esquinas más redondeadas estilo App */
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.04);

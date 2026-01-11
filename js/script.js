@@ -707,7 +707,7 @@ $(document).ready(function () {
         labels: ["L", "M", "X", "J", "V", "S", "D"],
         datasets: [
           {
-            label: "Km recorridos",
+            label: "Kilómetros recorridos",
             data: [5, 8, 3, 12, 6, 15, 4],
             backgroundColor: colorSecondary,
             hoverBackgroundColor: colorPrimary,
@@ -1346,7 +1346,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function showToastAndRedirect() {
     if (!signupToast) return;
     signupToast.hidden = false;
-    window.setTimeout(() => (window.location.href = "index.html"), 1500);
+    window.setTimeout(() => (window.location.href = "index.html"), 5000);
   }
 
   signupBtn?.addEventListener("click", () => {
