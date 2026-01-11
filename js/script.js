@@ -868,6 +868,7 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 35,
       details:
         "Recorrido urbano con tramos rápidos. Avituallamiento cada 5 km. Categorías por edad. Guardarropa disponible.",
+      image: "media/eventos/maratonvale.png",
     },
     {
       id: "ev-2",
@@ -883,6 +884,7 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 22,
       details:
         "Circuito homologado. Cajones por ritmo. Puestos de hidratación y geles.",
+      image: "media/eventos/maratoncentro.jpg",
     },
     {
       id: "ev-3",
@@ -898,6 +900,7 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 18,
       details:
         "Terreno mixto con desnivel. Recomendable trail. Tiempo límite 2h.",
+      image: "media/eventos/maratonpopu.png",
     },
     {
       id: "ev-4",
@@ -913,6 +916,7 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 15,
       details:
         "Carrera nocturna con ambiente y música. Circuito rápido, ideal para marca personal.",
+      image: "media/eventos/maratonpopu.jpg",
     },
     {
       id: "ev-5",
@@ -928,6 +932,7 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 10,
       details:
         "Carrera corta para todos los niveles. Perfecta para principiantes o para hacer series.",
+      image: "media/eventos/maratonbarce.png",
     },
     {
       id: "ev-6",
@@ -943,6 +948,7 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 20,
       details:
         "Recorrido llano bordeando el río. Cajones por ritmo y avituallamiento cada 5 km.",
+      image: "media/eventos/maratonpopu.png",
     },
     {
       id: "ev-7",
@@ -958,6 +964,7 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 45,
       details:
         "Maratón urbano con tramos turísticos. Puntos de hidratación y geles. Guardarropa disponible.",
+      image: "media/eventos/maratonpopu.png",
     },
     {
       id: "ev-8",
@@ -973,6 +980,7 @@ document.addEventListener("DOMContentLoaded", () => {
       priceEUR: 42,
       details:
         "Recorrido urbano bordeando el río Manzanares. Tramos verdes y rápidos.",
+      image: "media/eventos/maratonrio.jpg",
     },
     {
       id: "ev-9",
@@ -987,6 +995,7 @@ document.addEventListener("DOMContentLoaded", () => {
       recommended: "Asfalto (mixtas)",
       priceEUR: 40,
       details: "Maratón urbano atravesando el eje norte-sur de Madrid.",
+      image: "media/eventos/maratoncaste.webp",
     },
   ];
 
@@ -1075,6 +1084,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function openEventModal(ev) {
     selectedEvent = ev;
+    const modalImg = document.getElementById("eventModalImg");
+    if (modalImg) {
+      modalImg.src = ev.image || "media/img/eventos/placeholder.jpg";
+      modalImg.alt = ev.title ? `Imagen de ${ev.title}` : "Imagen del evento";
+    }
 
     if (modalTitle) modalTitle.textContent = ev.title;
     if (modalMeta)
