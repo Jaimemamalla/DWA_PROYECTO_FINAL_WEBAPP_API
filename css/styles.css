@@ -2714,20 +2714,6 @@ body {
 }
 
 @media (max-width: 1000px) {
-  .dashboard-wrapper {
-    flex-direction: column;
-  }
-  .main-content {
-    max-width: 100%;
-  }
-  .sidebar-profile {
-    width: 100%;
-  }
-  .stats-activity-row,
-  .challenges-layout {
-    flex-direction: column;
-    grid-template-columns: 1fr;
-  }
 
   .search-bar input {
     width: 80%;
@@ -2736,62 +2722,16 @@ body {
 
 /* Responsive */
 @media (max-width: 1100px) {
-  .dashboard-wrapper {
-    flex-direction: column;
-  }
-  .main-content {
-    max-width: 100%;
-  }
-  .sidebar-profile {
-    width: 100%;
-    border-left: none;
-  }
-  .today-grid,
-  .stats-activity-row,
-  .challenges-grid {
-    grid-template-columns: 1fr;
-  }
-
   .search-bar input {
     width: 80%;
   }
 }
 
 /* Responsive */
-@media (max-width: 1100px) {
-  .dashboard-wrapper {
-    flex-direction: column;
-  }
-  .main-content {
-    max-width: 100%;
-    padding: 30px;
-  }
-  .sidebar-profile {
-    width: 100%;
-    border-left: none;
-    border-top: 1px solid #222;
-  }
-  .today-grid,
-  .stats-activity-row,
-  .challenges-grid {
-    grid-template-columns: 1fr;
-  }
-  .activity-split-compact {
-    flex-direction: row;
-    justify-content: space-around;
-  }
-}
+
 
 @media (max-width: 600px) {
-  .activity-split-compact {
-    flex-direction: column;
-    text-align: center;
-    gap: 25px;
-  }
-  .activity-info-compact li {
-    justify-content: center;
-  }
-
+  
   .search-bar input {
     width: 80%;
   }
@@ -2799,26 +2739,6 @@ body {
 
 /* --- 7. RESPONSIVE --- */
 @media (max-width: 1100px) {
-  .dashboard-wrapper {
-    flex-direction: column;
-  }
-
-  .main-content,
-  .sidebar-profile {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .today-grid,
-  .stats-activity-row,
-  .challenges-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sidebar-profile {
-    border-left: none;
-    border-top: 1px solid #222;
-  }
 
   .search-bar input {
     width: 80%;
@@ -2830,11 +2750,6 @@ body {
     width: 98%;
     top: 5px;
   }
-  .main-content {
-    padding: 20px;
-  }
-
-  .search-bar input {
-    width: 80%;
-  }
 }
+
+
