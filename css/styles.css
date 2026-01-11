@@ -836,7 +836,7 @@ body {
 
 .runner-card__top {
   height: 68px;
-  background: #3c3c3c;
+  background: var(--color-secondary);
 }
 
 .runner-card__body {
@@ -2805,7 +2805,7 @@ body {
   .activity-info-compact li {
     justify-content: center;
   }
-  
+
   .hero-card {
     padding: 20px;
   }
