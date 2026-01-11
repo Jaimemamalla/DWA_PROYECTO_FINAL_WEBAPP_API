@@ -3506,3 +3506,35 @@ ACTIVIDAD RECIENTE (FEED VIVO)
 
 
 
+
+/* ==========================================================================
+   EFECTO BLUR EN EL CONTENIDO TRASERO
+   ========================================================================== */
+
+/* Preparamos los contenedores para la transición suave */
+main, footer {
+  transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+/* Cuando el menú está abierto (clase controlada por script.js) */
+body.no-scroll main, 
+body.no-scroll footer {
+  filter: blur(8px); /* Desenfoque del contenido de fondo */
+  opacity: 0.4;     /* Oscurecemos un poco más el fondo para resaltar el texto del menú */
+  pointer-events: none; /* Evita clics accidentales en el contenido mientras el menú está abierto */
+}
+
+/* Mejora del fondo del menú móvil para que no sea solo un color sólido */
+@media (max-width: 768px) {
+  .menu {
+    /* Usamos un color más suave pero con un blur interno potente */
+    background: rgba(11, 70, 80, 0.4) !important; 
+    backdrop-filter: blur(20px) !important; /* Blur propio del contenedor del menú */
+    -webkit-backdrop-filter: blur(20px) !important;
+  }
+  
+  .menu a {
+    /* Aumentamos un poco el contraste del texto en el menú */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+}
