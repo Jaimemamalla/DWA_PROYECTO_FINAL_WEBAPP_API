@@ -2320,16 +2320,19 @@ body {
   border-bottom: 1px solid #f9f9f9;
 }
 
-/* AJUSTES PARA MÓVIL (Menos de 768px) */
+
+
+/* MEDIA QUERYS  */
+
 @media (max-width: 768px) {
-  /* 1. Ajuste del espaciado superior para que el buscador no quede muy pegado */
+  
   .results-filters {
     padding: 100px 0 30px 0;
   }
 
-  /* 2. El Podio: De 3 columnas a 1 sola columna */
+
   .podium-grid {
-    grid-template-columns: 1fr; /* Una tarjeta debajo de otra */
+    grid-template-columns: 1fr;
     gap: 15px;
     margin: 20px 0;
   }
@@ -2342,17 +2345,15 @@ body {
   }
 
   .podium-card .pos {
-    font-size: 2.5rem; /* Número un poco más pequeño en móvil */
+    font-size: 2.5rem;
     min-width: 50px;
   }
 
-  /* 3. El Tablero Blanco: Menos padding para aprovechar el ancho */
   .results-board {
     padding: 20px 15px;
     border-radius: 15px;
   }
 
-  /* 4. Cabecera del tablero: Título y Tabs uno arriba del otro */
   .board__header {
     flex-direction: column;
     align-items: flex-start;
@@ -2365,26 +2366,24 @@ body {
   }
 
   .tab {
-    flex: 1; /* Los botones de Individual/Equipos ocupan todo el ancho */
+    flex: 1;
     text-align: center;
     padding: 10px 5px;
     font-size: 0.7rem;
   }
 
-  /* 5. Tabla: Permitir scroll lateral si los datos no caben */
   .table-container {
     margin-top: 20px;
-    overflow-x: auto; /* Habilita el scroll horizontal */
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
 
   .nextrun-table {
-    min-width: 600px; /* Obliga a la tabla a no encogerse demasiado */
+    min-width: 600px;
   }
 
-  /* 6. Chips de filtros: Asegurar que se pueda hacer scroll lateral */
   .chips-scroll {
-    justify-content: flex-start; /* En móvil alineamos a la izquierda */
+    justify-content: flex-start;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -2393,8 +2392,6 @@ body {
     width: 80%;
   }
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 1100px) {
   .grid {
@@ -2724,20 +2721,16 @@ body {
   }
 }
 
-/* Responsive */
 @media (max-width: 1100px) {
   .search-bar input {
     width: 80%;
   }
 
   .main-content, .sidebar-profile {
-    min-width: 0; /* Evita que los flex items se nieguen a encoger */
-    overflow-x: hidden; /* Corta cualquier posible desborde de gráficos */
+    min-width: 0;
+    overflow-x: hidden;
   }
 }
-
-/* Responsive */
-
 
 @media (max-width: 600px) {
   
@@ -2746,7 +2739,6 @@ body {
   }
 }
 
-/* --- 7. RESPONSIVE --- */
 @media (max-width: 1100px) {
 
   .search-bar input {
