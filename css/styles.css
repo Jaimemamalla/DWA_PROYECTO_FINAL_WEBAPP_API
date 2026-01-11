@@ -1117,6 +1117,7 @@ body {
   flex: 1;
   padding: 40px;
   max-width: calc(100% - 360px);
+  
 }
 .sidebar-profile {
   width: 360px;
@@ -1965,6 +1966,7 @@ body {
   flex: 1;
   padding: 30px 40px;
   max-width: calc(100% - 360px);
+  padding-top: calc(var(--header-height,76px) + 50px);
 }
 
 .sidebar-profile {
@@ -1973,6 +1975,7 @@ body {
   padding: 40px 25px;
   border-left: 1px solid #222;
   text-align: center;
+  padding-top: calc(var(--header-height,76px) + 50px);
 }
 
 /* --- 4. COMPONENTES REUTILIZABLES (Cards) --- */
@@ -2729,6 +2732,8 @@ body {
   .main-content, .sidebar-profile {
     min-width: 0;
     overflow-x: hidden;
+    padding-top: calc(var(--header-height,76px) + 50px);
+    padding-top: 40px;
   }
 }
 
@@ -2775,6 +2780,7 @@ body {
     border-left: none;
     border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil de separación arriba */
     padding: 40px 20px;
+    padding-top: calc(var(--header-height,76px) + 50px);
   }
 
   /* 4. Convertimos todos los grids de 2 columnas a 1 sola */
