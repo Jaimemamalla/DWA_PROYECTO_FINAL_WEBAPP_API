@@ -2600,7 +2600,7 @@ body {
 
 .chip,
 .chip-city {
-  background: rgba(249, 247, 242, 0.15);
+  background: var(--color-secondary);
   color: var(--color-neutral-light);
   border: none;
   padding: 10px 20px;
@@ -2615,7 +2615,10 @@ body {
 .chip-city.is-active {
   background-color: var(--color-primary);
   color: var(--color-secondary);
+  transition: 0.3s;
 }
+
+
 
 /* EL TABLERO (BOARD) */
 .results-board {
