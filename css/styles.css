@@ -2758,7 +2758,7 @@ body {
   .activity-split-compact {
     flex-direction: row;
     justify-content: space-around;
-  } /* Mantiene layout horizontal en tablet */
+  }
 }
 
 @media (max-width: 600px) {
@@ -2804,4 +2804,9 @@ body {
   .main-content {
     padding: 20px;
   }
+
+  .search-bar input {
+    width: 80%;
+  }
 }
+
