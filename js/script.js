@@ -364,6 +364,7 @@ $(document).ready(function () {
 
       runners = (data.results || []).map(makeRunner);
       render();
+      initActivityFeed();
     } catch (err) {
       console.error(err);
       if (status) status.textContent = "No se pudieron cargar corredores.";
@@ -473,6 +474,172 @@ $(document).ready(function () {
         window.location.href = "perfil.html";
       }
     };
+  }
+  // ============================================================
+  // ACTIVIDAD RECIENTE (feed vivo)
+  // Usa los mismos runners ya cargados y crea actividades fake
+  // ============================================================
+
+  const activityViewport = document.getElementById("activityViewport");
+  const activityList = document.getElementById("activityList");
+
+  const ACTIVITY_TYPES = [
+    { type: "Entreno", icon: "fa-person-running" },
+    { type: "Ruta", icon: "fa-route" },
+    { type: "Récord", icon: "fa-stopwatch" },
+  ];
+
+  function rand(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function pick(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  function makeActivity(runner) {
+    const t = pick(ACTIVITY_TYPES);
+    const km = rand(4, 28);
+    const paceMin = rand(4, 6);
+    const paceSec = rand(0, 59);
+    const timeAgoMin = rand(2, 180);
+
+    const pace = `${paceMin}:${String(paceSec).padStart(2, "0")}/km`;
+
+    let title = "";
+    let pill = t.type;
+
+    if (t.type === "Entreno") {
+      title = `${km} km · Ritmo ${pace}`;
+    } else if (t.type === "Ruta") {
+      title = `${km} km · Ruta nueva guardada`;
+    } else {
+      title = `Nuevo PR · ${rand(18, 55)}:${String(rand(0, 59)).padStart(
+        2,
+        "0"
+      )}`;
+      pill = "PR";
+    }
+
+    return {
+      id: crypto?.randomUUID
+        ? crypto.randomUUID()
+        : String(Date.now() + Math.random()),
+      runnerId: runner.id,
+      name: runner.name,
+      avatar: runner.avatar,
+      username: runner.username,
+      city: runner.city,
+      pill,
+      pillIsPR: pill === "PR",
+      text: title,
+      minutesAgo: timeAgoMin,
+      icon: t.icon,
+    };
+  }
+
+  function renderActivity(list) {
+    if (!activityList) return;
+    activityList.innerHTML = list
+      .map(
+        (a) => `
+          <article class="activity-item">
+            <img class="activity-avatar" src="${esc(
+              a.avatar
+            )}" alt="Foto de ${esc(a.name)}" loading="lazy" />
+            <div class="activity-main">
+              <p class="activity-text">
+                <span>${esc(a.name)}</span> · ${esc(a.text)}
+              </p>
+              <p class="activity-meta">
+                <i class="fa-solid ${esc(a.icon)}" aria-hidden="true"></i>
+                ${esc(a.city)} · hace ${a.minutesAgo} min
+              </p>
+            </div>
+            <div class="activity-pill ${a.pillIsPR ? "is-pr" : ""}">${esc(
+          a.pill
+        )}</div>
+          </article>
+        `
+      )
+      .join("");
+  }
+
+  function startActivityTicker() {
+    if (!activityViewport || !activityList) return;
+
+    // Limpia clones previos
+    activityList.classList.remove("is-animated");
+    activityList.style.removeProperty("--ticker-shift");
+    activityList.style.removeProperty("--ticker-duration");
+    activityList.querySelectorAll("[data-dup]").forEach((n) => n.remove());
+
+    const items = Array.from(activityList.children);
+    if (items.length < 5) return;
+
+    // Duplicar para loop
+    items.forEach((node) => {
+      const clone = node.cloneNode(true);
+      clone.setAttribute("data-dup", "true");
+      clone.setAttribute("aria-hidden", "true");
+      activityList.appendChild(clone);
+    });
+
+    // Medimos altura del primer set
+    const gap = 12; // coincide con CSS
+    const firstSetHeight =
+      items.reduce((acc, el) => acc + el.offsetHeight, 0) +
+      (items.length - 1) * gap;
+
+    // Si no hay suficiente para scrollear, no animar
+    if (firstSetHeight <= activityViewport.clientHeight + 40) return;
+
+    // Velocidad
+    const pxPerSecond = 38;
+    const duration = Math.max(12, Math.round(firstSetHeight / pxPerSecond));
+
+    activityList.style.setProperty("--ticker-shift", `${firstSetHeight}px`);
+    activityList.style.setProperty("--ticker-duration", `${duration}s`);
+    activityList.classList.add("is-animated");
+  }
+
+  function initActivityFeed() {
+    // Si no existe el bloque en HTML, no hacemos nada
+    if (!activityList || !activityViewport) return;
+
+    // Si runners aún no están, no hacemos nada
+    if (!runners.length) return;
+
+    // Creamos 14–18 actividades usando runners random
+    const n = 16;
+    const activities = Array.from({ length: n }, () =>
+      makeActivity(pick(runners))
+    );
+
+    renderActivity(activities);
+
+    // Espera un frame para que el DOM mida alturas bien
+    requestAnimationFrame(() => startActivityTicker());
+
+    // Opcional: cada 6s mete una actividad nueva arriba (se siente "vivo")
+    window.clearInterval(window.__nextrunActivityInterval);
+    window.__nextrunActivityInterval = window.setInterval(() => {
+      const newOne = makeActivity(pick(runners));
+      const current = Array.from(
+        activityList.querySelectorAll(".activity-item")
+      )
+        .slice(0, n - 1)
+        .map((el) => el); // solo para limitar
+
+      // Re-render rápido (simple)
+      // (reconstruimos una lista nueva combinando el nuevo + los primeros 15)
+      const temp = [
+        newOne,
+        ...Array.from({ length: n - 1 }, () => makeActivity(pick(runners))),
+      ];
+      renderActivity(temp);
+      requestAnimationFrame(() => startActivityTicker());
+    }, 6000);
   }
 
   searchInput?.addEventListener("input", render);
