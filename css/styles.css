@@ -3538,3 +3538,622 @@ body.no-scroll footer {
     text-shadow: 0 2px 10px rgba(0,0,0,0.2);
   }
 }
+
+
+
+
+/* ==========================================================================
+   MÁRGENES GLOBALES Y CONTENEDORES
+   ========================================================================== */
+
+/* Forzamos un contenedor máximo con márgenes laterales que "respiren" */
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 5%; /* Margen lateral dinámico */
+  padding-right: 5%;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   SECCIÓN PRÓXIMOS EVENTOS (CARDS PREMIUM)
+   ========================================================================== */
+
+.section-cards {
+  padding: 4rem 0; /* Espacio vertical entre secciones */
+}
+
+.cards-grid.event-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas en desktop */
+  gap: 2.5rem; /* Más espacio entre tarjetas */
+}
+
+.event-card {
+  background: var(--bg-card);
+  border-radius: 28px; /* Esquinas más redondeadas estilo App */
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+}
+
+/* --- EFECTO HOVER --- */
+.event-card:hover {
+  transform: translateY(-10px); /* Elevación sutil */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent); /* Iluminación del borde en lima */
+}
+
+/* El botón que dispara el desplegable */
+.event-toggle {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Icono "+" interactivo */
+.event-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--accent);
+  color: #111;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(212, 241, 78, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.event-card.is-open .event-icon {
+  transform: rotate(45deg); /* Gira para convertirse en una "X" */
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+/* Título dentro de la tarjeta */
+.event-title {
+  padding: 1.5rem;
+  margin: 0;
+  background: var(--color-secondary); /* Fondo oscuro para el título */
+  color: var(--accent);
+  font-family: var(--font-secondary);
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- PANEL DESPLEGABLE --- */
+.event-panel {
+  padding: 2rem;
+  background: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: none; /* Controlado por jQuery en script.js */
+}
+
+.event-meta {
+  border-top: 1px solid #eee;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  color: var(--color-secondary);
+  font-family: var(--font-metric);
+}
+
+/* --- RESPONSIVE EVENTOS --- */
+@media (max-width: 900px) {
+  .cards-grid.event-grid {
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
+  }
+}
+
+
+
+/* --- CORRECCIÓN PANEL DESPLEGABLE (LEGUIBILIDAD) --- */
+
+.event-panel {
+  padding: 1.5rem 2rem 2.5rem; /* Más aire abajo */
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: none; /* Controlado por script.js */
+}
+
+/* Texto del cuerpo: Color oscuro para máximo contraste */
+.event-panel p {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #334155; /* Gris pizarra oscuro muy legible */
+  text-align: left;
+}
+
+/* Meta información (Fecha, Localización, etc.) */
+.event-meta {
+  border-top: 2px solid var(--accent); /* Línea divisoria en verde lima */
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  color: var(--color-secondary); /* Turquesa oscuro para los datos */
+  font-family: var(--font-metric);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+/* Resaltado de etiquetas dentro de los datos */
+.event-meta strong {
+  color: #000; /* Negro puro para las etiquetas (Fecha:, etc.) */
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-right: 2px;
+}
+
+/* --- AJUSTE MÓVIL (ULTRA-RESPONSIVE) --- */
+@media (max-width: 768px) {
+  .event-panel {
+    padding: 1.2rem 1.5rem 2rem;
+  }
+  
+  .event-panel p {
+    font-size: 1rem; /* Un poco más pequeño en móvil */
+  }
+
+  .event-meta {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ==========================================================================
+   1. LIBERAR EL CONTENEDOR PRINCIPAL
+   ========================================================================== */
+
+main {
+  width: 100%;
+  max-width: none; /* Eliminamos la restricción */
+  padding: 0;      /* Eliminamos el padding global */
+  margin: 0;
+}
+
+/* ==========================================================================
+   2. VÍDEO A SANGRE (BORDE A BORDE)
+   ========================================================================== */
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que llene toda la pantalla sin deformarse */
+}
+
+/* ==========================================================================
+   3. APLICAR MÁRGENES SOLO AL CONTENIDO (WRAPPERS)
+   ========================================================================== */
+
+/* Creamos una regla para todos los envoltorios que SI deben llevar margen */
+.welcome__wrap, 
+.section-cards, 
+.section-toprunners, 
+.signup, 
+.app-download__wrap,
+.footer__wrap,
+.community__wrap,
+.results__wrap {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* Ajuste fino para móviles */
+@media (max-width: 768px) {
+  .welcome__wrap, 
+  .section-cards, 
+  .section-toprunners, 
+  .signup, 
+  .app-download__wrap,
+  .footer__wrap,
+  .community__wrap,
+  .results__wrap {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   REGISTRO (ESTÉTICA MINIMALISTA PREMIUM)
+   ========================================================================== */
+
+.signup {
+  padding: 6rem 0; /* Espacio generoso para que la sección respire */
+  background-color: var(--bg-body);
+}
+
+.signup__card {
+  background: #ffffff;
+  max-width: 550px; /* Ancho óptimo para lectura y usabilidad */
+  margin: 0 auto;
+  padding: 3.5rem;
+  border-radius: 40px; /* Esquinas muy redondeadas estilo App moderna */
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.05); /* Sombra de profundidad suave */
+  text-align: center;
+}
+
+.signup__header {
+  margin-bottom: 2.5rem;
+}
+
+.signup__header .welcome__title {
+  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+}
+
+.signup__subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* --- BOTÓN GOOGLE --- */
+.btn-google {
+  background: #fff;
+  color: #1f1f1f;
+  border: 2px solid #f1f5f9;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  height: 56px;
+}
+
+.btn-google:hover {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+/* --- DIVISOR ELEGANTE --- */
+.signup__divider {
+  margin: 2rem 0;
+  position: relative;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.signup__divider span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 0 15px;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- CAMPOS DEL FORMULARIO --- */
+.signup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.field label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+  color: var(--color-secondary);
+}
+
+.field input {
+  width: 100%;
+  height: 54px;
+  padding: 0 1.2rem;
+  border-radius: 16px;
+  border: 2px solid #f1f5f9;
+  background: #f8fafc;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.field input:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--accent); /* Resalte en verde lima al escribir */
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+/* --- BOTÓN PRINCIPAL --- */
+.btn-primary {
+  background: var(--color-secondary); /* Turquesa oscuro corporativo */
+  color: #fff;
+  height: 60px;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  border-radius: 18px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+/* --- FOOTER DEL CARD --- */
+.signup__footer {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.signup__footer a {
+  color: var(--color-secondary);
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+  .signup__card {
+    padding: 2rem 1.5rem;
+    border-radius: 30px;
+    margin: 0 1rem;
+  }
+  
+  .signup__header .welcome__title {
+    font-size: 1.8rem;
+  }
+}
+
+
+/* ==========================================================================
+   TOP RUNNERS (DISEÑO PREMIUM FINAL)
+   ========================================================================== */
+
+.section-toprunners { padding: 4rem 0; background-color: #ffffff; }
+
+.toprunners-slideshow .slideshow-container {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 40px; /* Redondeo del contenedor */
+  overflow: hidden;
+}
+
+.toprunners-slideshow .viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* --- IMAGEN CON BORDES REDONDEADOS --- */
+.runnerSlide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 40px; /* Bordes redondeados solicitados */
+  transition: transform 1s ease;
+}
+
+.slideshow-container:hover .runnerSlide img { transform: scale(1.05); }
+
+/* --- CAPTION GLASSMORPHISM (DESKTOP) --- */
+.toprunners-slideshow .caption {
+  position: absolute;
+  left: 2.5rem; right: 2.5rem; bottom: 2.5rem;
+  padding: 1.5rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 28px;
+  color: #fff;
+  z-index: 5;
+}
+
+.runner-name { font-family: var(--font-secondary); font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; }
+.runner-event { font-size: 0.8rem; color: var(--accent); font-weight: 600; margin-top: 4px; display: block; }
+
+.caption__metric {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--accent); color: #000;
+  padding: 10px 18px; border-radius: 16px;
+  font-family: var(--font-metric); font-weight: 800;
+}
+
+/* --- BOTONES NAVEGACIÓN --- */
+.nav-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 50px; height: 50px; border-radius: 50%; border: 0;
+  background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);
+  color: #fff; cursor: pointer; transition: 0.3s; z-index: 10;
+}
+.nav-btn:hover { background: var(--accent); color: #000; }
+.nav-btn.prev { left: 1rem; }
+.nav-btn.next { right: 1rem; }
+
+/* ==========================================================================
+   AJUSTE ESPECÍFICO PARA MÓVIL (CORRECCIÓN CAPTURA)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .toprunners-slideshow .viewport { aspect-ratio: 4 / 5; } /* Formato más vertical */
+  
+  .runnerSlide img { border-radius: 30px; } /* Bordes un poco menos agresivos en móvil */
+
+  .toprunners-slideshow .caption {
+    left: 1rem; right: 1rem; bottom: 1rem;
+    padding: 1rem;
+    flex-direction: column; /* Apilamos para ahorrar espacio */
+    text-align: center;
+    gap: 0.75rem;
+    border-radius: 22px;
+  }
+
+  .runner-name { font-size: 1.1rem; }
+  .runner-event { font-size: 0.75rem; }
+  
+  .caption__metric {
+    padding: 6px 14px;
+    font-size: 1rem;
+    width: fit-content;
+  }
+  
+  .nav-btn { width: 40px; height: 40px; }
+}
+
+/* ==========================================================================
+   INDICADORES DEL CARRUSEL (CENTRADOS Y ANIMADOS)
+   ========================================================================== */
+
+.dots-container {
+  display: flex;
+  justify-content: center; /* Centrado absoluto */
+  align-items: center;
+  gap: 12px;               /* Espacio equilibrado entre puntos */
+  margin-top: 2.5rem;      /* Aire respecto al carrusel */
+  width: 100%;
+}
+
+.dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;            /* Forma inicial circular */
+  background-color: #e2e8f0; /* Gris suave para inactivos */
+  border-radius: 50%;
+  display: inline-block;
+  /* Transición fluida para el efecto de estiramiento */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+/* --- EFECTO ANIMADO AL ACTIVARSE --- */
+.dot.active {
+  background-color: var(--accent); /* Verde Lima */
+  width: 35px;                    /* Se estira formando una "píldora" */
+  border-radius: 10px;            /* Mantiene bordes redondeados al estirarse */
+  box-shadow: 0 4px 12px rgba(212, 241, 78, 0.3); /* Brillo sutil */
+}
+
+/* Efecto hover manual */
+.dot:hover:not(.active) {
+  background-color: #cbd5e1;
+  transform: scale(1.2);
+}
+
+/* --- AJUSTE PARA MÓVIL --- */
+@media (max-width: 768px) {
+  .dots-container {
+    margin-top: 1.5rem;
+    gap: 10px;
+  }
+  
+  .dot {
+    height: 8px;
+    width: 8px;
+  }
+  
+  .dot.active {
+    width: 28px;
+  }
+}
+
+/* ==========================================================================
+   BOTONES DE NAVEGACIÓN DEL CARRUSEL (FLECHAS CENTRADAS)
+   ========================================================================== */
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;               /* Tamaño equilibrado */
+  height: 54px;
+  border-radius: 16px;       /* Forma de cuadrado redondeado premium */
+  border: 0;
+  background: rgba(255, 255, 255, 0.15); /* Efecto Glassmorphism */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --- LA MAGIA PARA CENTRAR LAS FLECHAS --- */
+  display: flex;             /* Activamos Flexbox */
+  align-items: center;       /* Centrado vertical */
+  justify-content: center;    /* Centrado horizontal */
+}
+
+/* Ajuste del tamaño del icono interno */
+.nav-btn i {
+  font-size: 1.4rem;         /* Flecha más visible */
+  display: block;            /* Evita espacios extra de línea */
+  line-height: 1;            /* Asegura que no haya padding tipográfico */
+}
+
+/* --- EFECTOS HOVER --- */
+.nav-btn:hover {
+  background: var(--accent); /* Verde Lima al pasar el ratón */
+  color: #000000;            /* Icono negro para máximo contraste */
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Posicionamiento lateral */
+.nav-btn.prev { left: 1.5rem; }
+.nav-btn.next { right: 1.5rem; }
+
+/* ==========================================================================
+   AJUSTE PARA MÓVIL (CORRECCIÓN CAPTURA)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .nav-btn {
+    width: 46px;             /* Un poco más pequeños en móvil */
+    height: 46px;
+    border-radius: 12px;
+  }
+  
+  .nav-btn i {
+    font-size: 1.1rem;
+  }
+
+  .nav-btn.prev { left: 10px; }
+  .nav-btn.next { right: 10px; }
+}

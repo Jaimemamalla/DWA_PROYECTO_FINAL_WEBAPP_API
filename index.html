@@ -319,176 +319,155 @@
 
       <!-- SECCIÓN TOP RUNNERS -->
 
-      <section
-        id="toprunners"
-        class="section-toprunners"
-        aria-label="Top runners destacados"
-        aria-labelledby="topRunnersTitle"
-      >
-        <h2 id="topRunnersTitle" class="welcome__title">TOP RUNNERS</h2>
-        <div class="toprunners-slideshow">
-          <div class="slideshow-container" aria-roledescription="carousel">
-            <div class="viewport">
-              <figure class="runnerSlide fade" aria-label="Runner destacado 1">
-                <img
-                  src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_6.png?updatedAt=1767562182310"
-                  alt="Runner en entrenamiento"
-                />
-                <figcaption class="caption">
-                  ALEJANDRO HERNÁNDEZ · 10K <span class="time">33:12</span>
-                </figcaption>
-              </figure>
+      <section id="toprunners" class="section-toprunners" aria-labelledby="topRunnersTitle">
+  <div class="toprunners__wrap">
+    <header class="section-header">
+      <span class="welcome__tag">Récords de la Comunidad</span>
+      <h2 id="topRunnersTitle" class="welcome__title">TOP <strong>RUNNERS</strong></h2>
+    </header>
 
-              <figure class="runnerSlide fade" aria-label="Runner destacado 2">
-                <img
-                  src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_7.png?updatedAt=1767562182393"
-                  alt="Runner en competición urbana"
-                />
-                <figcaption class="caption">
-                  JAIME AMAYA · Media <span class="time">1:12:45</span>
-                </figcaption>
-              </figure>
+    <div class="toprunners-slideshow">
+      <div class="slideshow-container">
+        <div class="viewport">
+          <figure class="runnerSlide fade">
+            <img src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_6.png" alt="Alejandro Hernández">
+            <figcaption class="caption">
+              <div class="caption__info">
+                <span class="runner-name">ALEJANDRO HERNÁNDEZ</span>
+                <span class="runner-event">MARATÓN CIUDAD · 10K</span>
+              </div>
+              <div class="caption__metric">
+                <i class="fa-solid fa-stopwatch"></i>
+                <span class="time">33:12</span>
+              </div>
+            </figcaption>
+          </figure>
 
-              <figure class="runnerSlide fade" aria-label="Runner destacado 3">
-                <img
-                  src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_8.png?updatedAt=1767562182494"
-                  alt="Runner al amanecer"
-                />
-                <figcaption class="caption">
-                  AITOR OCHOA · 5K <span class="time">16:58</span>
-                </figcaption>
-              </figure>
+          <figure class="runnerSlide fade">
+            <img src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_7.png" alt="Jaime Amaya">
+            <figcaption class="caption">
+              <div class="caption__info">
+                <span class="runner-name">JAIME AMAYA</span>
+                <span class="runner-event">MEDIA MARATÓN COSTA</span>
+              </div>
+              <div class="caption__metric">
+                <i class="fa-solid fa-stopwatch"></i>
+                <span class="time">1:12:45</span>
+              </div>
+            </figcaption>
+          </figure>
 
-              <figure class="runnerSlide fade" aria-label="Runner destacado 4">
-                <img
-                  src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_9.png?updatedAt=1767562182367"
-                  alt="Runner llegando a meta"
-                />
-                <figcaption class="caption">
-                  MICAELA NORIEGA · Maratón <span class="time">2:37:41</span>
-                </figcaption>
-              </figure>
+          <figure class="runnerSlide fade">
+            <img src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_8.png" alt="Aitor Ochoa">
+            <figcaption class="caption">
+              <div class="caption__info">
+                <span class="runner-name">AITOR OCHOA</span>
+                <span class="runner-event">POPULAR MADRID · 5K</span>
+              </div>
+              <div class="caption__metric">
+                <i class="fa-solid fa-stopwatch"></i>
+                <span class="time">16:58</span>
+              </div>
+            </figcaption>
+          </figure>
 
-              <figure class="runnerSlide fade" aria-label="Runner destacado 5">
-                <img
-                  src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_10.png?updatedAt=1767562182390"
-                  alt="Runner en tramo de montaña"
-                />
-                <figcaption class="caption">
-                  JOSE Mª CANCHO · UltraTrail
-                  <span class="time">42:15:31</span>
-                </figcaption>
-              </figure>
-            </div>
+          <figure class="runnerSlide fade">
+            <img src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_9.png" alt="Micaela Noriega">
+            <figcaption class="caption">
+              <div class="caption__info">
+                <span class="runner-name">MICAELA NORIEGA</span>
+                <span class="runner-event">MARATÓN VALENCIA</span>
+              </div>
+              <div class="caption__metric">
+                <i class="fa-solid fa-stopwatch"></i>
+                <span class="time">2:37:41</span>
+              </div>
+            </figcaption>
+          </figure>
 
-            <a class="prev" href="#" aria-label="Anterior">
-              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-            </a>
-            <a class="next" href="#" aria-label="Siguiente">
-              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-            </a>
-          </div>
-
-          <div class="dots" aria-label="Indicadores de diapositiva">
-            <span class="dot" aria-label="Diapositiva 1"></span>
-            <span class="dot" aria-label="Diapositiva 2"></span>
-            <span class="dot" aria-label="Diapositiva 3"></span>
-            <span class="dot" aria-label="Diapositiva 4"></span>
-            <span class="dot" aria-label="Diapositiva 5"></span>
-          </div>
+          <figure class="runnerSlide fade">
+            <img src="https://ik.imagekit.io/aitoroa/WEBAPP/NextRun_10.png" alt="Jose Mª Cancho">
+            <figcaption class="caption">
+              <div class="caption__info">
+                <span class="runner-name">JOSE Mª CANCHO</span>
+                <span class="runner-event">ULTRATRAIL MONT BLANC</span>
+              </div>
+              <div class="caption__metric">
+                <i class="fa-solid fa-stopwatch"></i>
+                <span class="time">42:15:31</span>
+              </div>
+            </figcaption>
+          </figure>
         </div>
-      </section>
+
+        <button class="nav-btn prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="nav-btn next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+
+      <div class="dots-container">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </div>
+  </div>
+</section>
 
       <!-- FORMULARIO -->
 
       <section id="signup" class="signup" aria-labelledby="signupTitle">
-        <div class="signup__card">
-          <h2 id="signupTitle" class="welcome__title">
-            CREA TU <strong>CUENTA</strong>
-          </h2>
+  <div class="signup__card">
+    <header class="signup__header">
+      <h2 id="signupTitle" class="welcome__title">
+        ÚNETE A <strong>NextRun</strong>
+      </h2>
+      <p class="signup__subtitle">Crea tu cuenta y empieza a superar tus metas hoy mismo.</p>
+    </header>
 
-          <button class="btn btn-google" type="button" id="signupGoogle">
-            <i class="fa-brands fa-google" aria-hidden="true"></i>
-            Continuar con Google
+    <div class="signup__social">
+      <button class="btn btn-google" type="button" id="signupGoogle">
+        <img src="https://ik.imagekit.io/aitoroa/WEBAPP/google-icon.svg" alt="" width="20">
+        Continuar con Google
+      </button>
+    </div>
+
+    <div class="signup__divider">
+      <span>o regístrate con tu email</span>
+    </div>
+
+    <form id="signupForm" class="signup__form" novalidate>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="ejemplo@correo.com" />
+        <p class="field__error" id="emailErr"></p>
+      </div>
+
+      <div class="field">
+        <label for="password">Contraseña</label>
+        <div class="password-wrapper">
+          <input id="password" name="password" type="password" required placeholder="Mínimo 8 caracteres" />
+          <button class="password__toggle" type="button" aria-label="Mostrar">
+            <i class="fa-regular fa-eye"></i>
           </button>
-
-          <div class="signup__divider" role="separator" aria-label="o">
-            <span class="line" aria-hidden="true"></span>
-            <span class="or">o</span>
-            <span class="line" aria-hidden="true"></span>
-          </div>
-
-          <form id="signupForm" class="signup__form" novalidate>
-            <div class="field">
-              <label for="email">Email</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                inputmode="email"
-                autocomplete="email"
-                required
-                placeholder="tu@correo.com"
-              />
-              <p class="field__error" id="emailErr" aria-live="polite"></p>
-            </div>
-
-            <div class="field">
-              <label for="password">Contraseña</label>
-              <div class="password">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autocomplete="new-password"
-                  required
-                  minlength="8"
-                  aria-describedby="pwdHelp"
-                  placeholder="Mínimo 8 caracteres"
-                />
-                <button
-                  class="password__toggle"
-                  type="button"
-                  aria-label="Mostrar contraseña"
-                >
-                  <i class="fa-regular fa-eye" aria-hidden="true"></i>
-                </button>
-              </div>
-              <p id="pwdHelp" class="help">
-                Debe incluir al menos 8 caracteres, con 1 mayúscula y 1 número.
-              </p>
-              <p class="field__error" id="passwordErr" aria-live="polite"></p>
-            </div>
-
-            <div class="field">
-              <label for="fullname">Nombre completo</label>
-              <input
-                id="fullname"
-                name="fullname"
-                type="text"
-                autocomplete="name"
-                required
-                placeholder="Tu nombre y apellidos"
-              />
-              <p class="field__error" id="fullnameErr" aria-live="polite"></p>
-            </div>
-
-            <button
-              type="submit"
-              class="btn btn-primary"
-              id="signupSubmit"
-              disabled
-            >
-              Continuar
-            </button>
-          </form>
-
-          <p class="signup__login">
-            ¿Ya tienes cuenta?
-            <a href="perfil.html">Inicia sesión</a>
-          </p>
         </div>
-      </section>
+        <p class="field__help">Debe incluir 1 mayúscula y 1 número.</p>
+        <p class="field__error" id="passwordErr"></p>
+      </div>
+
+      <div class="field">
+        <label for="fullname">Nombre completo</label>
+        <input id="fullname" name="fullname" type="text" required placeholder="Tu nombre y apellidos" />
+        <p class="field__error" id="fullnameErr"></p>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="signupSubmit" disabled>
+        CREAR CUENTA
+      </button>
+    </form>
+
+    <footer class="signup__footer">
+      ¿Ya eres parte de la comunidad? <a href="perfil.html">Inicia sesión</a>
+    </footer>
+  </div>
+</section>
 
       <!-- SECCIÓN DESCARGA APP -->
 
