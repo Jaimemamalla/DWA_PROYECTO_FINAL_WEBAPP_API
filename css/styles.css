@@ -3762,7 +3762,7 @@ main {
   font-weight: 700;
   font-size: 0.9rem;
   margin-bottom: 0.6rem;
-  color: var(--color-secondary);
+  color: var(--color-primary);
 }
 
 .field input {
