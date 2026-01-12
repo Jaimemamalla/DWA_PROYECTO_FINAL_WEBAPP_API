@@ -3605,14 +3605,12 @@ main {
   align-items: center;
   justify-content: center;
   font-size: 0.9rem;
-  box-shadow: 0 4px 12px rgba(212, 241, 78, 0.3);
   transition: transform 0.3s ease;
 }
 
 .event-card.is-open .event-icon {
   transform: rotate(45deg); /* Gira para convertirse en una "X" */
-  background: var(--color-secondary);
-  color: #fff;
+  color: var(--color-primary);
 }
 
 /* Título dentro de la tarjeta */
@@ -3655,7 +3653,7 @@ main {
 
 .event-panel {
   padding: 1.5rem 2rem 2.5rem; /* Más aire abajo */
-  background: #ffffff;
+  background: var(--color-secondary);
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   display: none; /* Controlado por script.js */
 }
@@ -3666,7 +3664,7 @@ main {
   font-family: var(--font-primary);
   font-size: 1.05rem;
   line-height: 1.8;
-  color: #334155; /* Gris pizarra oscuro muy legible */
+  color: var(--color-neutral-light); /* Gris pizarra oscuro muy legible */
   text-align: left;
 }
 
@@ -3685,7 +3683,9 @@ main {
 
 /* Resaltado de etiquetas dentro de los datos */
 .event-meta strong {
-  color: #000; /* Negro puro para las etiquetas (Fecha:, etc.) */
+  color: var(
+    --color-neutral-light
+  ); /* Negro puro para las etiquetas (Fecha:, etc.) */
   font-weight: 800;
   text-transform: uppercase;
   font-size: 0.85rem;
@@ -3781,7 +3781,6 @@ main {
 }
 
 .signup__card {
-  background: #ffffff;
   max-width: 550px; /* Ancho óptimo para lectura y usabilidad */
   margin: 0 auto;
   padding: 3.5rem;
