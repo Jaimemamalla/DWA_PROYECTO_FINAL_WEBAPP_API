@@ -3313,6 +3313,10 @@ body {
   line-height: 1.1;
 }
 
+#signupTitle {
+  color: var(--color-primary);
+}
+
 .welcome__title strong {
   color: var(--accent-dark);
   font-weight: 900;
