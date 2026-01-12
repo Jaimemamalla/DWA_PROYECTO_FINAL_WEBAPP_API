@@ -2256,7 +2256,7 @@ body {
 }
 
 .hero-card {
-  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  background: linear-gradient(145deg, #2a2a2a, var(--color-secondary));
   display: flex;
   flex-direction: column;
   justify-content: space-between;
