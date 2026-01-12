@@ -3781,7 +3781,6 @@ main {
 }
 
 .signup__card {
-  background: #ffffff;
   max-width: 550px; /* Ancho óptimo para lectura y usabilidad */
   margin: 0 auto;
   padding: 3.5rem;
