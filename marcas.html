@@ -35,6 +35,8 @@
     />
   </head>
   <body>
+    <!-- ANCLA Y HEADER -->
+
     <header class="site-header" id="top">
       <a href="index.html" class="brand" aria-label="Ir a inicio">
         <img
@@ -72,7 +74,6 @@
 
     <main class="page-profile">
       <div class="profile-layout">
-        
         <aside class="profile-sidebar">
           <div class="user-mini-card" id="sidebar-user-info">
             <div class="loader">Cargando...</div>
@@ -80,38 +81,68 @@
 
           <nav class="profile-menu">
             <a href="perfil.html">
-                <i class="fa-solid fa-chart-line"></i> Dashboard
+              <i class="fa-solid fa-chart-line"></i> Dashboard
             </a>
             <a href="marcas.html" class="active">
-                <i class="fa-solid fa-stopwatch"></i> Mis Marcas
+              <i class="fa-solid fa-stopwatch"></i> Mis Marcas
             </a>
-            <a href="#">
-                <i class="fa-solid fa-medal"></i> Logros
-            </a>
-            <a href="#">
-                <i class="fa-solid fa-gear"></i> Ajustes
-            </a>
+            <a href="#"> <i class="fa-solid fa-medal"></i> Logros </a>
+            <a href="#"> <i class="fa-solid fa-gear"></i> Ajustes </a>
             <button id="btnLogout" class="btn-logout">
               <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
             </button>
           </nav>
 
-          <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
-             <h4 style="font-size: 0.9rem; margin-bottom: 10px; color: var(--color-secondary);">MARZO 2026</h4>
-             <div class="calendar-grid" style="grid-template-columns: repeat(7, 1fr); gap: 4px;"></div>
+          <div
+            style="
+              margin-top: 30px;
+              border-top: 1px solid #eee;
+              padding-top: 20px;
+            "
+          >
+            <h4
+              style="
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+                color: var(--color-secondary);
+              "
+            >
+              MARZO 2026
+            </h4>
+            <div
+              class="calendar-grid"
+              style="grid-template-columns: repeat(7, 1fr); gap: 4px"
+            ></div>
           </div>
         </aside>
 
         <div class="profile-content">
-          
           <div class="dashboard-header">
-            <h1>Rendimiento <span style="color: var(--color-secondary);">Global</span></h1>
-            <p>Has mejorado tu ritmo medio un <strong style="color: var(--color-primary); background: #333; padding: 2px 6px; border-radius: 4px;">12%</strong> respecto al mes anterior.</p>
+            <h1>
+              Rendimiento
+              <span style="color: var(--color-secondary)">Global</span>
+            </h1>
+            <p>
+              Has mejorado tu ritmo medio un
+              <strong
+                style="
+                  color: var(--color-primary);
+                  background: #333;
+                  padding: 2px 6px;
+                  border-radius: 4px;
+                "
+                >12%</strong
+              >
+              respecto al mes anterior.
+            </p>
           </div>
 
-          <section class="content-block" style="margin-bottom: 30px;">
+          <section class="content-block" style="margin-bottom: 30px">
             <div class="today-grid">
-              <article class="hero-card hover-effect" style="border-radius: 18px; color: #fff;">
+              <article
+                class="hero-card hover-effect"
+                style="border-radius: 18px; color: #fff"
+              >
                 <div class="hero-icon">
                   <i class="fa-solid fa-person-running-fast"></i>
                 </div>
@@ -152,85 +183,198 @@
             </div>
           </section>
 
-          <section class="charts-row" style="margin-bottom: 30px;">
-             <div class="chart-container" style="background: #fff; border: 1px solid #eee;">
-                <h4>Estadísticas Semanales (Km)</h4>
-                <div class="chart-wrapper">
-                    <canvas id="weeklyBarChart"></canvas>
-                </div>
-             </div>
-             
-             <div class="chart-container donut-container" style="background: #fff; border: 1px solid #eee;">
-                <h4>Objetivo Diario</h4>
-                <div class="donut-chart-wrapper">
-                   <canvas id="todayDoughnut"></canvas>
-                   <div class="donut-center" style="color: var(--color-secondary);">75%</div>
-                </div>
-             </div>
-          </section>
+          <section class="charts-row" style="margin-bottom: 30px">
+            <div
+              class="chart-container"
+              style="background: #fff; border: 1px solid #eee"
+            >
+              <h4>Estadísticas Semanales (Km)</h4>
+              <div class="chart-wrapper">
+                <canvas id="weeklyBarChart"></canvas>
+              </div>
+            </div>
 
-          <section class="content-block">
-            <h2 class="block-title" style="margin-bottom: 15px;">Retos Activos</h2>
-            <div class="challenges-grid">
-              
-              <article class="challenge-card hover-effect" style="background: var(--color-secondary); color: #fff; border-radius: 18px;">
-                <div class="ch-icon" style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 12px; color: var(--color-primary);">
-                    <i class="fa-solid fa-trophy"></i>
+            <div
+              class="chart-container donut-container"
+              style="background: #fff; border: 1px solid #eee"
+            >
+              <h4>Objetivo Diario</h4>
+              <div class="donut-chart-wrapper">
+                <canvas id="todayDoughnut"></canvas>
+                <div class="donut-center" style="color: var(--color-secondary)">
+                  75%
                 </div>
-                <div class="ch-info">
-                  <span class="ch-days" style="opacity: 0.8; font-size: 0.8rem;">Quedan 12 días</span>
-                  <strong style="display:block; margin: 5px 0;">Completar 5 Maratones</strong>
-                  <div class="progress-bar" style="background: rgba(255,255,255,0.2);">
-                    <div class="fill" style="width: 60%; background: var(--color-primary);"></div>
-                  </div>
-                </div>
-                <div class="ch-stat" style="color: var(--color-primary);">60%</div>
-              </article>
-
-              <article class="challenge-card hover-effect" style="background: #fff; border: 1px solid #eee; border-radius: 18px;">
-                <div class="ch-icon" style="background: rgba(11, 70, 80, 0.1); padding: 15px; border-radius: 12px; color: var(--color-secondary);">
-                    <i class="fa-solid fa-mountain"></i>
-                </div>
-                <div class="ch-info">
-                  <span class="ch-days" style="opacity: 0.6; font-size: 0.8rem; color: #666;">Quedan 5 días</span>
-                  <strong style="display:block; margin: 5px 0; color: #333;">Desnivel +2000m</strong>
-                  <div class="progress-bar" style="background: #eee;">
-                    <div class="fill" style="width: 35%; background: var(--color-secondary);"></div>
-                  </div>
-                </div>
-                <div class="ch-stat" style="color: var(--color-secondary);">35%</div>
-              </article>
-
+              </div>
             </div>
           </section>
 
-        </div> </div> </main>
+          <section class="content-block">
+            <h2 class="block-title" style="margin-bottom: 15px">
+              Retos Activos
+            </h2>
+            <div class="challenges-grid">
+              <article
+                class="challenge-card hover-effect"
+                style="
+                  background: var(--color-secondary);
+                  color: #fff;
+                  border-radius: 18px;
+                "
+              >
+                <div
+                  class="ch-icon"
+                  style="
+                    background: rgba(255, 255, 255, 0.1);
+                    padding: 15px;
+                    border-radius: 12px;
+                    color: var(--color-primary);
+                  "
+                >
+                  <i class="fa-solid fa-trophy"></i>
+                </div>
+                <div class="ch-info">
+                  <span class="ch-days" style="opacity: 0.8; font-size: 0.8rem"
+                    >Quedan 12 días</span
+                  >
+                  <strong style="display: block; margin: 5px 0"
+                    >Completar 5 Maratones</strong
+                  >
+                  <div
+                    class="progress-bar"
+                    style="background: rgba(255, 255, 255, 0.2)"
+                  >
+                    <div
+                      class="fill"
+                      style="width: 60%; background: var(--color-primary)"
+                    ></div>
+                  </div>
+                </div>
+                <div class="ch-stat" style="color: var(--color-primary)">
+                  60%
+                </div>
+              </article>
+
+              <article
+                class="challenge-card hover-effect"
+                style="
+                  background: #fff;
+                  border: 1px solid #eee;
+                  border-radius: 18px;
+                "
+              >
+                <div
+                  class="ch-icon"
+                  style="
+                    background: rgba(11, 70, 80, 0.1);
+                    padding: 15px;
+                    border-radius: 12px;
+                    color: var(--color-secondary);
+                  "
+                >
+                  <i class="fa-solid fa-mountain"></i>
+                </div>
+                <div class="ch-info">
+                  <span
+                    class="ch-days"
+                    style="opacity: 0.6; font-size: 0.8rem; color: #666"
+                    >Quedan 5 días</span
+                  >
+                  <strong style="display: block; margin: 5px 0; color: #333"
+                    >Desnivel +2000m</strong
+                  >
+                  <div class="progress-bar" style="background: #eee">
+                    <div
+                      class="fill"
+                      style="width: 35%; background: var(--color-secondary)"
+                    ></div>
+                  </div>
+                </div>
+                <div class="ch-stat" style="color: var(--color-secondary)">
+                  35%
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
 
     <footer class="site-footer" id="site-footer">
       <div class="footer__wrap">
         <section class="footer__sponsors">
           <ul class="sponsor-grid">
-            <li class="sponsor-item"><img src="https://ik.imagekit.io/aitoroa/WEBAPP/Polar.svg" alt="Polar" loading="lazy" /></li>
-            <li class="sponsor-item"><img src="https://ik.imagekit.io/aitoroa/WEBAPP/BBVA.svg" alt="BBVA" loading="lazy" /></li>
-            <li class="sponsor-item"><img src="https://ik.imagekit.io/aitoroa/WEBAPP/Garmin.svg" alt="Garmin" loading="lazy" /></li>
-            <li class="sponsor-item"><img src="https://ik.imagekit.io/aitoroa/WEBAPP/Iberdrola.svg" alt="Iberdrola" loading="lazy" /></li>
-            <li class="sponsor-item"><img src="https://ik.imagekit.io/aitoroa/WEBAPP/NIKE.svg" alt="Nike" loading="lazy" /></li>
-            <li class="sponsor-item"><img src="https://ik.imagekit.io/aitoroa/WEBAPP/Asics.svg" alt="Asics" loading="lazy" /></li>
+            <li class="sponsor-item">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/Polar.svg"
+                alt="Polar"
+                loading="lazy"
+              />
+            </li>
+            <li class="sponsor-item">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/BBVA.svg"
+                alt="BBVA"
+                loading="lazy"
+              />
+            </li>
+            <li class="sponsor-item">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/Garmin.svg"
+                alt="Garmin"
+                loading="lazy"
+              />
+            </li>
+            <li class="sponsor-item">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/Iberdrola.svg"
+                alt="Iberdrola"
+                loading="lazy"
+              />
+            </li>
+            <li class="sponsor-item">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/NIKE.svg"
+                alt="Nike"
+                loading="lazy"
+              />
+            </li>
+            <li class="sponsor-item">
+              <img
+                src="https://ik.imagekit.io/aitoroa/WEBAPP/Asics.svg"
+                alt="Asics"
+                loading="lazy"
+              />
+            </li>
           </ul>
         </section>
 
         <div class="footer__brand">
-          <img src="media/img/NextRun_logo.webp" alt="NextRun" class="footer__logo" loading="lazy" />
+          <img
+            src="media/img/NextRun_logo.webp"
+            alt="NextRun"
+            class="footer__logo"
+            loading="lazy"
+          />
         </div>
 
         <nav class="footer__social">
-          <a class="social-link" href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a class="social-link" href="#"><i class="fa-brands fa-youtube"></i></a>
-          <a class="social-link" href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a class="social-link" href="#"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a class="social-link" href="#"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
+          <a class="social-link" href="#"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
         </nav>
         <p class="footer__copy">© 2026 · NextRun</p>
       </div>
     </footer>
+
+    <!-- SCRIPTS -->
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

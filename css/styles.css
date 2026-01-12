@@ -985,7 +985,6 @@ body {
   cursor: pointer;
 }
 
-/*  Botón Seguir en runner cards  */
 .runner-card {
   position: relative;
 }
@@ -1059,7 +1058,6 @@ body {
   padding: 14px;
 }
 
-/* fade arriba/abajo */
 .activity-ticker__viewport::before,
 .activity-ticker__viewport::after {
   content: "";
@@ -1110,7 +1108,6 @@ body {
   }
 }
 
-/* item del feed */
 .activity-item {
   display: grid;
   grid-template-columns: 42px 1fr auto;
@@ -1394,7 +1391,6 @@ body {
   max-width: calc(100% - 360px);
 }
 
-
 /* Bloques */
 .content-block {
   margin-bottom: 30px;
@@ -1406,7 +1402,6 @@ body {
   margin-bottom: 15px;
 }
 
-/* Cards e Igualación de Altura */
 .stats-activity-row {
   display: flex;
   gap: 20px;
@@ -1432,7 +1427,6 @@ body {
   border: 1px solid var(--accent);
 }
 
-/* Actividad de Hoy corregida */
 .activity-layout {
   display: flex;
   flex-direction: row;
@@ -1479,6 +1473,7 @@ body {
 }
 
 /* Gráficos */
+
 .canvas-holder {
   position: relative;
   flex: 1;
@@ -1486,6 +1481,7 @@ body {
 }
 
 /* Retos activos */
+
 .challenges-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1527,6 +1523,7 @@ body {
 }
 
 /* Sidebar */
+
 .avatar-frame {
   width: 120px;
   height: 120px;
@@ -1558,6 +1555,7 @@ body {
 }
 
 /* Calendario */
+
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -1575,7 +1573,6 @@ body {
   font-weight: bold;
 }
 
-/* Layout Maestro */
 .dashboard-wrapper {
   display: flex;
   min-height: 100vh;
@@ -1586,7 +1583,6 @@ body {
   max-width: calc(100% - 360px);
 }
 
-/* Tipografía */
 .main-header h1 {
   font-size: 2.2rem;
   margin-bottom: 5px;
@@ -1620,6 +1616,7 @@ body {
 }
 
 /* Mini Cards */
+
 .mini-cards-grid {
   display: flex;
   flex-direction: column;
@@ -1640,6 +1637,7 @@ body {
 }
 
 /* Stats & Activity */
+
 .stats-activity-row {
   display: flex;
   gap: 20px;
@@ -1697,6 +1695,7 @@ body {
 }
 
 /* Retos */
+
 .challenges-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1736,6 +1735,7 @@ body {
 }
 
 /* Sidebar */
+
 .avatar-circle {
   width: 130px;
   height: 130px;
@@ -1767,7 +1767,6 @@ body {
   margin-top: 15px;
 }
 
-/* Layout Maestro */
 .dashboard-wrapper {
   display: flex;
   min-height: 100vh;
@@ -1778,7 +1777,6 @@ body {
   max-width: calc(100% - 360px);
 }
 
-/* Tipografía y Bloques */
 .main-header h1 {
   font-size: 2.2rem;
   margin-bottom: 5px;
@@ -1817,7 +1815,11 @@ body {
   right: -50%;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle,rgba(212, 241, 78, 0.1) 0%,rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(212, 241, 78, 0.1) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
   transform: rotate(45deg);
   pointer-events: none;
 }
@@ -1869,6 +1871,7 @@ body {
 }
 
 /* Mini Cards */
+
 .mini-cards-grid {
   display: flex;
   flex-direction: column;
@@ -1905,6 +1908,7 @@ body {
 }
 
 /* ESTADÍSTICAS Y ACTIVIDAD */
+
 .stats-activity-row {
   display: flex;
   gap: 20px;
@@ -1932,6 +1936,7 @@ body {
 }
 
 /* Gráfico de barras */
+
 .chart-header {
   margin-bottom: 15px;
 }
@@ -1951,6 +1956,7 @@ body {
 }
 
 /* Actividad */
+
 .activity-split-compact {
   display: flex;
   align-items: center;
@@ -2026,6 +2032,7 @@ body {
 }
 
 /* Hover global */
+
 .hover-effect {
   transition: 0.3s ease;
   cursor: pointer;
@@ -2038,6 +2045,7 @@ body {
 }
 
 /* Retos */
+
 .challenges-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2088,6 +2096,7 @@ body {
 }
 
 /* Sidebar */
+
 .avatar-circle {
   width: 130px;
   height: 130px;
@@ -2161,6 +2170,7 @@ body {
 }
 
 /* NAVBAR PREMIUM */
+
 .navbar {
   position: fixed;
   top: 15px;
@@ -2233,6 +2243,7 @@ body {
 }
 
 /* COMPONENTES REUTILIZABLES */
+
 .card {
   background: var(--bg-card);
   border-radius: var(--radius);
@@ -2247,7 +2258,8 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Hero card - ritmo promedio */
+/* Hero card */
+
 .today-grid {
   display: grid;
   grid-template-columns: 1.6fr 1fr;
@@ -2274,6 +2286,7 @@ body {
 }
 
 /* Stats & Activity */
+
 .stats-activity-row {
   display: flex;
   gap: 20px;
@@ -2299,6 +2312,7 @@ body {
 }
 
 /* BOTONES Y AVATAR */
+
 .btn-edit-profile {
   background: #2a2a2a;
   border: 1px solid #444;
@@ -2336,6 +2350,7 @@ body {
 }
 
 /* CONTENIDO (retos, bio, calendario) */
+
 .challenges-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2393,6 +2408,7 @@ body {
 }
 
 /* ESTRUCTURA Y FONDO */
+
 .page-results {
   padding-top: 0;
   background-color: var(--color-neutral-light);
@@ -2405,6 +2421,7 @@ body {
 }
 
 /* HEADER OSCURO DE FILTROS */
+
 .results-filters {
   background-color: var(--color-secondary);
   padding: 120px 0 40px 0;
@@ -2463,6 +2480,7 @@ body {
 }
 
 /* TABLERO */
+
 .results-board {
   background: #ffffff;
   border-radius: 24px;
@@ -2519,6 +2537,7 @@ body {
 }
 
 /* PODIUM */
+
 .podium-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2546,6 +2565,7 @@ body {
 }
 
 /* TABLA */
+
 .table-container {
   overflow-x: auto;
 }
@@ -2648,6 +2668,7 @@ body {
 }
 
 /* MODAL EVENTO */
+
 .event-modal {
   width: min(980px, calc(100% - 28px));
   border: none;
@@ -3274,7 +3295,6 @@ body {
   }
 }
 
-
 .welcome {
   width: min(1500px, calc(100% - 2rem));
   margin: 4rem auto;
@@ -3289,6 +3309,7 @@ body {
 }
 
 /* Etiqueta superior */
+
 .welcome__tag {
   display: inline-block;
   background: var(--accent-soft);
@@ -3344,7 +3365,6 @@ body {
   transform: scale(1.02);
 }
 
-
 @media (max-width: 1024px) {
   .welcome__wrap {
     grid-template-columns: 1fr;
@@ -3373,7 +3393,6 @@ body {
   }
 }
 
-
 .welcome__wrap {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -3388,7 +3407,8 @@ body {
   aspect-ratio: 1 / 1;
   justify-self: center;
   border-radius: 30px;
-  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.05),-20px -20px 60px rgba(255, 255, 255, 0.8);
+  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.05),
+    -20px -20px 60px rgba(255, 255, 255, 0.8);
 }
 
 .welcome__img {
@@ -3402,7 +3422,6 @@ body {
 .welcome__media:hover .welcome__img {
   transform: scale(1.03);
 }
-
 
 @media (max-width: 1024px) {
   .welcome__wrap {
@@ -3422,7 +3441,6 @@ body {
     max-width: 100%;
   }
 }
-
 
 @media (max-width: 1024px) {
   .welcome__description {
@@ -3769,7 +3787,7 @@ main {
 .btn-primary {
   background: #000;
   color: #fff;
-  
+
   height: 60px;
   font-size: 1rem;
   font-weight: 800;
@@ -3798,7 +3816,6 @@ main {
 }
 
 .signup__footer a {
-  
   color: var(--color-primary);
   font-weight: 800;
   text-decoration: none;
@@ -4198,7 +4215,6 @@ main {
   display: block;
 }
 
-
 @media (max-width: 1024px) {
   .grid-showcase {
     grid-template-columns: 1fr;
@@ -4330,7 +4346,6 @@ main {
     width: 100%;
   }
 
-  
   .app-actions-block {
     justify-content: center;
     width: 100%;

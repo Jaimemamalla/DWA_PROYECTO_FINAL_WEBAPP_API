@@ -278,6 +278,7 @@ $(document).ready(function () {
 })();
 
 // SECCIÓN CORREDORES
+
 (() => {
   const isRunnersPage = (location.pathname || "")
     .toLowerCase()
@@ -778,7 +779,6 @@ $(document).ready(function () {
 })();
 
 $(document).ready(function () {
-  // 1. Perfil API
   fetch("https://randomuser.me/api/")
     .then((res) => res.json())
     .then((data) => {
@@ -789,10 +789,8 @@ $(document).ready(function () {
       $("#user-greeting").text(user.name.first);
     });
 
-  // 2. Inicializar Gráficos
   initCharts();
 
-  // 3. Calendario
   for (let i = 1; i <= 31; i++) {
     let clase = i === 12 || i === 25 ? "race-day" : "";
     $("#calendar-days").append(`<span class="${clase}">${i}</span>`);
@@ -800,7 +798,6 @@ $(document).ready(function () {
 });
 
 function initCharts() {
-  // Barras Semanales
   new Chart(document.getElementById("weeklyBarChart"), {
     type: "bar",
     data: {
@@ -824,7 +821,6 @@ function initCharts() {
     },
   });
 
-  // Doughnut Hoy
   new Chart(document.getElementById("todayDoughnut"), {
     type: "doughnut",
     data: {
@@ -846,7 +842,7 @@ function initCharts() {
 }
 
 $(document).ready(function () {
-  // 1. Datos API Perfil
+  // 1. API Perfil Usuario
   fetch("https://randomuser.me/api/")
     .then((res) => res.json())
     .then((data) => {
@@ -854,7 +850,6 @@ $(document).ready(function () {
       $("#api-avatar").attr("src", user.picture.large);
       $("#api-name").text(`${user.name.first} ${user.name.last}`);
       $("#api-username").text(`@${user.login.username}`);
-      // Mantenemos tu nombre si lo prefieres, o usamos el de la API
       $("#user-greeting").text(user.name.first);
     });
 
@@ -914,8 +909,6 @@ function initDashboardCharts() {
   });
 }
 
-// ... (código de API y calendario igual) ...
-
 function initDashboardCharts() {
   // Barras Semanales
   new Chart(document.getElementById("weeklyBarChart"), {
@@ -926,32 +919,29 @@ function initDashboardCharts() {
         {
           data: [5, 8, 0, 10.5, 6, 15, 4],
           backgroundColor: (ctx) => (ctx.index === 5 ? "#d4f14e" : "#333"),
-          borderRadius: 6, // Bordes más redondeados
-          barThickness: "flex", // Ancho de barra flexible
+          borderRadius: 6,
+          barThickness: "flex",
         },
       ],
     },
     options: {
       responsive: true,
-      maintainAspectRatio: false, // ¡CRUCIAL! Llenará el espacio
+      maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: {
-        y: { display: false }, // Ocultamos eje Y para más limpieza
+        y: { display: false },
         x: {
           grid: { display: false },
           ticks: { color: "#666", font: { size: 11 } },
         },
       },
-      layout: { padding: { top: 10 } }, // Un poco de aire arriba
+      layout: { padding: { top: 10 } },
     },
   });
 
-  // Círculo Actividad (Sin cambios)
   new Chart(document.getElementById("todayDoughnut"), {
     type: "doughnut",
-    data: {
-      /* ... */
-    },
+    data: {},
     options: {
       responsive: true,
       maintainAspectRatio: false,
@@ -964,20 +954,15 @@ function initDashboardCharts() {
 // Marcas
 
 $(document).ready(function () {
-  // 1. Consumo de API para el perfil
   fetch("https://randomuser.me/api/")
     .then((response) => response.json())
     .then((data) => {
       const user = data.results[0];
-      // Actualizamos la sidebar con datos reales de la API
       $(".avatar-circle")
         .css("background-image", `url(${user.picture.large})`)
         .css("background-size", "cover");
-      // Mantenemos el nombre de Aitor si prefieres, o usamos el de la API:
-      // $('.profile-top h2').text(`${user.name.first} ${user.name.last}`);
     });
 
-  // 2. Efecto Hover dinámico en los retos
   $(".card-challenge").hover(
     function () {
       $(this).css(
@@ -992,7 +977,6 @@ $(document).ready(function () {
     }
   );
 
-  // 3. Generación simple de calendario para visualización
   const calendarGrid = $(".calendar-grid");
   for (let i = 1; i <= 31; i++) {
     calendarGrid.append(`<span>${i}</span>`);
@@ -1004,15 +988,10 @@ $(document).ready(function () {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Script cargado correctamente");
 
-  // Ejecutar solo en eventos.html
   const isEventosPage = (location.pathname || "")
     .toLowerCase()
     .includes("eventos");
   if (!isEventosPage) return;
-
-  // ============================================================
-  // (A) EVENTOS (ARRIBA): grid + filtros + buscador + modal
-  // ============================================================
 
   const eventsGrid = document.getElementById("eventsGrid");
   const eventsCount = document.getElementById("eventsCount");
@@ -1023,6 +1002,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cityWrap = document.getElementById("cityFilters");
 
   // Modal
+
   const modal = document.getElementById("eventModal");
   const closeModalBtn = document.getElementById("closeEventModal");
   const modalTitle = document.getElementById("eventModalTitle");
@@ -1032,7 +1012,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const signupBtn = document.getElementById("eventSignupBtn");
   const signupToast = document.getElementById("signupToast");
 
-  // Guard: si no existe el bloque de eventos aún, no rompe
   if (!eventsGrid || !searchInput || !typeWrap || !cityWrap) {
     console.warn(
       "[NextRun] Faltan IDs de EVENTOS (eventsGrid/eventsSearch/typeFilters/cityFilters)."
@@ -1040,7 +1019,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Data mock (inventada, está bien)
   const eventsData = [
     {
       id: "ev-1",
@@ -1308,7 +1286,6 @@ document.addEventListener("DOMContentLoaded", () => {
       signupBtn.textContent = "Inscribirse";
     }
 
-    // ✅ Soporta <dialog> o modal con clase
     if (modal && typeof modal.showModal === "function") {
       modal.showModal();
     } else if (modal) {
@@ -1330,7 +1307,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   closeModalBtn?.addEventListener("click", closeEventModal);
 
-  // Cerrar clic fuera (solo si es <dialog>)
   modal?.addEventListener("click", (e) => {
     if (!modal || typeof modal.close !== "function") return;
 
@@ -1393,7 +1369,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btn.getAttribute("data-action") === "details") openEventModal(ev);
   });
 
-  // ✅ Init chips activos coherentes con tu estado
   const initTypeBtn = typeWrap.querySelector('button[data-type="all"]');
   if (initTypeBtn) setActiveBtn(typeWrap, "button[data-type]", initTypeBtn);
 
@@ -1403,9 +1378,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (initCityBtn) setActiveBtn(cityWrap, "button[data-city]", initCityBtn);
 
   renderEvents();
-
-  // ============================================================
-  // RESULTADOS (ABAJO): podio + tabla + tabs
 
   const runnersData = [
     {
@@ -1486,6 +1458,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Tabs SOLO de resultados
+
   const resultTabs = document.querySelectorAll(".board__tabs .tab");
 
   resultTabs.forEach((btn) => {

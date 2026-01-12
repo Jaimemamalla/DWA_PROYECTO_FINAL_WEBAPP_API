@@ -127,15 +127,14 @@
             class="events-grid"
             id="eventsGrid"
             aria-label="Listado de eventos"
-          >
-            <!-- JS inyecta cards aquí -->
-          </div>
+          ></div>
 
           <p class="events-empty" id="eventsEmpty" hidden>
             No hay eventos con esos filtros.
           </p>
         </div>
       </section>
+
       <!-- MODAL DETALLES     -->
 
       <dialog
@@ -167,13 +166,9 @@
               Título evento
             </h2>
 
-            <p class="event-modal__meta" id="eventModalMeta">
-              <!-- JS: fecha + ciudad -->
-            </p>
+            <p class="event-modal__meta" id="eventModalMeta"></p>
 
-            <div class="event-modal__details" id="eventModalDetails">
-              <!-- JS: distancia, desnivel, avituallamiento, etc. -->
-            </div>
+            <div class="event-modal__details" id="eventModalDetails"></div>
 
             <div class="event-modal__price">
               <span class="event-modal__price-label">Precio</span>
@@ -190,6 +185,7 @@
       </dialog>
 
       <!-- Toast/Mensaje inscripción -->
+
       <div
         class="signup-toast"
         id="signupToast"
@@ -206,7 +202,6 @@
         </p>
       </div>
 
-      <!-- 3) RESULTADOS     -->
       <div class="results__wrap">
         <h2 class="welcome__title" style="text-align: center; margin: 3rem 0">
           RESULTADOS
